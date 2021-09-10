@@ -18,10 +18,8 @@ class _SixthTabScreenState extends State<SixthTabScreen> {
     return Scaffold(
       backgroundColor: Color(0xff222220),
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          SizedBox(
-            height: MediaQuery.of(context).size.height * 0.01,
-          ),
           Icon(Icons.keyboard_return, color: Color(0xff79dd72), size: 72,),
           Center(
             child: Text(
@@ -42,46 +40,41 @@ class _SixthTabScreenState extends State<SixthTabScreen> {
             fontSize: 36,
             fontWeight: FontWeight.w200,
           ),),
-          SafeArea(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 120.0),
-              child: Container(
-                height: MediaQuery.of(context).copyWith().size.height / 6,
-                child: Row(
-                  children: <Widget>[
-                    Expanded(
-                      child: Center(
-                        child: CupertinoPicker(
-                          itemExtent: 70,
-                          scrollController: FixedExtentScrollController(initialItem: 31),
-                          selectionOverlay: Container(),
-                          onSelectedItemChanged: (value) {
-                            setState(() {
-                              _selectedValue = value;
-                            });
-                          },
-                          children: List<Widget>.generate(100, (int index) {
-                            return Center(
-                                child: Text(
-                                  ( 99 - index).toString(), style: TextStyle(color: Colors.white,fontSize: 32, fontWeight: FontWeight.bold
-                                ),
-                                ));
-                          }),
-                        ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 120.0),
+            child: Container(
+              height: MediaQuery.of(context).copyWith().size.height / 6,
+              child: Row(
+                children: <Widget>[
+                  Expanded(
+                    child: Center(
+                      child: CupertinoPicker(
+                        itemExtent: 70,
+                        scrollController: FixedExtentScrollController(initialItem: 31),
+                        selectionOverlay: Container(),
+                        onSelectedItemChanged: (value) {
+                          setState(() {
+                            _selectedValue = value;
+                          });
+                        },
+                        children: List<Widget>.generate(100, (int index) {
+                          return Center(
+                              child: Text(
+                                ( 99 - index).toString(), style: TextStyle(color: Colors.white,fontSize: 32, fontWeight: FontWeight.bold
+                              ),
+                              ));
+                        }),
                       ),
                     ),
-                    Expanded(child: Center(
-                      child: Text('años', style: TextStyle(color: Colors.white,fontSize: 32, fontWeight: FontWeight.bold
-                      ),),
-                    )
-                    ),
-                  ],
-                ),
+                  ),
+                  Expanded(child: Center(
+                    child: Text('años', style: TextStyle(color: Colors.white,fontSize: 32, fontWeight: FontWeight.bold
+                    ),),
+                  )
+                  ),
+                ],
               ),
             ),
-          ),
-          SizedBox(
-            height: MediaQuery.of(context).size.height * 0.032,
           ),
           ElevatedButton(
             onPressed: () {
@@ -103,6 +96,7 @@ class _SixthTabScreenState extends State<SixthTabScreen> {
               textStyle: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
             ),
           ),
+          Container()
         ],
       ),
     );

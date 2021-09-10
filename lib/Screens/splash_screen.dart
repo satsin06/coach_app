@@ -46,16 +46,11 @@ class _SplashScreenState extends State<SplashScreen> {
         children: [
           Center(
             child:
-            Container(
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(8.0)
-              ),
-              child: Image.asset(
-                'assets/images/LOGO.PNG',
-                width: 600.0,
-                height: 400.0,
-                fit: BoxFit.cover,
-              ),
+            Image.asset(
+              'assets/images/LOGO.PNG',
+              width: 600.0,
+              height: 400.0,
+              fit: BoxFit.cover,
             ),
           ),
           SizedBox(

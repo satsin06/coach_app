@@ -1,5 +1,5 @@
-import 'package:coach_app/Screens/home_screen.dart';
 import 'package:coach_app/Screens/splash_screen.dart';
+import 'package:coach_app/Screens/tabs/fourthScreen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -16,7 +16,6 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: SplashScreen(),
-      //home: SplashScreen(),
       debugShowCheckedModeBanner: false,
     );
   }

@@ -10,62 +10,54 @@ class SignInPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Color(0xff222220),
       body: Column(
-        // mainAxisAlignment: MainAxisAlignment.spaceAround,
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          Padding(
-            padding: const EdgeInsets.only(top: 100.0),
-            child: Column(
-              children: [
-                Center(
-                  child: Image.asset(
-                    'assets/images/signin.PNG',
-                    height: 150,
-                    fit: BoxFit.cover,
-                  ),
+          Column(
+            children: [
+              Center(
+                child: Image.asset(
+                  'assets/images/signin.PNG',
+                  height: 150,
+                  fit: BoxFit.cover,
                 ),
-                SizedBox(
-                  height: 20,
+              ),
+              SizedBox(height: 10,),
+              Text(
+                "¡Tu plan está listo!\nConócelo.",
+                style: TextStyle(
+                  color: Color(0xff79dd72),
+                  fontSize: 22,
+                  fontWeight: FontWeight.bold,
                 ),
-                Text(
-                  "¡Tu plan está listo!\nConócelo.",
+                textAlign: TextAlign.center,
+              ),
+              SizedBox(height: 40,),
+              ElevatedButton.icon(
+                icon: Icon(
+                  Icons.email_outlined,
+                  color: Colors.black,
+                  size: 24,
+                ),
+                label: Text(
+                  'Accede con tu email',
                   style: TextStyle(
-                    color: Color(0xff79dd72),
-                    fontSize: 22,
-                    fontWeight: FontWeight.bold,
-                  ),
-                  textAlign: TextAlign.center,
+                      color: Color(0xff627674),
+                      fontWeight: FontWeight.w300,
+                      fontSize: 24),
                 ),
-                SizedBox(
-                  height: 20,
+                onPressed: () {},
+                style: ElevatedButton.styleFrom(
+                  primary: Color(0xff79dd72),
+                  shape: new RoundedRectangleBorder(
+                    borderRadius: new BorderRadius.circular(30.0),
+                  ),
+                  padding: EdgeInsets.symmetric(horizontal: 55, vertical: 10),
+                  textStyle:
+                  TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
                 ),
-                ElevatedButton.icon(
-                  icon: Icon(
-                    Icons.email_outlined,
-                    color: Colors.black,
-                    size: 24,
-                  ),
-                  label: Text(
-                    'Accede con tu email',
-                    style: TextStyle(
-                        color: Color(0xff627674),
-                        fontWeight: FontWeight.w300,
-                        fontSize: 24),
-                  ),
-                  onPressed: () {},
-                  style: ElevatedButton.styleFrom(
-                    primary: Color(0xff79dd72),
-                    shape: new RoundedRectangleBorder(
-                      borderRadius: new BorderRadius.circular(30.0),
-                    ),
-                    padding: EdgeInsets.symmetric(horizontal: 55, vertical: 10),
-                    textStyle:
-                        TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
-                  ),
-                ),
-              ],
-            ),
+              ),
+            ],
           ),
-          SizedBox(height: 100,),
           Column(
             children: [
               ElevatedButton.icon(
@@ -93,7 +85,7 @@ class SignInPage extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: 40,
+                height: 30,
               ),
               ElevatedButton.icon(
                 icon: Icon(
@@ -146,16 +138,17 @@ class SignInPage extends StatelessWidget {
                       TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
                 ),
               ),
-              SizedBox(
-                height: 40,
-              ),
+            ],
+          ),
+          Column(
+            children: [
               Text(
-                    '¿Ya tienes cuenta?',
-                    style: TextStyle(
-                        color: Color(0xff79dd72),
-                        fontWeight: FontWeight.bold,
-                        fontSize: 40),
-                  ),
+                '¿Ya tienes cuenta?',
+                style: TextStyle(
+                    color: Color(0xff79dd72),
+                    fontWeight: FontWeight.bold,
+                    fontSize: 40),
+              ),
               SizedBox(height: 15,),
               TextButton(
                   onPressed: () {

@@ -40,25 +40,26 @@ class _StatusState extends State<Status> {
   initScreen(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xff222220),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 120.0),
+      body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            Center(
-              child: RichText(text: TextSpan(
-                style: TextStyle(color: Color(0xff79dd72)),
-               children: [
-                 TextSpan(text: '25 %\n', style: TextStyle(fontSize: 80)),
-                 TextSpan(text: 'Completado', style: TextStyle(fontSize: 32))
-               ]
-              ),
-              ),
-            ),
-            Image.asset(
-              'assets/images/status.PNG',
-              height: 250,
-              fit: BoxFit.fill,
+            Column(
+              children: [
+                RichText(text: TextSpan(
+                  style: TextStyle(color: Color(0xff79dd72)),
+                 children: [
+                   TextSpan(text: '25 %\n', style: TextStyle(fontSize: 80)),
+                   TextSpan(text: 'Completado', style: TextStyle(fontSize: 32))
+                 ]
+                ),
+                ),
+                SizedBox(height: 30,),
+                Image.asset(
+                  'assets/images/status.PNG',
+                  height: 250,
+                ),
+              ],
             ),
             Text(
               "Estamos creando tu plan de\n entrenamiento y dieta,\n por favor espera...",
