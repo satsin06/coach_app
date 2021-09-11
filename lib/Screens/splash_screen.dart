@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:coach_app/Screens/home_screen.dart';
+import 'package:coach_app/Screens/initial_screen.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -26,13 +26,14 @@ class _SplashScreenState extends State<SplashScreen> {
     );
   }
 
+
   startTime() async {
     var duration = new Duration(seconds: 4);
     return new Timer(duration, route);
   }
   route() {
     Navigator.pushReplacement(context, MaterialPageRoute(
-        builder: (context) => HomeScreen()
+        builder: (context) => InitialPage()
     )
     );
   }

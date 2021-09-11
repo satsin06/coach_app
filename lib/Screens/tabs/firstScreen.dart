@@ -1,4 +1,4 @@
-import 'package:coach_app/Screens/tabs/secondScreen.dart';
+import 'package:coach_app/custom_icons_icons.dart';
 import 'package:flutter/material.dart';
 
 class FirstTabScreen extends StatelessWidget {
@@ -79,6 +79,7 @@ class FirstTabScreen extends StatelessWidget {
                 TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
               ),
             ),
+            Container()
           ],
         ));
   }

@@ -2,9 +2,8 @@ import 'package:coach_app/auth/auth_service.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class SignUpPage extends StatelessWidget {
-  const SignUpPage({Key? key}) : super(key: key);
-
+class EmailLogin extends StatelessWidget {
+  const EmailLogin({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -29,21 +28,6 @@ class SignUpPage extends StatelessWidget {
                       fontSize: 40),
                 ),
                 SizedBox(height: MediaQuery.of(context).size.height * 0.03,),
-                TextField(
-                  style: TextStyle(
-                    fontSize: 24,
-                    color: Colors.white
-                  ),
-                  cursorColor: Colors.white,
-                  decoration: const InputDecoration(
-                      border: UnderlineInputBorder(
-                        borderSide: BorderSide(color: Colors.white)
-                      ),
-                      labelText: '  Nombre',
-                    labelStyle: TextStyle(color: Colors.white, fontSize: 20),
-                  ),
-                ),
-                SizedBox(height: MediaQuery.of(context).size.height * 0.04,),
                 TextField(
                   controller: emailController,
                   style: TextStyle(
@@ -79,7 +63,7 @@ class SignUpPage extends StatelessWidget {
           ),
           ElevatedButton(
             onPressed: () {
-              authService.createWithEmailAndPassword(emailController.text, passwordController.text);
+              authService.signInWithEmailAndPassword(emailController.text, passwordController.text);
             },
             child: Text(
               'CONTINUAR',

@@ -109,6 +109,7 @@ class SecondTabScreen extends StatelessWidget {
                 textStyle: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
               ),
             ),
+            Container()
           ],
         ));
   }

@@ -1,4 +1,5 @@
-import 'package:coach_app/Screens/auth/signup.dart';
+import 'package:coach_app/Screens/auth/email_login.dart';
+import 'package:coach_app/auth/auth_wrapper.dart';
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
@@ -45,7 +46,9 @@ class SignInPage extends StatelessWidget {
                       fontWeight: FontWeight.w300,
                       fontSize: 24),
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context)=> EmailLogin()));
+                },
                 style: ElevatedButton.styleFrom(
                   primary: Color(0xff79dd72),
                   shape: new RoundedRectangleBorder(
@@ -117,7 +120,7 @@ class SignInPage extends StatelessWidget {
               ElevatedButton.icon(
                 icon: Icon(
                   MdiIcons.google,
-                  color: Colors.black,
+                  color: Colors.red,
                   size: 24,
                 ),
                 label: Text(
@@ -153,7 +156,7 @@ class SignInPage extends StatelessWidget {
               TextButton(
                   onPressed: () {
                     Navigator.of(context)
-                        .push(MaterialPageRoute(builder: (context) => SignUpPage()));
+                        .push(MaterialPageRoute(builder: (context) => AuthWrapper()));
                   },
                   child: Text(
                     'INICIA SESIÓN',
