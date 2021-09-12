@@ -1,5 +1,6 @@
 import 'package:coach_app/Screens/auth/email_login.dart';
 import 'package:coach_app/auth/auth_wrapper.dart';
+import 'package:coach_app/custom_icons_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
@@ -16,11 +17,10 @@ class SignInPage extends StatelessWidget {
           Column(
             children: [
               Center(
-                child: Image.asset(
-                  'assets/images/signin.PNG',
-                  height: 150,
-                  fit: BoxFit.cover,
-                ),
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 18.0),
+                  child: Icon(CustomIcons.flash, color: Color(0xff79dd72), size: 160,),
+                )
               ),
               SizedBox(height: 10,),
               Text(

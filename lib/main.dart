@@ -1,3 +1,4 @@
+import 'package:coach_app/Screens/home_screen.dart';
 import 'package:coach_app/Screens/splash_screen.dart';
 import 'package:coach_app/auth/auth_service.dart';
 import 'package:firebase_auth/firebase_auth.dart';

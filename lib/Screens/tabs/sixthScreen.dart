@@ -3,6 +3,8 @@ import 'package:coach_app/Screens/auth/status.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../../custom_icons_icons.dart';
+
 class SixthTabScreen extends StatefulWidget {
   const SixthTabScreen({Key? key}) : super(key: key);
 
@@ -20,21 +22,22 @@ class _SixthTabScreenState extends State<SixthTabScreen> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          Icon(Icons.keyboard_return, color: Color(0xff79dd72), size: 72,),
-          Center(
-            child: Text(
-              'Edad',
-              style: TextStyle(
-                color: Color(0xff627674),
-                fontSize: 36,
-                fontWeight: FontWeight.w200,
+          Column(
+            children: [
+              Icon(Icons.keyboard_return, color: Color(0xff79dd72), size: 72,),
+              Center(
+                child: Text(
+                  'Edad',
+                  style: TextStyle(
+                    color: Color(0xff627674),
+                    fontSize: 36,
+                    fontWeight: FontWeight.w200,
+                  ),
+                ),
               ),
-            ),
+            ],
           ),
-          Image.asset(
-            'assets/images/tab6.PNG',
-            height: 300.0,
-          ),
+          Icon(CustomIcons.tab6, color: Color(0xff79dd72), size: 180,),
           Text('', style: TextStyle(
             color: Color(0xff627674),
             fontSize: 36,
@@ -96,6 +99,7 @@ class _SixthTabScreenState extends State<SixthTabScreen> {
               textStyle: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
             ),
           ),
+          Container(),
           Container()
         ],
       ),

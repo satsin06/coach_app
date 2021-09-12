@@ -1,6 +1,8 @@
 import 'package:coach_app/Screens/tabs/thirdScreen.dart';
 import 'package:flutter/material.dart';
 
+import '../../custom_icons_icons.dart';
+
 class SecondTabScreen extends StatelessWidget {
   const SecondTabScreen({Key? key}) : super(key: key);
 
@@ -21,10 +23,7 @@ class SecondTabScreen extends StatelessWidget {
                 ),
               ),
             ),
-            Image.asset(
-              'assets/images/tab2.PNG',
-              height: 350.0,
-            ),
+            Icon(CustomIcons.tab2, color: Color(0xff79dd72), size: 180,),
             Column(
               children: [
                 ElevatedButton(
@@ -109,7 +108,7 @@ class SecondTabScreen extends StatelessWidget {
                 textStyle: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
               ),
             ),
-            Container()
+            Container(),
           ],
         ));
   }

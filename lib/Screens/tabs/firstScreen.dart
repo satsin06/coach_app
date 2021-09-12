@@ -1,6 +1,7 @@
 import 'package:coach_app/custom_icons_icons.dart';
 import 'package:flutter/material.dart';
 
+
 class FirstTabScreen extends StatelessWidget {
   const FirstTabScreen({Key? key}) : super(key: key);
 
@@ -21,10 +22,7 @@ class FirstTabScreen extends StatelessWidget {
                 ),
               ),
             ),
-            Image.asset(
-              'assets/images/tab1.PNG',
-              height: 350.0,
-            ),
+            Icon(CustomIcons.tab1, color: Color(0xff79dd72), size: 180,),
             Column(
               children: [
                 ElevatedButton(

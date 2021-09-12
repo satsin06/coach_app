@@ -2,6 +2,8 @@ import 'package:coach_app/Screens/tabs/sixthScreen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../../custom_icons_icons.dart';
+
 class FifthTabScreen extends StatefulWidget {
   const FifthTabScreen({Key? key}) : super(key: key);
 
@@ -19,21 +21,22 @@ class _FifthTabScreenState extends State<FifthTabScreen> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          Icon(Icons.keyboard_return, color: Color(0xff79dd72), size: 72,),
-          Center(
-            child: Text(
-              'Altura',
-              style: TextStyle(
-                color: Color(0xff627674),
-                fontSize: 36,
-                fontWeight: FontWeight.w200,
+          Column(
+            children: [
+              Icon(Icons.keyboard_return, color: Color(0xff79dd72), size: 72,),
+              Center(
+                child: Text(
+                  'Altura',
+                  style: TextStyle(
+                    color: Color(0xff627674),
+                    fontSize: 36,
+                    fontWeight: FontWeight.w200,
+                  ),
+                ),
               ),
-            ),
+            ],
           ),
-          Image.asset(
-            'assets/images/tab5.PNG',
-            height: 300.0,
-          ),
+          Icon(CustomIcons.tab5, color: Color(0xff79dd72), size: 180,),
           Text('', style: TextStyle(
             color: Color(0xff627674),
             fontSize: 36,
@@ -149,6 +152,7 @@ class _FifthTabScreenState extends State<FifthTabScreen> {
               textStyle: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
             ),
           ),
+          Container(),
           Container()
         ],
       ),

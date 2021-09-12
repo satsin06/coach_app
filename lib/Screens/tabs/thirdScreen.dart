@@ -1,6 +1,8 @@
 import 'package:coach_app/Screens/tabs/fourthScreen.dart';
 import 'package:flutter/material.dart';
 
+import '../../custom_icons_icons.dart';
+
 class ThirdTabScreen extends StatelessWidget {
   const ThirdTabScreen({Key? key}) : super(key: key);
 
@@ -26,10 +28,7 @@ class ThirdTabScreen extends StatelessWidget {
                 ),
               ],
             ),
-            Image.asset(
-              'assets/images/tab3.PNG',
-              height: 350.0,
-            ),
+            Icon(CustomIcons.tab3, color: Color(0xff79dd72), size: 180,),
             Column(
               children: [
                 ElevatedButton(
@@ -114,7 +113,8 @@ class ThirdTabScreen extends StatelessWidget {
                 textStyle: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
               ),
             ),
-            Container()
+            Container(),
+            Container(),
           ],
         ));
   }

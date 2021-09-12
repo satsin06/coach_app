@@ -2,6 +2,8 @@ import 'package:coach_app/Screens/tabs/fifthScreen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../../custom_icons_icons.dart';
+
 class FourthTabScreen extends StatefulWidget {
   const FourthTabScreen({Key? key}) : super(key: key);
 
@@ -10,7 +12,9 @@ class FourthTabScreen extends StatefulWidget {
 }
 
 class _FourthTabScreenState extends State<FourthTabScreen> {
-  int _selectedValue = 0;
+  int _selectedValue1 = 0;
+  int _selectedValue2 = 0;
+  //String _selectedValue3 = ;
 
   @override
   Widget build(BuildContext context) {
@@ -36,10 +40,24 @@ class _FourthTabScreenState extends State<FourthTabScreen> {
                   ),
                 ),
               ),
-              Image.asset(
-                'assets/images/tab4.PNG',
-                height: 300.0,
+              SizedBox(
+                height: 20,
               ),
+              Stack(children: [
+                Icon(
+                  CustomIcons.tab4,
+                  color: Color(0xff79dd72),
+                  size: 180,
+                ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(45, 100, 0, 0),
+                  child: Text(
+                    '$_selectedValue1' + ' ' + 'Kg',
+                    style: TextStyle(color: Colors.white, fontSize: 40),
+                  ),
+                )
+              ]),
+              SizedBox(height: 20),
               Text(
                 'ACTUAL',
                 style: TextStyle(
@@ -65,7 +83,7 @@ class _FourthTabScreenState extends State<FourthTabScreen> {
                         selectionOverlay: Container(),
                         onSelectedItemChanged: (value) {
                           setState(() {
-                            _selectedValue = value;
+                            _selectedValue1 = value;
                           });
                         },
                         children: List<Widget>.generate(100, (int index) {
@@ -100,7 +118,7 @@ class _FourthTabScreenState extends State<FourthTabScreen> {
                         selectionOverlay: Container(),
                         onSelectedItemChanged: (value) {
                           setState(() {
-                            _selectedValue = value;
+                            _selectedValue2 = value;
                           });
                         },
                         children: List<Widget>.generate(10, (int index) {
@@ -144,9 +162,9 @@ class _FourthTabScreenState extends State<FourthTabScreen> {
                           ),
                         ],
                         onSelectedItemChanged: (value) {
-                          setState(() {
-                            _selectedValue = value;
-                          });
+                          // setState(() {
+                          //   _selectedValue3 = value;
+                          // });
                         },
                       ),
                     ),
@@ -154,9 +172,6 @@ class _FourthTabScreenState extends State<FourthTabScreen> {
                 ],
               ),
             ),
-          ),
-          SizedBox(
-            height: MediaQuery.of(context).size.height * 0.032,
           ),
           ElevatedButton(
             onPressed: () {
@@ -177,8 +192,9 @@ class _FourthTabScreenState extends State<FourthTabScreen> {
             ),
           ),
           Container(
-            //child: Text('$_selectedValue'),
-          )
+              //child: Text('$_selectedValue'),
+              ),
+          Container()
         ],
       ),
     );
