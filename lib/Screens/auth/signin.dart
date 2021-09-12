@@ -1,6 +1,6 @@
 import 'package:coach_app/Screens/auth/email_login.dart';
-import 'package:coach_app/auth/auth_wrapper.dart';
 import 'package:coach_app/custom_icons_icons.dart';
+import 'package:coach_app/services/auth_wrapper.dart';
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 

@@ -1,7 +1,7 @@
 import 'package:coach_app/Screens/home_screen.dart';
+import 'package:coach_app/Screens/main_screens/bottom_bar.dart';
 import 'package:coach_app/Screens/splash_screen.dart';
-import 'package:coach_app/auth/auth_service.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:coach_app/services/auth_service.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:provider/provider.dart';
@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: SplashScreen(),
+        home: BottomBar(),
         debugShowCheckedModeBanner: false,
       ),
     );
