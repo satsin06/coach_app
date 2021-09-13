@@ -1,8 +1,8 @@
 import 'package:coach_app/custom_icons_icons.dart';
 import 'package:flutter/material.dart';
 
-class Hometile extends StatelessWidget {
-  const Hometile({
+class HomeTile extends StatelessWidget {
+  const HomeTile({
     Key? key,
     this.title = "",
     required this.img,

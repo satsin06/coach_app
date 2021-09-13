@@ -36,4 +36,6 @@ class CustomIcons {
   static const IconData home = IconData(0xe80c, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData circle = IconData(0xe80d, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData twocirclestrip = IconData(0xe80e, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData badge = IconData(0xe80f, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData profile_edit = IconData(0xe810, fontFamily: _kFontFam, fontPackage: _kFontPkg);
 }

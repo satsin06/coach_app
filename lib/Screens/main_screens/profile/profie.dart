@@ -1,3 +1,4 @@
+import 'package:coach_app/widget/profile_tile.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -56,31 +57,34 @@ class Profile extends StatelessWidget {
                 padding: const EdgeInsets.all(13.0),
                 child: SizedBox(
                   width: MediaQuery.of(context).size.width,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Icon(
-                        Icons.arrow_back_ios,
-                        color: Colors.black,
-                      ),
-                      RichText(
-                          text: TextSpan(
-                              text: 'MI',
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 22,
-                                  fontWeight: FontWeight.w800),
-                              children: [
-                                TextSpan(
-                                  text: 'PERFIL',
-                                  style: TextStyle(
-                                      color: Color(0xff6EAD7A),
-                                      fontSize: 22,
-                                      fontWeight: FontWeight.w800),
-                                )
-                              ])),
-                      Icon(Icons.edit)
-                    ],
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Icon(
+                          Icons.arrow_back_ios,
+                          color: Colors.black,
+                        ),
+                        RichText(
+                            text: TextSpan(
+                                text: 'MI',
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 22,
+                                    fontWeight: FontWeight.w800),
+                                children: [
+                                  TextSpan(
+                                    text: 'PERFIL',
+                                    style: TextStyle(
+                                        color: Color(0xff6EAD7A),
+                                        fontSize: 22,
+                                        fontWeight: FontWeight.w800),
+                                  )
+                                ])),
+                        Icon(CustomIcons.profile_edit, size: 28,)
+                      ],
+                    ),
                   ),
                 ),
               ),
@@ -115,7 +119,7 @@ class Profile extends StatelessWidget {
                         )
                       ],
                     ),
-                    Icon(Icons.badge)
+                    Icon(CustomIcons.badge, color: Color(0xff79dd72), size: 44,)
                   ],
                 ),
               ),
@@ -139,160 +143,15 @@ class Profile extends StatelessWidget {
               Divider(
                 thickness: 2,
               ),
-              Padding(
-                padding: const EdgeInsets.all(12.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      'Administrar notificaciones', style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.normal
-                    ),
-                    ),
-                    Icon(Icons.arrow_forward_ios),
-                  ],
-                ),
-              ),
-              Divider(
-                thickness: 2,
-              ),
-              Padding(
-                padding: const EdgeInsets.all(12.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      'Plan nutricional', style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.normal
-                    ),
-                    ),
-                    Icon(Icons.arrow_forward_ios),
-                  ],
-                ),
-              ),
-              Divider(
-                thickness: 2,
-              ),
-              Padding(
-                padding: const EdgeInsets.all(12.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      'Galería de fotos', style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.normal
-                    ),
-                    ),
-                    Icon(Icons.arrow_forward_ios),
-                  ],
-                ),
-              ),
-              Divider(
-                thickness: 2,
-              ),
-              Padding(
-                padding: const EdgeInsets.all(12.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      'Modificar Suscripción', style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.normal
-                    ),
-                    ),
-                    Icon(Icons.arrow_forward_ios),
-                  ],
-                ),
-              ),
-              Divider(
-                thickness: 2,
-              ),
-              Padding(
-                padding: const EdgeInsets.all(12.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      'Ajustes', style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.normal
-                    ),
-                    ),
-                    Icon(Icons.arrow_forward_ios),
-                  ],
-                ),
-              ),
-              Divider(
-                thickness: 2,
-              ),
-              Padding(
-                padding: const EdgeInsets.all(12.0),
-                child: Row(
-                  children: [
-                    Text(
-                      'Comentarios y sugerencias', style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.normal
-                    ),
-                    ),
-                  ],
-                ),
-              ),
-              Divider(
-                thickness: 2,
-              ),
-              Padding(
-                padding: const EdgeInsets.all(12.0),
-                child: Row(
-                  children: [
-                    Text(
-                      'Reportar un problema', style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.normal
-                    ),
-                    ),
-                  ],
-                ),
-              ),
-              Divider(
-                thickness: 2,
-              ),
-              Padding(
-                padding: const EdgeInsets.all(12.0),
-                child: Row(
-                  children: [
-                    Text(
-                      'Términos y condiciones', style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.normal
-                    ),
-                    ),
-                  ],
-                ),
-              ),
-              Divider(
-                thickness: 2,
-              ),
-              Padding(
-                padding: const EdgeInsets.all(12.0),
-                child: Row(
-                  children: [
-                    Text(
-                      'Políticas de privacidad', style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.normal
-                    ),
-                    ),
-                  ],
-                ),
-              ),
-              Divider(
-                thickness: 2,
-              ),
+              profileTileWithTrailing(title: 'Administrar notificaciones', icon: Icons.arrow_forward_ios, onTap: () {}, context: context),
+              profileTileWithTrailing(title: 'Plan nutricional', icon: Icons.arrow_forward_ios, onTap: () {}, context: context),
+              profileTileWithTrailing(title: 'Galería de fotos', icon: Icons.arrow_forward_ios, onTap: () {}, context: context),
+              profileTileWithTrailing(title: 'Modificar Suscripción', icon: Icons.arrow_forward_ios, onTap: () {}, context: context),
+              profileTileWithTrailing(title: 'Ajustes', icon: Icons.arrow_forward_ios, onTap: () {}, context: context),
+              profileTile(title: 'Comentarios y sugerencias', onTap: () {}, context: context),
+              profileTile(title: 'Reportar un problema', onTap: () {}, context: context),
+              profileTile(title: 'Términos y condiciones', onTap: () {}, context: context),
+              profileTile(title: 'Políticas de privacidad', onTap: () {}, context: context),
               SizedBox(height: 40,),
               ElevatedButton(onPressed: (){}, child: Text('CERRAR SESIÓN', style: TextStyle(
                 color: Colors.black38, fontSize: 24,
