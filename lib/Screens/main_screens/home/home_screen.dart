@@ -1,4 +1,4 @@
-import 'package:coach_app/model/home_tile.dart';
+import 'package:coach_app/widget/home_tile.dart';
 import 'package:flutter/material.dart';
 
 import '../../../custom_icons_icons.dart';
@@ -169,17 +169,17 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: Container(
                     child: Column(
                       children: [
-                        Hometile(
+                        HomeTile(
                           img: Image.asset("assets/image1.png",width: 90,
                             //height: double.infinity,
                             fit: BoxFit.fill,
                           ),title: "SENTADILLAS",),
-                        Hometile(
+                        HomeTile(
                           img: Image.asset("assets/image2.png",width: 90,
                             //height: double.infinity,
                             fit: BoxFit.fill,
                           ),title: "ABS CHALLENGE",),
-                        Hometile(
+                        HomeTile(
                           img: Image.asset("assets/image3.png",width: 90,
                             //height: double.infinity,
                             fit: BoxFit.fill,
