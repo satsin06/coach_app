@@ -1,5 +1,5 @@
 import 'package:coach_app/Screens/auth/signin.dart';
-import 'package:coach_app/Screens/home_screen.dart';
+import 'package:coach_app/Screens/test.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:coach_app/model/user_model.dart';
@@ -17,7 +17,7 @@ class AuthWrapper extends StatelessWidget {
         builder: (_, AsyncSnapshot<User?> snapshot) {
           if (snapshot.connectionState == ConnectionState.active) {
             final User? user = snapshot.data;
-            return user == null ? SignInPage() : HomeScreen();
+            return user == null ? SignInPage() : Test();
           } else {
             return Scaffold(
               body: Center(

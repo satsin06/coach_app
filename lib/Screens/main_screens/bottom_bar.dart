@@ -1,5 +1,11 @@
+import 'package:coach_app/Screens/main_screens/profile/profie.dart';
+import 'package:coach_app/Screens/main_screens/training/training.dart';
+import 'package:coach_app/Screens/main_screens/weight/weight_tracker.dart';
 import 'package:coach_app/custom_icons_icons.dart';
 import 'package:flutter/material.dart';
+
+import 'diet/diet.dart';
+import 'home/home_screen.dart';
 
 
 class BottomBar extends StatefulWidget {
@@ -14,11 +20,11 @@ class _BottomBarState extends State<BottomBar> {
   int _currentIndex = 0;
 
   List<Widget> _widgetOptions = <Widget>[
-    //HomeScreen(),
-    //TrainingScreen(),
-    //DietScreen(),
-    //ProfileScreen(),
-    //WeightScreen(),
+    HomeScreen(),
+    Training(),
+    Diet(),
+    Profile(),
+    WeightTracker(),
   ];
 
   void _onItemTap(int index) {
