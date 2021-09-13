@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:coach_app/custom_icons_icons.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+class Test extends StatelessWidget {
+  const Test({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
