@@ -1,6 +1,7 @@
 import 'package:coach_app/Screens/main_screens/bottom_bar.dart';
 import 'package:coach_app/Screens/main_screens/home/HomePage.dart';
 import 'package:coach_app/Screens/main_screens/home/home_screen.dart';
+import 'package:coach_app/Screens/main_screens/training/training2.dart';
 import 'package:flutter/material.dart';
 import 'package:roundcheckbox/roundcheckbox.dart';
 
@@ -237,75 +238,84 @@ class Training extends StatelessWidget {
                               )
                             ]),
                           ),
-                          Padding(
-                            padding: const EdgeInsets.fromLTRB(0,24, 40, 0),
-                            child: Column(
-                              children: [
-                                RichText(
-                                    text: TextSpan(
-                                        text: 'Sentadillas\n',
-                                        style: TextStyle(
-                                            color: Colors.black,
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.w800),
-                                        children: [
-                                      TextSpan(
-                                        text: '6-8 resps\n',
-                                        style: TextStyle(
-                                            color: Colors.grey,
-                                            fontSize: 12,
-                                            fontWeight: FontWeight.w800),
-                                      ),
-                                      TextSpan(
-                                        text: 'rest 30”\n',
-                                        style: TextStyle(
-                                            color: Colors.grey,
-                                            fontSize: 12,
-                                            fontWeight: FontWeight.w800),
-                                      ),
-                                      TextSpan(
-                                        text: '4 sets',
-                                        style: TextStyle(
-                                            color: Colors.grey,
-                                            fontSize: 12,
-                                            fontWeight: FontWeight.w800),
-                                      ),
-                                    ])),
-                                SizedBox(
-                                  height: 20,
-                                ),
-                                RichText(
-                                    text: TextSpan(
-                                        text: 'Desplantes\n',
-                                        style: TextStyle(
-                                            color: Colors.black,
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.w800),
-                                        children: [
-                                      TextSpan(
-                                        text: '6-8 resps\n',
-                                        style: TextStyle(
-                                            color: Colors.grey,
-                                            fontSize: 12,
-                                            fontWeight: FontWeight.w800),
-                                      ),
-                                      TextSpan(
-                                        text: 'rest 30”\n',
-                                        style: TextStyle(
-                                            color: Colors.grey,
-                                            fontSize: 12,
-                                            fontWeight: FontWeight.w800),
-                                      ),
-                                      TextSpan(
-                                        text: '4 sets',
-                                        style: TextStyle(
-                                            color: Colors.grey,
-                                            fontSize: 12,
-                                            fontWeight: FontWeight.w800),
-                                      ),
-                                    ])),
-                              ],
-                            ),
+                          InkWell(
+                              onTap: () {
+                                Navigator.of(context).push(
+                                  MaterialPageRoute(
+                                    builder: (context) => Training2(),
+                                  ),
+                                );
+                              },
+                            child: Padding(
+                              padding: const EdgeInsets.fromLTRB(0,24, 40, 0),
+                              child: Column(
+                                children: [
+                                  RichText(
+                                      text: TextSpan(
+                                          text: 'Sentadillas\n',
+                                          style: TextStyle(
+                                              color: Colors.black,
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.w800),
+                                          children: [
+                                        TextSpan(
+                                          text: '6-8 resps\n',
+                                          style: TextStyle(
+                                              color: Colors.grey,
+                                              fontSize: 12,
+                                              fontWeight: FontWeight.w800),
+                                        ),
+                                        TextSpan(
+                                          text: 'rest 30”\n',
+                                          style: TextStyle(
+                                              color: Colors.grey,
+                                              fontSize: 12,
+                                              fontWeight: FontWeight.w800),
+                                        ),
+                                        TextSpan(
+                                          text: '4 sets',
+                                          style: TextStyle(
+                                              color: Colors.grey,
+                                              fontSize: 12,
+                                              fontWeight: FontWeight.w800),
+                                        ),
+                                      ])),
+                                  SizedBox(
+                                    height: 20,
+                                  ),
+                                  RichText(
+                                      text: TextSpan(
+                                          text: 'Desplantes\n',
+                                          style: TextStyle(
+                                              color: Colors.black,
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.w800),
+                                          children: [
+                                        TextSpan(
+                                          text: '6-8 resps\n',
+                                          style: TextStyle(
+                                              color: Colors.grey,
+                                              fontSize: 12,
+                                              fontWeight: FontWeight.w800),
+                                        ),
+                                        TextSpan(
+                                          text: 'rest 30”\n',
+                                          style: TextStyle(
+                                              color: Colors.grey,
+                                              fontSize: 12,
+                                              fontWeight: FontWeight.w800),
+                                        ),
+                                        TextSpan(
+                                          text: '4 sets',
+                                          style: TextStyle(
+                                              color: Colors.grey,
+                                              fontSize: 12,
+                                              fontWeight: FontWeight.w800),
+                                        ),
+                                      ])),
+                                ],
+                              ),
+                            )
                           ),
                           Padding(
                             padding: const EdgeInsets.only(right: 24.0),
