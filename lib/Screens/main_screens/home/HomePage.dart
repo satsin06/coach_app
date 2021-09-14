@@ -16,6 +16,17 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+          elevation: 0,
+          backgroundColor: Colors.white,
+          automaticallyImplyLeading: false,
+          title: Container(
+            alignment: Alignment.center,
+            child: Image.asset("assets/appbar.png",
+              width: MediaQuery.of(context).size.width*0.5,
+              height: MediaQuery.of(context).size.height*0.05,),
+          )
+      ),
       body: SingleChildScrollView(
         child: Container(
           height: MediaQuery.of(context).size.height,

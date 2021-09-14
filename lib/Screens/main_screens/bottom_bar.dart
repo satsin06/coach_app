@@ -5,7 +5,8 @@ import 'package:coach_app/custom_icons_icons.dart';
 import 'package:flutter/material.dart';
 
 import 'diet/diet.dart';
-import 'home/home_screen.dart';
+import 'home/HomePage.dart';
+//import 'home/home_screen.dart';
 
 
 class BottomBar extends StatefulWidget {
@@ -37,18 +38,17 @@ class _BottomBarState extends State<BottomBar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Colors.white,
-        automaticallyImplyLeading: false,
-        title: Container(
-            alignment: Alignment.center,
-            child: Image.asset(
-              'assets/appbar.png',
-              width: MediaQuery.of(context).size.width*0.5,
-              height: MediaQuery.of(context).size.height*0.05,)),
-
-      ),
+      // appBar: AppBar(
+      //   elevation: 0,
+      //   backgroundColor: Colors.white,
+      //   automaticallyImplyLeading: false,
+      //   title: Container(
+      //       alignment: Alignment.center,
+      //       child: Image.asset("assets/appbar.png",
+      //       width: MediaQuery.of(context).size.width*0.5,
+      //       height: MediaQuery.of(context).size.height*0.05,),
+      //   )
+      // ),
 
       body: Container(child: _widgetOptions.elementAt(_currentIndex)),
       bottomNavigationBar: BottomNavigationBar(

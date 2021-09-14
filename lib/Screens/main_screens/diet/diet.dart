@@ -129,19 +129,19 @@ class _DietState extends State<Diet> {
                   children: [
                     Text('Macros:', style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      fontSize: 24,
+                      fontSize: 20,
                     ),),
                     Text('120 Carb.', style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      fontSize: 24,
+                      fontSize: 20,
                     ),),
                     Text('82 Prote', style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      fontSize: 24,
+                      fontSize: 20,
                     ),),
                     Text('45 Grasas', style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      fontSize: 24,
+                      fontSize: 20,
                     ),),
                   ],
                 ),

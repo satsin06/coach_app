@@ -1,4 +1,5 @@
 import 'package:coach_app/Screens/main_screens/bottom_bar.dart';
+import 'package:coach_app/Screens/main_screens/home/HomePage.dart';
 import 'package:coach_app/Screens/main_screens/home/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:roundcheckbox/roundcheckbox.dart';
@@ -237,7 +238,7 @@ class Training extends StatelessWidget {
                             ]),
                           ),
                           Padding(
-                            padding: const EdgeInsets.fromLTRB(0,24, 80, 0),
+                            padding: const EdgeInsets.fromLTRB(0,24, 40, 0),
                             child: Column(
                               children: [
                                 RichText(
@@ -310,17 +311,31 @@ class Training extends StatelessWidget {
                             padding: const EdgeInsets.only(right: 24.0),
                             child: Column(
                               children: [
-                                RoundCheckBox(
-                                  onTap: (selected) {},
-                                  size: 30,
-                                  uncheckedColor: Colors.white,
+                                Container(
+                                  height: 30,
+                                  width: 30,
+                                  decoration: BoxDecoration(
+                                      shape: BoxShape.circle,
+                                      color: Colors.greenAccent.shade700),
+                                  child: Icon(
+                                    Icons.check,
+                                    color: Colors.white,
+                                    size: 20,
+                                  ),
                                 ),
                                 SizedBox(height: 40,),
-                                RoundCheckBox(
-                                  onTap: (selected) {},
-                                  size: 30,
-                                  uncheckedColor: Colors.white,
-                                ),
+                                Container(
+                                  height: 30,
+                                  width: 30,
+                                  decoration: BoxDecoration(
+                                      shape: BoxShape.circle,
+                                      color: Colors.greenAccent.shade700),
+                                  child: Icon(
+                                    Icons.check,
+                                    color: Colors.white,
+                                    size: 20,
+                                  ),
+                                )
                               ],
                             ),
                           ),
@@ -355,7 +370,7 @@ class Training extends StatelessWidget {
                             ]),
                           ),
                           Padding(
-                            padding: const EdgeInsets.fromLTRB(0,24, 100, 0),
+                            padding: const EdgeInsets.fromLTRB(0,24, 40, 0),
                             child: Column(
                               children: [
                                 RichText(
@@ -428,17 +443,31 @@ class Training extends StatelessWidget {
                             padding: const EdgeInsets.only(right: 24.0),
                             child: Column(
                               children: [
-                                RoundCheckBox(
-                                  onTap: (selected) {},
-                                  size: 30,
-                                  uncheckedColor: Colors.white,
+                                Container(
+                                  height: 30,
+                                  width: 30,
+                                  decoration: BoxDecoration(
+                                      shape: BoxShape.circle,
+                                      color: Colors.greenAccent.shade700),
+                                  child: Icon(
+                                    Icons.check,
+                                    color: Colors.white,
+                                    size: 20,
+                                  ),
                                 ),
                                 SizedBox(height: 40,),
-                                RoundCheckBox(
-                                  onTap: (selected) {},
-                                  size: 30,
-                                  uncheckedColor: Colors.white,
-                                ),
+                                Container(
+                                  height: 30,
+                                  width: 30,
+                                  decoration: BoxDecoration(
+                                      shape: BoxShape.circle,
+                                      color: Colors.greenAccent.shade700),
+                                  child: Icon(
+                                    Icons.check,
+                                    color: Colors.white,
+                                    size: 20,
+                                  ),
+                                )
                               ],
                             ),
                           ),
