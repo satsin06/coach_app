@@ -1,3 +1,4 @@
+import 'package:coach_app/Screens/main_screens/home/butt_challenge_exersise.dart';
 import 'package:coach_app/widget/home_tile.dart';
 import 'package:flutter/material.dart';
 
@@ -65,7 +66,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: SizedBox(
                     width: MediaQuery.of(context).size.width,
                     child: ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+
+                        },
                         style: ElevatedButton.styleFrom(
                             primary: Colors.white,
                             shape: RoundedRectangleBorder(
@@ -143,7 +146,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: SizedBox(
                     width: MediaQuery.of(context).size.width,
                     child: ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.of(context).push(MaterialPageRoute(builder: (context) => ButtChallengeExercise()));
+                        },
                         style: ElevatedButton.styleFrom(
                             primary: Colors.white,
                             shape: RoundedRectangleBorder(
