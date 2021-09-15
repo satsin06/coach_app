@@ -38,4 +38,5 @@ class CustomIcons {
   static const IconData twocirclestrip = IconData(0xe80e, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData badge = IconData(0xe80f, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData profile_edit = IconData(0xe810, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData back_return = IconData(0xe811, fontFamily: _kFontFam, fontPackage: _kFontPkg);
 }

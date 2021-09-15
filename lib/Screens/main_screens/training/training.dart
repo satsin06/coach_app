@@ -2,6 +2,7 @@ import 'package:coach_app/Screens/main_screens/bottom_bar.dart';
 import 'package:coach_app/Screens/main_screens/home/home_screen.dart';
 import 'package:coach_app/widget/calender_strip.dart';
 import 'package:coach_app/widget/training_tile.dart';
+import 'package:coach_app/widget/video_tile.dart';
 import 'package:flutter/material.dart';
 
 import '../../../custom_icons_icons.dart';
@@ -209,8 +210,12 @@ class Training extends StatelessWidget {
                 child: SingleChildScrollView(
                   child: Column(
                     children: [
-                      TrainingTile(alpha1: 'A1', alpha2: 'A2', text: 'Sentadillas', text1: '6-8 resps', text2: 'rest 30”', text3: '4 sets', texta: 'Desplantes',),
-                      TrainingTile(alpha1: 'B1', alpha2: 'B2', text: 'ABS', text1: '6-8 resps', text2: 'rest 30”', text3: '4 sets', texta: 'Tijeras',),
+                      InkWell(onTap: () {
+                        Navigator.of(context).push(MaterialPageRoute(builder: (context) => VideoTile(ytid: 'T9dJ_cE5Asw', text: "Sentadillas",text1: "6-8 resps",text2: 'rest 30"',text3: "4 sets",)));
+                      },child: TrainingTile(alpha1: 'A1', alpha2: 'A2', text: 'Sentadillas', text1: '6-8 resps', text2: 'rest 30”', text3: '4 sets', texta: 'Desplantes',)),
+                      InkWell(onTap:() {
+                        Navigator.of(context).push(MaterialPageRoute(builder: (context) => VideoTile(ytid: 'T9dJ_cE5Asw', text: "Sentadillas",text1: "6-8 resps",text2: 'rest 30"',text3: "4 sets",)));
+                      },child: TrainingTile(alpha1: 'B1', alpha2: 'B2', text: 'ABS', text1: '6-8 resps', text2: 'rest 30”', text3: '4 sets', texta: 'Tijeras',)),
                     ],
                   ),
                 ),

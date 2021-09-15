@@ -199,13 +199,13 @@ class ButtChallengeExercise extends StatelessWidget {
                         Navigator.of(context).push(MaterialPageRoute(builder: (context) => VideoTile(ytid: 'T9dJ_cE5Asw', text: "Donkey Kicks",text1: "6-8 resps",text2: 'rest 30"',text3: "4 sets",)));
                       },child: ButtChallengeTile(img: Image.asset("assets/home3.png",height: 80,fit: BoxFit.fill,),text: "Donkey Kicks",text1: "6-8 resps",text2: 'rest 30"',text3: "4 sets",)),
                       InkWell(onTap: () {
-                        Navigator.of(context).push(MaterialPageRoute(builder: (context) => VideoTile(ytid: 'T9dJ_cE5Asw', text: "Donkey Kicks",text1: "6-8 resps",text2: 'rest 30"',text3: "4 sets",)));
+                        Navigator.of(context).push(MaterialPageRoute(builder: (context) => VideoTile(ytid: 'OeYnV9zp7Dk', text: "Donkey Kicks",text1: "6-8 resps",text2: 'rest 30"',text3: "4 sets",)));
                       },child: ButtChallengeTile(img: Image.asset("assets/home3_1.png",height: 80,fit: BoxFit.fill,),text: "Donkey Kicks",text1: "6-8 resps",text2: 'rest 30"',text3: "4 sets",)),
                       InkWell(onTap: () {
-                        Navigator.of(context).push(MaterialPageRoute(builder: (context) => VideoTile(ytid: 'T9dJ_cE5Asw', text: "Donkey Kicks",text1: "6-8 resps",text2: 'rest 30"',text3: "4 sets",)));
+                        Navigator.of(context).push(MaterialPageRoute(builder: (context) => VideoTile(ytid: 'AaZ_RSt0KP8', text: "Donkey Kicks",text1: "6-8 resps",text2: 'rest 30"',text3: "4 sets",)));
                       },child: ButtChallengeTile(img: Image.asset("assets/home3_2.png",height: 80,fit: BoxFit.fill,),text: "Donkey Kicks",text1: "6-8 resps",text2: 'rest 30"',text3: "4 sets",)),
                       InkWell(onTap: () {
-                        Navigator.of(context).push(MaterialPageRoute(builder: (context) => VideoTile(ytid: 'T9dJ_cE5Asw', text: "Donkey Kicks",text1: "6-8 resps",text2: 'rest 30"',text3: "4 sets",)));
+                        Navigator.of(context).push(MaterialPageRoute(builder: (context) => VideoTile(ytid: '094y1Z2wpJg', text: "Donkey Kicks",text1: "6-8 resps",text2: 'rest 30"',text3: "4 sets",)));
                       },child: ButtChallengeTile(img: Image.asset("assets/home3_3.png",height: 80,fit: BoxFit.fill,),text: "Donkey Kicks",text1: "6-8 resps",text2: 'rest 30"',text3: "4 sets",))
                     ],
                   ),

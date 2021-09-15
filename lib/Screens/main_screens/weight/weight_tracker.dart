@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:horizontal_picker/horizontal_picker.dart';
 
+import '../../../custom_icons_icons.dart';
+
 class WeightTracker extends StatefulWidget {
   const WeightTracker({Key? key}) : super(key: key);
 
@@ -15,6 +17,15 @@ class _WeightTrackerState extends State<WeightTracker> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
+        leading: IconButton(
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+          icon: Icon(
+            CustomIcons.back_return,
+            color: Colors.black,
+          ),
+        ),
         backgroundColor: Colors.transparent,
         elevation: 0,
         title: Padding(

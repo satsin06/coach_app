@@ -1,4 +1,3 @@
-import 'package:coach_app/Screens/tabs/sixthScreen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -52,30 +51,20 @@ class _FifthTabScreenState extends State<FifthTabScreen> {
                     child: Center(
                       child: CupertinoPicker(
                         itemExtent: 70,
-                        scrollController: FixedExtentScrollController(initialItem: 1),
+                        scrollController: FixedExtentScrollController(initialItem: 3),
                         selectionOverlay: Container(),
-                        children: const <Widget>[
-                          Center(
-                            child: Text(
-                              '2',style: TextStyle(color: Colors.white,fontSize: 32, fontWeight: FontWeight.bold),
-                            ),
-                          ),
-                          Center(
-                            child: Text(
-                              '1', style: TextStyle(color: Colors.white,fontSize: 32, fontWeight: FontWeight.bold),
-                            ),
-                          ),
-                          Center(
-                            child: Text(
-                              '0', style: TextStyle(color: Colors.white,fontSize: 32, fontWeight: FontWeight.bold),
-                            ),
-                          ),
-                        ],
                         onSelectedItemChanged: (value) {
                           setState(() {
                             _selectedValue = value;
                           });
                         },
+                        children: List<Widget>.generate(8, (int index) {
+                          return Center(
+                              child: Text(
+                                ( 7 - index).toString(), style: TextStyle(color: Colors.white,fontSize: 32, fontWeight: FontWeight.bold
+                              ),
+                              ));
+                        }),
                       ),
                     ),
                   ),
@@ -113,7 +102,7 @@ class _FifthTabScreenState extends State<FifthTabScreen> {
                         children: const <Widget>[
                           Center(
                             child: Text(
-                              'in',style: TextStyle(color: Colors.white,fontSize: 32, fontWeight: FontWeight.bold),
+                              'ft',style: TextStyle(color: Colors.white,fontSize: 32, fontWeight: FontWeight.bold),
                             ),
                           ),
                           Center(

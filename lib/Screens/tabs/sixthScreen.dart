@@ -60,7 +60,7 @@ class _SixthTabScreenState extends State<SixthTabScreen> {
                             _selectedValue = value;
                           });
                         },
-                        children: List<Widget>.generate(100, (int index) {
+                        children: List<Widget>.generate(86, (int index) {
                           return Center(
                               child: Text(
                                 ( 99 - index).toString(), style: TextStyle(color: Colors.white,fontSize: 32, fontWeight: FontWeight.bold

@@ -1,3 +1,4 @@
+import 'package:coach_app/custom_icons_icons.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
@@ -23,17 +24,15 @@ class VideoTile extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
+        automaticallyImplyLeading: true,
         elevation: 0,
-        leading: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 28.0, vertical: 16),
-          child: IconButton(
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
-            icon: Icon(
-              Icons.arrow_back_ios,
-              color: Colors.black,
-            ),
+        leading: IconButton(
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+          icon: Icon(
+            CustomIcons.back_return,
+            color: Colors.black,
           ),
         ),
         actions: [
@@ -41,32 +40,26 @@ class VideoTile extends StatelessWidget {
             data: Theme.of(context).copyWith(
               cardColor: Colors.blue,
             ),
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 28.0, vertical: 16),
-              child: PopupMenuButton(
-                itemBuilder: (context) {
-                  return List.generate(2, (index) {
-                    return PopupMenuItem(
-                      child: Text(
-                        'button no $index',
-                        style: TextStyle(color: Colors.white),
-                      ),
-                    );
-                  });
-                },
-              ),
+            child: PopupMenuButton(
+              itemBuilder: (context) {
+                return List.generate(2, (index) {
+                  return PopupMenuItem(
+                    child: Text(
+                      'button no $index',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  );
+                });
+              },
             ),
           )
         ],
         backgroundColor: Colors.transparent,
-        title: Padding(
-          padding: const EdgeInsets.only(top: 16.0),
-          child: Text("Donkey kicks",
-            style: TextStyle(
-                fontSize: 20,
-                color: Colors.black
-            ),),
-        ),
+        title: Text("Donkey kicks",
+          style: TextStyle(
+              fontSize: 20,
+              color: Colors.black
+          ),),
       ),
       body: Container(
         height: MediaQuery.of(context).size.height,

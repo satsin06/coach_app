@@ -148,9 +148,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: SizedBox(
                     width: MediaQuery.of(context).size.width,
                     child: ElevatedButton(
-                        onPressed: () {
-                          Navigator.of(context).push(MaterialPageRoute(builder: (context) => ButtChallengeExercise()));
-                        },
+                        onPressed: () {},
                         style: ElevatedButton.styleFrom(
                             primary: Colors.white,
                             shape: RoundedRectangleBorder(
@@ -176,11 +174,15 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: Container(
                     child: Column(
                       children: [
-                        HomeTile(
-                          img: Image.asset("assets/image1.png",width: 90,
-                            //height: double.infinity,
-                            fit: BoxFit.fill,
-                          ),title: "SENTADILLAS",),
+                        InkWell(onTap: () {
+                          Navigator.of(context).push(MaterialPageRoute(builder: (context) => ButtChallengeExercise()));
+                        },
+                          child: HomeTile(
+                            img: Image.asset("assets/image1.png",width: 90,
+                              //height: double.infinity,
+                              fit: BoxFit.fill,
+                            ),title: "SENTADILLAS",),
+                        ),
                         HomeTile(
                           img: Image.asset("assets/image2.png",width: 90,
                             //height: double.infinity,
