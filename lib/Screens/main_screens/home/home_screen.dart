@@ -1,4 +1,7 @@
+import 'package:coach_app/Screens/main_screens/home/butt_challenge_exersise.dart';
+import 'package:coach_app/widget/calender_strip.dart';
 import 'package:coach_app/widget/home_tile.dart';
+import 'package:coach_app/widget/progress_bar.dart';
 import 'package:flutter/material.dart';
 
 import '../../../custom_icons_icons.dart';
@@ -65,7 +68,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: SizedBox(
                     width: MediaQuery.of(context).size.width,
                     child: ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+
+                        },
                         style: ElevatedButton.styleFrom(
                             primary: Colors.white,
                             shape: RoundedRectangleBorder(
@@ -120,7 +125,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       ProgressBar(
-                          max: 100, current: 13
+                          max: 100, current: 4
                       ),
                       SizedBox(
                         height: 5,
@@ -143,7 +148,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: SizedBox(
                     width: MediaQuery.of(context).size.width,
                     child: ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.of(context).push(MaterialPageRoute(builder: (context) => ButtChallengeExercise()));
+                        },
                         style: ElevatedButton.styleFrom(
                             primary: Colors.white,
                             shape: RoundedRectangleBorder(
@@ -193,99 +200,6 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
       ),
-    );
-  }
-}
-
-//calender design on home screen
-Container CalenderStrip(int date,String weekDay, bool isActive) {
-  return Container(
-    height: 55,
-    width: 50,
-    child: Column(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Container(
-          height: 33,
-          width: 33,
-          decoration: BoxDecoration(
-            //shape: BoxShape.circle,
-              border: Border.all(
-                color: Color(0xff6EAD7A),
-                width: 2.5,
-              ),
-              borderRadius: BorderRadius.all(Radius.circular(20))
-          ),
-          child: Container(
-            height: 33,
-            width: 33,
-            decoration: isActive
-                ? BoxDecoration(
-              borderRadius: BorderRadius.all(Radius.circular(20)),
-              //shape: BoxShape.circle,
-              color: Color(0xff6EAD7A),)
-                : BoxDecoration(),
-            child: Center(
-              child: Text(
-                date.toString(),
-                style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 15),
-              ),
-            ),
-          ),
-        ),
-        Text(
-          weekDay,
-          style: TextStyle(color: Colors.grey, fontSize: 15),
-        ),
-
-      ],
-    ),
-  );
-}
-
-
-//progress bar on home screen
-class ProgressBar extends StatelessWidget {
-  final double max;
-  final double current;
-  final Color color;
-
-  const ProgressBar(
-      {Key? key,
-        required this.max,
-        required this.current,
-        this.color = Colors.green})
-      : super(key: key);
-  @override
-  Widget build(BuildContext context) {
-    return LayoutBuilder(
-      builder: (_, boxConstraints) {
-        var x = boxConstraints.maxWidth;
-        var percent = (current / max) * x;
-        return Stack(
-          children: [
-            Container(
-              width: x,
-              height: 13,
-              decoration: BoxDecoration(
-                color: Color(0xffd3d3d3),
-                borderRadius: BorderRadius.circular(35),
-              ),
-            ),
-            AnimatedContainer(
-              duration: Duration(milliseconds: 500),
-              width: percent,
-              height: 13,
-              decoration: BoxDecoration(
-                color: color,
-                borderRadius: BorderRadius.circular(35),
-              ),
-            ),
-          ],
-        );
-      },
     );
   }
 }

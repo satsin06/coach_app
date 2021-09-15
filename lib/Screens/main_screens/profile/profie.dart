@@ -1,3 +1,4 @@
+import 'package:coach_app/Screens/splash_screen.dart';
 import 'package:coach_app/widget/profile_tile.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -74,15 +75,18 @@ class Profile extends StatelessWidget {
                                     fontSize: 22,
                                     fontWeight: FontWeight.w800),
                                 children: [
-                                  TextSpan(
-                                    text: 'PERFIL',
-                                    style: TextStyle(
-                                        color: Color(0xff6EAD7A),
-                                        fontSize: 22,
-                                        fontWeight: FontWeight.w800),
-                                  )
-                                ])),
-                        Icon(CustomIcons.profile_edit, size: 28,)
+                              TextSpan(
+                                text: 'PERFIL',
+                                style: TextStyle(
+                                    color: Color(0xff6EAD7A),
+                                    fontSize: 22,
+                                    fontWeight: FontWeight.w800),
+                              )
+                            ])),
+                        Icon(
+                          CustomIcons.profile_edit,
+                          size: 28,
+                        )
                       ],
                     ),
                   ),
@@ -96,73 +100,140 @@ class Profile extends StatelessWidget {
                     Row(
                       children: [
                         CircleAvatar(
+                          // child: Padding(
+                          //   padding: const EdgeInsets.fromLTRB(0, 0, 28, 28),
+                          //   child: IconButton(icon: Icon(Icons.person, color: Colors.black38, size: 60,), onPressed: () {},),
+                          // ),
+                          child: GestureDetector(
+                            onTap: () {
+
+                            },
+                              child: Icon(
+                            Icons.person,
+                            color: Colors.black38,
+                            size: 60,
+                          )),
                           backgroundColor: Colors.grey,
                           radius: 40,
                         ),
-                        SizedBox(width: 10,),
+                        SizedBox(
+                          width: 10,
+                        ),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text('JASON', style: TextStyle(
-                              fontSize: 24,
-                              fontWeight: FontWeight.bold,
-                            ),),
-                            Text('Usuario premium', style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.w600
-                            ),),
-                            Text('correo', style: TextStyle(
-                                fontSize: 18,
-                                fontWeight: FontWeight.w100
-                            ),)
+                            Text(
+                              'JASON',
+                              style: TextStyle(
+                                fontSize: 24,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            Text(
+                              'Usuario premium',
+                              style: TextStyle(
+                                  fontSize: 18, fontWeight: FontWeight.w600),
+                            ),
+                            Text(
+                              'correo',
+                              style: TextStyle(
+                                  fontSize: 18, fontWeight: FontWeight.w100),
+                            )
                           ],
                         )
                       ],
                     ),
-                    Icon(CustomIcons.badge, color: Color(0xff79dd72), size: 44,)
+                    Icon(
+                      CustomIcons.badge,
+                      color: Color(0xff79dd72),
+                      size: 44,
+                    )
                   ],
                 ),
               ),
-              SizedBox(height: 10,),
+              SizedBox(
+                height: 10,
+              ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 28.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text('País', style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.w600
-                    ),),
-                    Text('México', style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.w600
-                    ),),
+                    Text(
+                      'País',
+                      style:
+                          TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+                    ),
+                    Text(
+                      'México',
+                      style:
+                          TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+                    ),
                   ],
                 ),
               ),
               Divider(
                 thickness: 2,
               ),
-              profileTileWithTrailing(title: 'Administrar notificaciones', icon: Icons.arrow_forward_ios, onTap: () {}, context: context),
-              profileTileWithTrailing(title: 'Plan nutricional', icon: Icons.arrow_forward_ios, onTap: () {}, context: context),
-              profileTileWithTrailing(title: 'Galería de fotos', icon: Icons.arrow_forward_ios, onTap: () {}, context: context),
-              profileTileWithTrailing(title: 'Modificar Suscripción', icon: Icons.arrow_forward_ios, onTap: () {}, context: context),
-              profileTileWithTrailing(title: 'Ajustes', icon: Icons.arrow_forward_ios, onTap: () {}, context: context),
-              profileTile(title: 'Comentarios y sugerencias', onTap: () {}, context: context),
-              profileTile(title: 'Reportar un problema', onTap: () {}, context: context),
-              profileTile(title: 'Términos y condiciones', onTap: () {}, context: context),
-              profileTile(title: 'Políticas de privacidad', onTap: () {}, context: context),
-              SizedBox(height: 40,),
-              ElevatedButton(onPressed: (){}, child: Text('CERRAR SESIÓN', style: TextStyle(
-                color: Colors.black38, fontSize: 24,
+              profileTileWithTrailing(
+                  title: 'Administrar notificaciones',
+                  icon: Icons.arrow_forward_ios,
+                  onTap: () {},
+                  context: context),
+              profileTileWithTrailing(
+                  title: 'Plan nutricional',
+                  icon: Icons.arrow_forward_ios,
+                  onTap: () {},
+                  context: context),
+              profileTileWithTrailing(
+                  title: 'Galería de fotos',
+                  icon: Icons.arrow_forward_ios,
+                  onTap: () {},
+                  context: context),
+              profileTileWithTrailing(
+                  title: 'Modificar Suscripción',
+                  icon: Icons.arrow_forward_ios,
+                  onTap: () {},
+                  context: context),
+              profileTileWithTrailing(
+                  title: 'Ajustes',
+                  icon: Icons.arrow_forward_ios,
+                  onTap: () {},
+                  context: context),
+              profileTile(
+                  title: 'Comentarios y sugerencias',
+                  onTap: () {},
+                  context: context),
+              profileTile(
+                  title: 'Reportar un problema',
+                  onTap: () {},
+                  context: context),
+              profileTile(
+                  title: 'Términos y condiciones',
+                  onTap: () {},
+                  context: context),
+              profileTile(
+                  title: 'Políticas de privacidad',
+                  onTap: () {},
+                  context: context),
+              SizedBox(
+                height: 40,
               ),
-              ),
+              ElevatedButton(
+                onPressed: () {},
+                child: Text(
+                  'CERRAR SESIÓN',
+                  style: TextStyle(
+                    color: Colors.black38,
+                    fontSize: 24,
+                  ),
+                ),
                 style: ElevatedButton.styleFrom(
                     primary: Colors.white,
                     shape: RoundedRectangleBorder(
-                      side: BorderSide(color: Color(0xff79dd72), width: 2),
+                        side: BorderSide(color: Color(0xff79dd72), width: 2),
                         borderRadius: BorderRadius.circular(50))),
-                ),
+              ),
             ],
           ),
         ),
