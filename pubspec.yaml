@@ -31,6 +31,7 @@ dependencies:
   material_design_icons_flutter: ^5.0.5955-rc.1
   horizontal_picker: ^1.1.0
   roundcheckbox: ^2.0.2+1
+  youtube_player_flutter: ^8.0.0
 
   #Firebase
   firebase_core: ^1.6.0

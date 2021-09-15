@@ -1,4 +1,5 @@
 import 'package:coach_app/widget/butt_challenge_tile.dart';
+import 'package:coach_app/widget/video_tile.dart';
 import 'package:flutter/material.dart';
 
 import '../../../custom_icons_icons.dart';
@@ -194,13 +195,18 @@ class ButtChallengeExercise extends StatelessWidget {
                 Container(
                   child: Column(
                     children: [
-                      ButtChallengeTile(img: Image.asset("assets/home3.png",height: 80,fit: BoxFit.fill,),text: "Donkey Kicks",text1: "6-8 resps",text2: 'rest 30"',text3: "4 sets",),
-                      SizedBox(height: 10,),
-                      ButtChallengeTile(img: Image.asset("assets/home3_1.png",height: 80,fit: BoxFit.fill,),text: "Donkey Kicks",text1: "6-8 resps",text2: 'rest 30"',text3: "4 sets",),
-                      SizedBox(height: 10,),
-                      ButtChallengeTile(img: Image.asset("assets/home3_2.png",height: 80,fit: BoxFit.fill,),text: "Donkey Kicks",text1: "6-8 resps",text2: 'rest 30"',text3: "4 sets",),
-                      SizedBox(height: 10,),
-                      ButtChallengeTile(img: Image.asset("assets/home3_3.png",height: 80,fit: BoxFit.fill,),text: "Donkey Kicks",text1: "6-8 resps",text2: 'rest 30"',text3: "4 sets",)
+                      InkWell(onTap: () {
+                        Navigator.of(context).push(MaterialPageRoute(builder: (context) => VideoTile(ytid: 'T9dJ_cE5Asw', text: "Donkey Kicks",text1: "6-8 resps",text2: 'rest 30"',text3: "4 sets",)));
+                      },child: ButtChallengeTile(img: Image.asset("assets/home3.png",height: 80,fit: BoxFit.fill,),text: "Donkey Kicks",text1: "6-8 resps",text2: 'rest 30"',text3: "4 sets",)),
+                      InkWell(onTap: () {
+                        Navigator.of(context).push(MaterialPageRoute(builder: (context) => VideoTile(ytid: 'T9dJ_cE5Asw', text: "Donkey Kicks",text1: "6-8 resps",text2: 'rest 30"',text3: "4 sets",)));
+                      },child: ButtChallengeTile(img: Image.asset("assets/home3_1.png",height: 80,fit: BoxFit.fill,),text: "Donkey Kicks",text1: "6-8 resps",text2: 'rest 30"',text3: "4 sets",)),
+                      InkWell(onTap: () {
+                        Navigator.of(context).push(MaterialPageRoute(builder: (context) => VideoTile(ytid: 'T9dJ_cE5Asw', text: "Donkey Kicks",text1: "6-8 resps",text2: 'rest 30"',text3: "4 sets",)));
+                      },child: ButtChallengeTile(img: Image.asset("assets/home3_2.png",height: 80,fit: BoxFit.fill,),text: "Donkey Kicks",text1: "6-8 resps",text2: 'rest 30"',text3: "4 sets",)),
+                      InkWell(onTap: () {
+                        Navigator.of(context).push(MaterialPageRoute(builder: (context) => VideoTile(ytid: 'T9dJ_cE5Asw', text: "Donkey Kicks",text1: "6-8 resps",text2: 'rest 30"',text3: "4 sets",)));
+                      },child: ButtChallengeTile(img: Image.asset("assets/home3_3.png",height: 80,fit: BoxFit.fill,),text: "Donkey Kicks",text1: "6-8 resps",text2: 'rest 30"',text3: "4 sets",))
                     ],
                   ),
                 ),

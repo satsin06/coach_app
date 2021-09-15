@@ -1,7 +1,8 @@
 import 'package:coach_app/Screens/main_screens/bottom_bar.dart';
 import 'package:coach_app/Screens/main_screens/home/home_screen.dart';
+import 'package:coach_app/widget/calender_strip.dart';
+import 'package:coach_app/widget/training_tile.dart';
 import 'package:flutter/material.dart';
-import 'package:roundcheckbox/roundcheckbox.dart';
 
 import '../../../custom_icons_icons.dart';
 
@@ -122,14 +123,14 @@ class Training extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      calendarStrip(16, "Lu", true),
-                      calendarStrip(17, "Ma", false),
-                      calendarStrip(18, "Mi", false),
-                      calendarStrip(19, "Ju", false),
-                      calendarStrip(20, "Vi", false),
-                      calendarStrip(21, "Sa", false),
-                      calendarStrip(22, "Do", false),
-                      calendarStrip(23, "Do", false),
+                      CalenderStrip(16, "Lu", true),
+                      CalenderStrip(17, "Ma", false),
+                      CalenderStrip(18, "Mi", false),
+                      CalenderStrip(19, "Ju", false),
+                      CalenderStrip(20, "Vi", false),
+                      CalenderStrip(21, "Sa", false),
+                      CalenderStrip(22, "Do", false),
+                      CalenderStrip(23, "Do", false),
                       CalenderStrip(24,"Ma", false),
                       CalenderStrip(25,"Mi", false),
                       CalenderStrip(26,"Ju", false),
@@ -208,242 +209,8 @@ class Training extends StatelessWidget {
                 child: SingleChildScrollView(
                   child: Column(
                     children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.fromLTRB(0, 20, 0, 0),
-                            child: Stack(children: [
-                              Icon(
-                                CustomIcons.twocirclestrip,
-                                size: 160,
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.fromLTRB(64, 18, 0, 0),
-                                child: Text(
-                                  'A1',
-                                  style:
-                                      TextStyle(fontSize: 32, color: Colors.white),
-                                ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.fromLTRB(64, 110, 0, 0),
-                                child: Text(
-                                  'A2',
-                                  style:
-                                      TextStyle(fontSize: 32, color: Colors.white),
-                                ),
-                              )
-                            ]),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.fromLTRB(0,24, 80, 0),
-                            child: Column(
-                              children: [
-                                RichText(
-                                    text: TextSpan(
-                                        text: 'Sentadillas\n',
-                                        style: TextStyle(
-                                            color: Colors.black,
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.w800),
-                                        children: [
-                                      TextSpan(
-                                        text: '6-8 resps\n',
-                                        style: TextStyle(
-                                            color: Colors.grey,
-                                            fontSize: 12,
-                                            fontWeight: FontWeight.w800),
-                                      ),
-                                      TextSpan(
-                                        text: 'rest 30”\n',
-                                        style: TextStyle(
-                                            color: Colors.grey,
-                                            fontSize: 12,
-                                            fontWeight: FontWeight.w800),
-                                      ),
-                                      TextSpan(
-                                        text: '4 sets',
-                                        style: TextStyle(
-                                            color: Colors.grey,
-                                            fontSize: 12,
-                                            fontWeight: FontWeight.w800),
-                                      ),
-                                    ])),
-                                SizedBox(
-                                  height: 20,
-                                ),
-                                RichText(
-                                    text: TextSpan(
-                                        text: 'Desplantes\n',
-                                        style: TextStyle(
-                                            color: Colors.black,
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.w800),
-                                        children: [
-                                      TextSpan(
-                                        text: '6-8 resps\n',
-                                        style: TextStyle(
-                                            color: Colors.grey,
-                                            fontSize: 12,
-                                            fontWeight: FontWeight.w800),
-                                      ),
-                                      TextSpan(
-                                        text: 'rest 30”\n',
-                                        style: TextStyle(
-                                            color: Colors.grey,
-                                            fontSize: 12,
-                                            fontWeight: FontWeight.w800),
-                                      ),
-                                      TextSpan(
-                                        text: '4 sets',
-                                        style: TextStyle(
-                                            color: Colors.grey,
-                                            fontSize: 12,
-                                            fontWeight: FontWeight.w800),
-                                      ),
-                                    ])),
-                              ],
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(right: 24.0),
-                            child: Column(
-                              children: [
-                                RoundCheckBox(
-                                  onTap: (selected) {},
-                                  size: 30,
-                                  uncheckedColor: Colors.white,
-                                ),
-                                SizedBox(height: 40,),
-                                RoundCheckBox(
-                                  onTap: (selected) {},
-                                  size: 30,
-                                  uncheckedColor: Colors.white,
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.fromLTRB(0, 20, 0, 0),
-                            child: Stack(children: [
-                              Icon(
-                                CustomIcons.twocirclestrip,
-                                size: 160,
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.fromLTRB(64, 18, 0, 0),
-                                child: Text(
-                                  'B1',
-                                  style:
-                                  TextStyle(fontSize: 32, color: Colors.white),
-                                ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.fromLTRB(64, 110, 0, 0),
-                                child: Text(
-                                  'B2',
-                                  style:
-                                  TextStyle(fontSize: 32, color: Colors.white),
-                                ),
-                              )
-                            ]),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.fromLTRB(0,24, 100, 0),
-                            child: Column(
-                              children: [
-                                RichText(
-                                    text: TextSpan(
-                                        text: 'ABS\n',
-                                        style: TextStyle(
-                                            color: Colors.black,
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.w800),
-                                        children: [
-                                          TextSpan(
-                                            text: '6-8 resps\n',
-                                            style: TextStyle(
-                                                color: Colors.grey,
-                                                fontSize: 12,
-                                                fontWeight: FontWeight.w800),
-                                          ),
-                                          TextSpan(
-                                            text: 'rest 30”\n',
-                                            style: TextStyle(
-                                                color: Colors.grey,
-                                                fontSize: 12,
-                                                fontWeight: FontWeight.w800),
-                                          ),
-                                          TextSpan(
-                                            text: '4 sets',
-                                            style: TextStyle(
-                                                color: Colors.grey,
-                                                fontSize: 12,
-                                                fontWeight: FontWeight.w800),
-                                          ),
-                                        ])),
-                                SizedBox(
-                                  height: 20,
-                                ),
-                                RichText(
-                                    text: TextSpan(
-                                        text: 'Tijeras\n',
-                                        style: TextStyle(
-                                            color: Colors.black,
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.w800),
-                                        children: [
-                                          TextSpan(
-                                            text: '6-8 resps\n',
-                                            style: TextStyle(
-                                                color: Colors.grey,
-                                                fontSize: 12,
-                                                fontWeight: FontWeight.w800),
-                                          ),
-                                          TextSpan(
-                                            text: 'rest 30”\n',
-                                            style: TextStyle(
-                                                color: Colors.grey,
-                                                fontSize: 12,
-                                                fontWeight: FontWeight.w800),
-                                          ),
-                                          TextSpan(
-                                            text: '4 sets',
-                                            style: TextStyle(
-                                                color: Colors.grey,
-                                                fontSize: 12,
-                                                fontWeight: FontWeight.w800),
-                                          ),
-                                        ])),
-                              ],
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(right: 24.0),
-                            child: Column(
-                              children: [
-                                RoundCheckBox(
-                                  onTap: (selected) {},
-                                  size: 30,
-                                  uncheckedColor: Colors.white,
-                                ),
-                                SizedBox(height: 40,),
-                                RoundCheckBox(
-                                  onTap: (selected) {},
-                                  size: 30,
-                                  uncheckedColor: Colors.white,
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
+                      TrainingTile(alpha1: 'A1', alpha2: 'A2', text: 'Sentadillas', text1: '6-8 resps', text2: 'rest 30”', text3: '4 sets', texta: 'Desplantes',),
+                      TrainingTile(alpha1: 'B1', alpha2: 'B2', text: 'ABS', text1: '6-8 resps', text2: 'rest 30”', text3: '4 sets', texta: 'Tijeras',),
                     ],
                   ),
                 ),
@@ -456,46 +223,3 @@ class Training extends StatelessWidget {
   }
 }
 
-Container calendarStrip(int date, String weekDay, bool isActive) {
-  return Container(
-    height: 55,
-    width: 50,
-    child: Column(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Container(
-          height: 33,
-          width: 33,
-          decoration: BoxDecoration(
-              //shape: BoxShape.circle,
-              border: Border.all(
-                color: Color(0xff6EAD7A),
-                width: 2.5,
-              ),
-              borderRadius: BorderRadius.all(Radius.circular(20))),
-          child: Container(
-            height: 33,
-            width: 33,
-            decoration: isActive
-                ? BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(20)),
-                    //shape: BoxShape.circle,
-                    color: Color(0xff6EAD7A),
-                  )
-                : BoxDecoration(),
-            child: Center(
-              child: Text(
-                date.toString(),
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
-              ),
-            ),
-          ),
-        ),
-        Text(
-          weekDay,
-          style: TextStyle(color: Colors.grey, fontSize: 15),
-        ),
-      ],
-    ),
-  );
-}
