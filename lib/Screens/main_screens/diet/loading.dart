@@ -1,7 +1,8 @@
 import 'dart:async';
 
-import 'package:coach_app/Screens/main_screens/diet/diet.dart';
 import 'package:flutter/material.dart';
+
+import 'my_diet.dart';
 
 class Loading extends StatefulWidget {
   const Loading({Key? key}) : super(key: key);
@@ -32,7 +33,7 @@ class _LoadingState extends State<Loading> {
   }
   route() {
     Navigator.pushReplacement(context, MaterialPageRoute(
-        builder: (context) => Diet()
+        builder: (context) => MyDiet()
     )
     );
   }

@@ -1,16 +1,13 @@
 import 'package:flutter/material.dart';
 
-
 class DietTile extends StatelessWidget {
-  const DietTile({Key? key,
-  this.text = ""
-  }) : super(key: key);
+  const DietTile({Key? key, this.text = ""}) : super(key: key);
   final String text;
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children:[ SizedBox(
+    return Column(children: [
+      SizedBox(
         width: MediaQuery.of(context).size.width,
         child: ElevatedButton(
             onPressed: () {},
@@ -20,10 +17,11 @@ class DietTile extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.symmetric(vertical: 16.0),
               child: Text(
-                text, style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 32,
-                  fontWeight: FontWeight.w800),
+                text,
+                style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 32,
+                    fontWeight: FontWeight.w800),
               ),
             )),
       ),
@@ -32,8 +30,8 @@ class DietTile extends StatelessWidget {
         child: GridView.count(
           scrollDirection: Axis.vertical,
           physics: ScrollPhysics(),
-          crossAxisCount: 3 ,
-          children: List.generate(9,(index){
+          crossAxisCount: 3,
+          children: List.generate(9, (index) {
             return Container(
               child: Card(
                 color: Colors.grey,
@@ -42,7 +40,6 @@ class DietTile extends StatelessWidget {
           }),
         ),
       ),
-    ]
-    );
+    ]);
   }
 }
