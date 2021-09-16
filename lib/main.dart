@@ -1,5 +1,3 @@
-import 'package:coach_app/Screens/test.dart';
-import 'package:coach_app/Screens/main_screens/bottom_bar.dart';
 import 'package:coach_app/Screens/splash_screen.dart';
 import 'package:coach_app/services/auth_service.dart';
 import 'package:flutter/material.dart';
