@@ -1,9 +1,8 @@
 import 'package:coach_app/Screens/main_screens/bottom_bar.dart';
 import 'package:coach_app/Screens/main_screens/home/HomePage.dart';
-import 'package:coach_app/Screens/main_screens/home/home_screen.dart';
 import 'package:coach_app/Screens/main_screens/training/training2.dart';
 import 'package:flutter/material.dart';
-import 'package:roundcheckbox/roundcheckbox.dart';
+
 
 import '../../../custom_icons_icons.dart';
 
