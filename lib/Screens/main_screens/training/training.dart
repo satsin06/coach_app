@@ -1,8 +1,10 @@
+import 'package:calendar_timeline/calendar_timeline.dart';
 import 'package:coach_app/Screens/main_screens/bottom_bar.dart';
-import 'package:coach_app/Screens/main_screens/home/HomePage.dart';
-import 'package:coach_app/Screens/main_screens/training/training2.dart';
+import 'package:coach_app/Screens/main_screens/home/home_screen.dart';
+import 'package:coach_app/widget/calendar_strip.dart';
+import 'package:coach_app/widget/training_tile.dart';
+import 'package:coach_app/widget/video_tile.dart';
 import 'package:flutter/material.dart';
-
 
 import '../../../custom_icons_icons.dart';
 
@@ -91,7 +93,7 @@ class Training extends StatelessWidget {
                             TextSpan(
                               text: 'ENTRENAMIENTO',
                               style: TextStyle(
-                                  color: Color(0xff6EAD7A),
+                                  color: Color(0xff79dd72),
                                   fontSize: 22,
                                   fontWeight: FontWeight.w800),
                             )
@@ -117,30 +119,44 @@ class Training extends StatelessWidget {
                   ),
                 ),
               ),
-              Container(
-                child: SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      calendarStrip(16, "Lu", true),
-                      calendarStrip(17, "Ma", false),
-                      calendarStrip(18, "Mi", false),
-                      calendarStrip(19, "Ju", false),
-                      calendarStrip(20, "Vi", false),
-                      calendarStrip(21, "Sa", false),
-                      calendarStrip(22, "Do", false),
-                      calendarStrip(23, "Do", false),
-                      CalenderStrip(24,"Ma", false),
-                      CalenderStrip(25,"Mi", false),
-                      CalenderStrip(26,"Ju", false),
-                      CalenderStrip(27,"Vi", false),
-                      CalenderStrip(28,"Sa", false),
-                      CalenderStrip(29,"Do", false),
-                      CalenderStrip(30,"Lu", false),
-                    ],
-                  ),
-                ),
+              // Container(
+              //   child: SingleChildScrollView(
+              //     scrollDirection: Axis.horizontal,
+              //     child: Row(
+              //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              //       children: [
+              //         CalendarStrip(16, "Lu", true),
+              //         CalendarStrip(17, "Ma", false),
+              //         CalendarStrip(18, "Mi", false),
+              //         CalendarStrip(19, "Ju", false),
+              //         CalendarStrip(20, "Vi", false),
+              //         CalendarStrip(21, "Sa", false),
+              //         CalendarStrip(22, "Do", false),
+              //         CalendarStrip(23, "Do", false),
+              //         CalendarStrip(24,"Ma", false),
+              //         CalendarStrip(25,"Mi", false),
+              //         CalendarStrip(26,"Ju", false),
+              //         CalendarStrip(27,"Vi", false),
+              //         CalendarStrip(28,"Sa", false),
+              //         CalendarStrip(29,"Do", false),
+              //         CalendarStrip(30,"Lu", false),
+              //       ],
+              //     ),
+              //   ),
+              // ),
+              CalendarTimeline(
+                initialDate: DateTime.now(),
+                firstDate: DateTime(2019, 1, 15),
+                lastDate: DateTime(2030, 12, 31),
+                onDateSelected: (date) => print(date),
+                leftMargin: 20,
+                monthColor: Colors.blueGrey,
+                dayColor: Colors.teal[200],
+                activeDayColor: Colors.white,
+                activeBackgroundDayColor: Colors.redAccent[100],
+                dotsColor: Color(0xFF333A47),
+                //selectableDayPredicate: (date) => date.day != 23,
+                //locale: 'en_ISO',
               ),
               SizedBox(
                 height: 23,
@@ -209,279 +225,46 @@ class Training extends StatelessWidget {
                 child: SingleChildScrollView(
                   child: Column(
                     children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.fromLTRB(0, 20, 0, 0),
-                            child: Stack(children: [
-                              Icon(
-                                CustomIcons.twocirclestrip,
-                                size: 160,
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.fromLTRB(64, 18, 0, 0),
-                                child: Text(
-                                  'A1',
-                                  style:
-                                      TextStyle(fontSize: 32, color: Colors.white),
-                                ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.fromLTRB(64, 110, 0, 0),
-                                child: Text(
-                                  'A2',
-                                  style:
-                                      TextStyle(fontSize: 32, color: Colors.white),
-                                ),
-                              )
-                            ]),
-                          ),
-                          InkWell(
-                              onTap: () {
-                                Navigator.of(context).push(
-                                  MaterialPageRoute(
-                                    builder: (context) => Training2(),
-                                  ),
-                                );
-                              },
-                            child: Padding(
-                              padding: const EdgeInsets.fromLTRB(0,24, 40, 0),
-                              child: Column(
-                                children: [
-                                  RichText(
-                                      text: TextSpan(
-                                          text: 'Sentadillas\n',
-                                          style: TextStyle(
-                                              color: Colors.black,
-                                              fontSize: 16,
-                                              fontWeight: FontWeight.w800),
-                                          children: [
-                                        TextSpan(
-                                          text: '6-8 resps\n',
-                                          style: TextStyle(
-                                              color: Colors.grey,
-                                              fontSize: 12,
-                                              fontWeight: FontWeight.w800),
-                                        ),
-                                        TextSpan(
-                                          text: 'rest 30”\n',
-                                          style: TextStyle(
-                                              color: Colors.grey,
-                                              fontSize: 12,
-                                              fontWeight: FontWeight.w800),
-                                        ),
-                                        TextSpan(
-                                          text: '4 sets',
-                                          style: TextStyle(
-                                              color: Colors.grey,
-                                              fontSize: 12,
-                                              fontWeight: FontWeight.w800),
-                                        ),
-                                      ])),
-                                  SizedBox(
-                                    height: 20,
-                                  ),
-                                  RichText(
-                                      text: TextSpan(
-                                          text: 'Desplantes\n',
-                                          style: TextStyle(
-                                              color: Colors.black,
-                                              fontSize: 16,
-                                              fontWeight: FontWeight.w800),
-                                          children: [
-                                        TextSpan(
-                                          text: '6-8 resps\n',
-                                          style: TextStyle(
-                                              color: Colors.grey,
-                                              fontSize: 12,
-                                              fontWeight: FontWeight.w800),
-                                        ),
-                                        TextSpan(
-                                          text: 'rest 30”\n',
-                                          style: TextStyle(
-                                              color: Colors.grey,
-                                              fontSize: 12,
-                                              fontWeight: FontWeight.w800),
-                                        ),
-                                        TextSpan(
-                                          text: '4 sets',
-                                          style: TextStyle(
-                                              color: Colors.grey,
-                                              fontSize: 12,
-                                              fontWeight: FontWeight.w800),
-                                        ),
-                                      ])),
-                                ],
-                              ),
-                            )
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(right: 24.0),
-                            child: Column(
-                              children: [
-                                Container(
-                                  height: 30,
-                                  width: 30,
-                                  decoration: BoxDecoration(
-                                      shape: BoxShape.circle,
-                                      color: Colors.greenAccent.shade700),
-                                  child: Icon(
-                                    Icons.check,
-                                    color: Colors.white,
-                                    size: 20,
-                                  ),
-                                ),
-                                SizedBox(height: 40,),
-                                Container(
-                                  height: 30,
-                                  width: 30,
-                                  decoration: BoxDecoration(
-                                      shape: BoxShape.circle,
-                                      color: Colors.greenAccent.shade700),
-                                  child: Icon(
-                                    Icons.check,
-                                    color: Colors.white,
-                                    size: 20,
-                                  ),
-                                )
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.fromLTRB(0, 20, 0, 0),
-                            child: Stack(children: [
-                              Icon(
-                                CustomIcons.twocirclestrip,
-                                size: 160,
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.fromLTRB(64, 18, 0, 0),
-                                child: Text(
-                                  'B1',
-                                  style:
-                                  TextStyle(fontSize: 32, color: Colors.white),
-                                ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.fromLTRB(64, 110, 0, 0),
-                                child: Text(
-                                  'B2',
-                                  style:
-                                  TextStyle(fontSize: 32, color: Colors.white),
-                                ),
-                              )
-                            ]),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.fromLTRB(0,24, 40, 0),
-                            child: Column(
-                              children: [
-                                RichText(
-                                    text: TextSpan(
-                                        text: 'ABS\n',
-                                        style: TextStyle(
-                                            color: Colors.black,
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.w800),
-                                        children: [
-                                          TextSpan(
-                                            text: '6-8 resps\n',
-                                            style: TextStyle(
-                                                color: Colors.grey,
-                                                fontSize: 12,
-                                                fontWeight: FontWeight.w800),
-                                          ),
-                                          TextSpan(
-                                            text: 'rest 30”\n',
-                                            style: TextStyle(
-                                                color: Colors.grey,
-                                                fontSize: 12,
-                                                fontWeight: FontWeight.w800),
-                                          ),
-                                          TextSpan(
-                                            text: '4 sets',
-                                            style: TextStyle(
-                                                color: Colors.grey,
-                                                fontSize: 12,
-                                                fontWeight: FontWeight.w800),
-                                          ),
-                                        ])),
-                                SizedBox(
-                                  height: 20,
-                                ),
-                                RichText(
-                                    text: TextSpan(
-                                        text: 'Tijeras\n',
-                                        style: TextStyle(
-                                            color: Colors.black,
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.w800),
-                                        children: [
-                                          TextSpan(
-                                            text: '6-8 resps\n',
-                                            style: TextStyle(
-                                                color: Colors.grey,
-                                                fontSize: 12,
-                                                fontWeight: FontWeight.w800),
-                                          ),
-                                          TextSpan(
-                                            text: 'rest 30”\n',
-                                            style: TextStyle(
-                                                color: Colors.grey,
-                                                fontSize: 12,
-                                                fontWeight: FontWeight.w800),
-                                          ),
-                                          TextSpan(
-                                            text: '4 sets',
-                                            style: TextStyle(
-                                                color: Colors.grey,
-                                                fontSize: 12,
-                                                fontWeight: FontWeight.w800),
-                                          ),
-                                        ])),
-                              ],
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(right: 24.0),
-                            child: Column(
-                              children: [
-                                Container(
-                                  height: 30,
-                                  width: 30,
-                                  decoration: BoxDecoration(
-                                      shape: BoxShape.circle,
-                                      color: Colors.greenAccent.shade700),
-                                  child: Icon(
-                                    Icons.check,
-                                    color: Colors.white,
-                                    size: 20,
-                                  ),
-                                ),
-                                SizedBox(height: 40,),
-                                Container(
-                                  height: 30,
-                                  width: 30,
-                                  decoration: BoxDecoration(
-                                      shape: BoxShape.circle,
-                                      color: Colors.greenAccent.shade700),
-                                  child: Icon(
-                                    Icons.check,
-                                    color: Colors.white,
-                                    size: 20,
-                                  ),
-                                )
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
+                      InkWell(
+                          onTap: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => VideoTile(
+                                      ytid: 'T9dJ_cE5Asw',
+                                      text: "Sentadillas",
+                                      text1: "6-8 resps",
+                                      text2: 'rest 30"',
+                                      text3: "4 sets",
+                                    )));
+                          },
+                          child: TrainingTile(
+                            alpha1: 'A1',
+                            alpha2: 'A2',
+                            text: 'Sentadillas',
+                            text1: '6-8 resps',
+                            text2: 'rest 30”',
+                            text3: '4 sets',
+                            texta: 'Desplantes',
+                          )),
+                      InkWell(
+                          onTap: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => VideoTile(
+                                      ytid: 'T9dJ_cE5Asw',
+                                      text: "Sentadillas",
+                                      text1: "6-8 resps",
+                                      text2: 'rest 30"',
+                                      text3: "4 sets",
+                                    )));
+                          },
+                          child: TrainingTile(
+                            alpha1: 'B1',
+                            alpha2: 'B2',
+                            text: 'ABS',
+                            text1: '6-8 resps',
+                            text2: 'rest 30”',
+                            text3: '4 sets',
+                            texta: 'Tijeras',
+                          )),
                     ],
                   ),
                 ),
@@ -492,48 +275,4 @@ class Training extends StatelessWidget {
       ),
     );
   }
-}
-
-Container calendarStrip(int date, String weekDay, bool isActive) {
-  return Container(
-    height: 55,
-    width: 50,
-    child: Column(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Container(
-          height: 33,
-          width: 33,
-          decoration: BoxDecoration(
-              //shape: BoxShape.circle,
-              border: Border.all(
-                color: Color(0xff6EAD7A),
-                width: 2.5,
-              ),
-              borderRadius: BorderRadius.all(Radius.circular(20))),
-          child: Container(
-            height: 33,
-            width: 33,
-            decoration: isActive
-                ? BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(20)),
-                    //shape: BoxShape.circle,
-                    color: Color(0xff6EAD7A),
-                  )
-                : BoxDecoration(),
-            child: Center(
-              child: Text(
-                date.toString(),
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
-              ),
-            ),
-          ),
-        ),
-        Text(
-          weekDay,
-          style: TextStyle(color: Colors.grey, fontSize: 15),
-        ),
-      ],
-    ),
-  );
 }
