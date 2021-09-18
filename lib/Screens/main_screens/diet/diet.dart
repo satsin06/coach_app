@@ -65,7 +65,7 @@ class _DietState extends State<Diet> {
               TextSpan(
                 text: 'ENTRENAMIENTO',
                 style: TextStyle(
-                    color: Color(0xff6EAD7A),
+                    color: Color(0xff79dd72),
                     fontSize: 22,
                     fontWeight: FontWeight.w800),
               )
@@ -196,7 +196,7 @@ class _DietState extends State<Diet> {
                   ),
                 ),
                 style: ElevatedButton.styleFrom(
-                  primary: Color(0xff6EAD7A),
+                  primary: Color(0xff79dd72),
                   shape: new RoundedRectangleBorder(
                     borderRadius: new BorderRadius.circular(30.0),
                   ),
