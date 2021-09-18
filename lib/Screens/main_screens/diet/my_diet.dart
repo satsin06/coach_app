@@ -1,3 +1,4 @@
+import 'package:coach_app/Screens/main_screens/diet/database.dart';
 import 'package:coach_app/widget/my_diet_tile.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -51,17 +52,17 @@ class MyDiet extends StatelessWidget {
               TextSpan(
                 text: 'ENTRENAMIENTO',
                 style: TextStyle(
-                    color: Color(0xff6EAD7A),
+                    color: Color(0xff79dd72),
                     fontSize: 22,
                     fontWeight: FontWeight.w800),
               )
             ])),
       ),
       backgroundColor: Colors.white,
-      body: SingleChildScrollView(
-        child: Container(
-          height: MediaQuery.of(context).size.height,
-          width: MediaQuery.of(context).size.width,
+      body: Container(
+        height: MediaQuery.of(context).size.height,
+        width: MediaQuery.of(context).size.width,
+        child: SingleChildScrollView(
           child: Column(
             children: [
               Row(
@@ -106,7 +107,7 @@ class MyDiet extends StatelessWidget {
                           text: TextSpan(
                             text: '1300\n',
                             style: TextStyle(
-                              color: Color(0xff6EAD7A),
+                              color: Color(0xff79dd72),
                               fontSize: 32,
                               fontWeight: FontWeight.bold,
                             ),
@@ -115,7 +116,7 @@ class MyDiet extends StatelessWidget {
                                 text: 'Kcal rest.',
                                 style: TextStyle(
                                   fontSize: 16,
-                                  color: Color(0xff6EAD7A),
+                                  color: Color(0xff79dd72),
                                   fontWeight: FontWeight.bold,
                                 ),
                               )
@@ -158,28 +159,56 @@ class MyDiet extends StatelessWidget {
                   ),
                 ],
               ),
-              MyDietTile(dietname: 'Desayuno', carbs: '3g', grasas: '6g', kcals: '400', prote: '12g',),
-              MyDietFood(foodimage: Image.asset('assets/images/signin.PNG'), foodname: 'Papa',),
-              MyDietFood(foodimage: Image.asset('assets/images/signin.PNG'), foodname: 'Pescado',),
-              MyDietFood(foodimage: Image.asset('assets/images/signin.PNG'), foodname: 'Quinua',),
-              ///
-              ///
-              MyDietTile(dietname: 'Desayuno', carbs: '3g', grasas: '6g', kcals: '400', prote: '12g',),
-              MyDietFood(foodimage: Image.asset('assets/images/signin.PNG'), foodname: 'Papa',),
-              MyDietFood(foodimage: Image.asset('assets/images/signin.PNG'), foodname: 'Pescado',),
-              MyDietFood(foodimage: Image.asset('assets/images/signin.PNG'), foodname: 'Quinua',),
-              ///
-              ///
-              MyDietTile(dietname: 'Desayuno', carbs: '3g', grasas: '6g', kcals: '400', prote: '12g',),
-              MyDietFood(foodimage: Image.asset('assets/images/signin.PNG'), foodname: 'Papa',),
-              MyDietFood(foodimage: Image.asset('assets/images/signin.PNG'), foodname: 'Pescado',),
-              MyDietFood(foodimage: Image.asset('assets/images/signin.PNG'), foodname: 'Quinua',),
-              ///
-              ///
-              MyDietTile(dietname: 'Desayuno', carbs: '3g', grasas: '6g', kcals: '400', prote: '12g',),
-              MyDietFood(foodimage: Image.asset('assets/images/signin.PNG'), foodname: 'Papa',),
-              MyDietFood(foodimage: Image.asset('assets/images/signin.PNG'), foodname: 'Pescado',),
-              MyDietFood(foodimage: Image.asset('assets/images/signin.PNG'), foodname: 'Quinua',),
+              MyDietTile(),
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 28.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    ElevatedButton(
+                      onPressed: () {
+                      },
+                      child: Text(
+                        "INSTRUCCIONES",
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 20,
+                        ),
+                      ),
+                      style: ElevatedButton.styleFrom(
+                          primary: Colors.white,
+                          shape: RoundedRectangleBorder(
+                              borderRadius:
+                              BorderRadius.circular(15)),
+                          side: BorderSide(
+                            color: Color(0xff79dd72),
+                            width: 3,
+                          )),
+                    ),
+                    ElevatedButton(
+                      onPressed: () {
+                        Navigator.of(context).push(MaterialPageRoute(builder: (context) => DataBase()));
+                      },
+                      child: Text(
+                        "NOTIFICACIONES",
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 20,
+                        ),
+                      ),
+                      style: ElevatedButton.styleFrom(
+                          primary: Colors.white,
+                          shape: RoundedRectangleBorder(
+                              borderRadius:
+                              BorderRadius.circular(15)),
+                          side: BorderSide(
+                            color: Color(0xff79dd72),
+                            width: 3,
+                          )),
+                    )
+                  ],
+                ),
+              ),
             ],
           ),
         ),
