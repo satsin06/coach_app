@@ -1,8 +1,12 @@
-import 'package:coach_app/Screens/main_screens/home/butt_challenge_exersise.dart';
-import 'package:coach_app/widget/calender_strip.dart';
+import 'package:calendar_timeline/calendar_timeline.dart';
+import 'package:coach_app/Screens/main_screens/home/butt_challenge_exercise.dart';
+import 'package:coach_app/Screens/main_screens/home/exercise_date.dart';
+import 'package:coach_app/Screens/main_screens/home/my_performance.dart';
+import 'package:coach_app/widget/calendar_strip.dart';
 import 'package:coach_app/widget/home_tile.dart';
 import 'package:coach_app/widget/progress_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import '../../../custom_icons_icons.dart';
 
@@ -15,8 +19,21 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  late DateTime _selectedDate;
+
+  @override
+  void initState() {
+    super.initState();
+    _resetSelectedDate();
+  }
+
+  void _resetSelectedDate() {
+    _selectedDate = DateTime.now().add(Duration(days: 5));
+  }
+
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light);
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -69,7 +86,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     width: MediaQuery.of(context).size.width,
                     child: ElevatedButton(
                         onPressed: () {
-
+                          Navigator.of(context).push(MaterialPageRoute(builder: (context) => MyPerformance()));
                         },
                         style: ElevatedButton.styleFrom(
                             primary: Colors.white,
@@ -77,7 +94,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 borderRadius:
                                 BorderRadius.circular(15)),
                             side: BorderSide(
-                              color: Colors.green.shade500,
+                              color: Color(0xff79dd72),
                               width: 2.5,
                             )),
                         child: Text(
@@ -91,30 +108,44 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
               ),
-              Container(
-                child: SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      CalenderStrip(16,"Lu", true),
-                      CalenderStrip(17,"Ma", false),
-                      CalenderStrip(18,"Mi", false),
-                      CalenderStrip(19,"Ju", false),
-                      CalenderStrip(20,"Vi", false),
-                      CalenderStrip(21,"Sa", false),
-                      CalenderStrip(22,"Do", false),
-                      CalenderStrip(23,"Lu", false),
-                      CalenderStrip(24,"Ma", false),
-                      CalenderStrip(25,"Mi", false),
-                      CalenderStrip(26,"Ju", false),
-                      CalenderStrip(27,"Vi", false),
-                      CalenderStrip(28,"Sa", false),
-                      CalenderStrip(29,"Do", false),
-                      CalenderStrip(30,"Lu", false),
-                    ],
-                  ),
-                ),
+              // Container(
+              //   child: SingleChildScrollView(
+              //     scrollDirection: Axis.horizontal,
+              //     child: Row(
+              //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              //       children: [
+              //         CalenderStrip(16,"Lu", true),
+              //         CalenderStrip(17,"Ma", false),
+              //         CalenderStrip(18,"Mi", false),
+              //         CalenderStrip(19,"Ju", false),
+              //         CalenderStrip(20,"Vi", false),
+              //         CalenderStrip(21,"Sa", false),
+              //         CalenderStrip(22,"Do", false),
+              //         CalenderStrip(23,"Lu", false),
+              //         CalenderStrip(24,"Ma", false),
+              //         CalenderStrip(25,"Mi", false),
+              //         CalenderStrip(26,"Ju", false),
+              //         CalenderStrip(27,"Vi", false),
+              //         CalenderStrip(28,"Sa", false),
+              //         CalenderStrip(29,"Do", false),
+              //         CalenderStrip(30,"Lu", false),
+              //       ],
+              //     ),
+              //   ),
+              // ),
+              CalendarTimeline(
+                initialDate: DateTime.now(),
+                firstDate: DateTime(2019, 1, 15),
+                lastDate: DateTime(2030, 12, 31),
+                onDateSelected: (date) => print(date),
+                leftMargin: 20,
+                monthColor: Colors.blueGrey,
+                dayColor: Colors.teal[200],
+                activeDayColor: Colors.white,
+                activeBackgroundDayColor: Colors.redAccent[100],
+                dotsColor: Color(0xFF333A47),
+                //selectableDayPredicate: (date) => date.day != 23,
+                //locale: 'en_ISO',
               ),
               SizedBox(
                 height: 23,
@@ -125,7 +156,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       ProgressBar(
-                          max: 100, current: 4
+                          max: 100, current: 6
                       ),
                       SizedBox(
                         height: 5,
@@ -175,7 +206,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     child: Column(
                       children: [
                         InkWell(onTap: () {
-                          Navigator.of(context).push(MaterialPageRoute(builder: (context) => ButtChallengeExercise()));
+                          Navigator.of(context).push(MaterialPageRoute(builder: (context) => ExerciseDate()));
                         },
                           child: HomeTile(
                             img: Image.asset("assets/image1.png",width: 90,

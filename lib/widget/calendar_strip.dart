@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-Container CalenderStrip(int date,String weekDay, bool isActive) {
+Container CalendarStrip(int date,String weekDay, bool isActive) {
   return Container(
     height: 55,
     width: 50,
@@ -13,7 +13,7 @@ Container CalenderStrip(int date,String weekDay, bool isActive) {
           decoration: BoxDecoration(
             //shape: BoxShape.circle,
               border: Border.all(
-                color: Color(0xff6EAD7A),
+                color: Color(0xff79dd72),
                 width: 2.5,
               ),
               borderRadius: BorderRadius.all(Radius.circular(20))
@@ -25,7 +25,7 @@ Container CalenderStrip(int date,String weekDay, bool isActive) {
                 ? BoxDecoration(
               borderRadius: BorderRadius.all(Radius.circular(20)),
               //shape: BoxShape.circle,
-              color: Color(0xff6EAD7A),)
+              color: Color(0xff79dd72),)
                 : BoxDecoration(),
             child: Center(
               child: Text(
