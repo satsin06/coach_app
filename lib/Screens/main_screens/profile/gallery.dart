@@ -1,3 +1,4 @@
+import 'package:coach_app/Screens/main_screens/profile/modification.dart';
 import 'package:coach_app/Screens/main_screens/profile/setting.dart';
 import 'package:flutter/material.dart';
 
@@ -142,7 +143,7 @@ class Gallery extends StatelessWidget {
                 onTap: () {
                   Navigator.of(context).push(
                     MaterialPageRoute(
-                      builder: (context) => SettingPage(),
+                      builder: (context) => Modification(),
                     ),
                   );
                 },

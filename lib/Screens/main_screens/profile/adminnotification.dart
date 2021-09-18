@@ -271,10 +271,115 @@ class AdminNotify extends StatelessWidget {
                   SizedBox(height: 10,),
                   InkWell(
                     onTap:  () {
-                      Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder: (context) => PlanNutrition(),
-                        ),
+                      showDialog(
+                        context: context,
+                        builder: (context) {
+                          return Dialog(
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20)),
+                            elevation: 16,
+                            child: Container(
+                              padding: EdgeInsets.all(10),
+                              height: MediaQuery.of(context).size.height * 0.35,
+                              child: Column(
+                                children: [
+                                  Container(
+                                    child: Container(
+                                      child: Row(
+                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Container(
+                                            child: Text("Nueva Alarma"),
+                                          ),
+                                          InkWell(
+                                            onTap: () {
+                                              Navigator.of(context).pop();
+                                            },
+                                            child: Container(
+                                              child: Icon(Icons.cancel_outlined,
+                                              color: Colors.grey,),
+                                            ),
+                                          )
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                  Divider(
+                                    thickness: 1,
+                                  ),
+                                  Container(
+                                    padding: EdgeInsets.all(10),
+                                    child: Column(
+                                      children: [
+                                        SizedBox(height: 10,),
+                                        Container(
+                                          child: Row(
+                                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Text('Fijar nombre',
+                                                  style: TextStyle(
+                                                      color: Colors.grey.shade600
+                                                  )),
+                                              Container(
+                                                height: 30,
+                                                width: 100,
+                                                decoration: BoxDecoration(
+                                                    borderRadius: BorderRadius.circular(10.0),
+                                                    border: Border.all(color: Colors.grey)),
+                                                child: Center(child: Container(child: Text('Ayuno'))),
+                                              )
+                                            ],
+                                          ),
+                                        ),
+                                        SizedBox(height: 20,),
+                                        Container(
+                                          child: Row(
+                                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Text('Fijar hora',
+                                                  style: TextStyle(
+                                                      color: Colors.grey.shade600
+                                                  )),
+                                              Container(
+                                                height: 30,
+                                                width: 100,
+                                                decoration: BoxDecoration(
+                                                    borderRadius: BorderRadius.circular(10.0),
+                                                    border: Border.all(color: Colors.grey)),
+                                                child: Center(child: Container(child: Text('6:00 am'))),
+                                              )
+                                            ],
+                                          ),
+                                        )
+                                        ])
+                                  ),
+                                  SizedBox(
+                                    height: 30,
+                                  ),
+                                  InkWell(
+                                    child: Container(
+                                      height: 30,
+                                      width: 200,
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(20.0),
+                                        color: Colors.green,
+                                      ),
+                                      child: Center(
+                                          child: Container(child: Text('Agregar Alarma'))),
+                                    ),
+                                    onTap: () {
+                                      Navigator.of(context).push(
+                                        MaterialPageRoute(
+                                          builder: (context) => PlanNutrition(),
+                                        ),
+                                      );
+                                    },
+                                  )
+                                ],
+                              ),
+                            ),
+                          );
+                        },
                       );
                     },
                     child: Container(
@@ -308,6 +413,7 @@ class AdminNotify extends StatelessWidget {
     );
   }
 }
+
 
 
 
