@@ -1,3 +1,4 @@
+import 'package:coach_app/Screens/main_screens/profile/setting.dart';
 import 'package:flutter/material.dart';
 
 class Gallery extends StatelessWidget {
@@ -137,33 +138,44 @@ class Gallery extends StatelessWidget {
               ),
             ),
             Container(
-              padding: EdgeInsets.all(30),
-              child: Center(
-                child: Column(
-                  children: [
-                    Stack(
+              child: InkWell(
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => SettingPage(),
+                    ),
+                  );
+                },
+                child: Container(
+                  padding: EdgeInsets.all(30),
+                  child: Center(
+                    child: Column(
                       children: [
-                        Image.asset("assets/camera.png",
-                          height: 60,
-                          width: 60,),
-                        Positioned(
-                          left: 15,
-                            top: 18,
-                            child: Icon(Icons.add,
-                          color: Colors.green,
-                            size: 30,))
+                        Stack(
+                          children: [
+                            Image.asset("assets/camera.png",
+                              height: 60,
+                              width: 60,),
+                            Positioned(
+                              left: 15,
+                                top: 18,
+                                child: Icon(Icons.add,
+                              color: Colors.green,
+                                size: 30,))
 
-                    ]),
-                    SizedBox(height: 5,),
-                    Container(
-                      child: Text("Subir Foto",
-                      style: TextStyle(
-                        color: Colors.grey.shade800,
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold
-                      ),),
-                    )
-                  ],
+                        ]),
+                        SizedBox(height: 5,),
+                        Container(
+                          child: Text("Subir Foto",
+                          style: TextStyle(
+                            color: Colors.grey.shade800,
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold
+                          ),),
+                        )
+                      ],
+                    ),
+                  ),
                 ),
               ),
             )

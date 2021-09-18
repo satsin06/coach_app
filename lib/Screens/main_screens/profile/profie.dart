@@ -1,3 +1,4 @@
+import 'package:coach_app/Screens/main_screens/profile/adminnotification.dart';
 import 'package:coach_app/widget/profile_tile.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -153,7 +154,13 @@ class Profile extends StatelessWidget {
               profileTile(title: 'Términos y condiciones', onTap: () {}, context: context),
               profileTile(title: 'Políticas de privacidad', onTap: () {}, context: context),
               SizedBox(height: 40,),
-              ElevatedButton(onPressed: (){}, child: Text('CERRAR SESIÓN', style: TextStyle(
+              ElevatedButton(onPressed: (){
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => AdminNotify(),
+                  ),
+                );
+              }, child: Text('CERRAR SESIÓN', style: TextStyle(
                 color: Colors.black38, fontSize: 24,
               ),
               ),

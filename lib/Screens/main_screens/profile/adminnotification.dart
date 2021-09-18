@@ -1,4 +1,5 @@
 import 'package:coach_app/Screens/main_screens/profile/gallery.dart';
+import 'package:coach_app/Screens/main_screens/profile/plan.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_switch/flutter_switch.dart';
@@ -272,7 +273,7 @@ class AdminNotify extends StatelessWidget {
                     onTap:  () {
                       Navigator.of(context).push(
                         MaterialPageRoute(
-                          builder: (context) => Gallery(),
+                          builder: (context) => PlanNutrition(),
                         ),
                       );
                     },
