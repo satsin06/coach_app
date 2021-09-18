@@ -36,6 +36,8 @@ dependencies:
   calendar_timeline: ^0.7.1
   table_calendar: ^3.0.2
   syncfusion_flutter_datepicker: ^19.2.62
+  flutter_switch: ^0.3.2
+  toggle_switch: ^1.2.0
 
   #Firebase
   firebase_core: ^1.6.0
