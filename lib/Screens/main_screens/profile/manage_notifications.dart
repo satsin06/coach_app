@@ -59,39 +59,42 @@ class ManageNotifications extends StatelessWidget {
           children: [
             SizedBox(height: 5,),
             Container(
-              child: Row(
-                children: [
-                  Container(
-                    padding: EdgeInsets.only(left: 20),
-                    child: InkWell(
-                      onTap: () {
-                        Navigator.of(context).pop();
-                      },
-                      child: Icon(
-                        Icons.arrow_back_ios,
-                        color: Colors.black,
-                        size: 25,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 18.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Container(
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.of(context).pop();
+                        },
+                        child: Icon(
+                          Icons.arrow_back_ios,
+                          color: Colors.black,
+                          size: 25,
+                        ),
                       ),
                     ),
-                  ),
-                  Container(
-                    padding: EdgeInsets.only(left: 70),
-                    child: Column(
-                      children: [
-                        Text("ADMINISTRAR",
-                        style: TextStyle(
-                          fontSize: 17,
-                          fontWeight: FontWeight.bold
-                        ),),
-                        Text("NOTIFICACIONES",
+                    Container(
+                      child: Column(
+                        children: [
+                          Text("ADMINISTRAR",
                           style: TextStyle(
-                              fontSize: 17,
-                              fontWeight: FontWeight.bold
-                          ),)
-                      ],
+                            fontSize: 17,
+                            fontWeight: FontWeight.bold
+                          ),),
+                          Text("NOTIFICACIONES",
+                            style: TextStyle(
+                                fontSize: 17,
+                                fontWeight: FontWeight.bold
+                            ),)
+                        ],
+                      ),
                     ),
-                  )
-                ],
+                    Container(),
+                  ],
+                ),
               ),
             ),
             Container(
@@ -396,11 +399,11 @@ class ManageNotifications extends StatelessWidget {
                                           child: Container(child: Text('Agregar Alarma'))),
                                     ),
                                     onTap: () {
-                                      Navigator.of(context).push(
-                                        MaterialPageRoute(
-                                          builder: (context) => PlanNutrition(),
-                                        ),
-                                      );
+                                      // Navigator.of(context).push(
+                                      //   MaterialPageRoute(
+                                      //     builder: (context) => PlanNutrition(),
+                                      //   ),
+                                      // );
                                     },
                                   )
                                 ],

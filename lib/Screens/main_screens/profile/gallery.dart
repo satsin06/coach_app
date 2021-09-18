@@ -50,17 +50,17 @@ class Gallery extends StatelessWidget {
       ),
       body: Container(
         color: Colors.white,
-        //width: MediaQuery.of(context).size.width,
         child: Column(
           children: [
             SizedBox(
               height: 5,
             ),
-            Container(
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 18.0),
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Container(
-                    padding: EdgeInsets.only(left: 20),
                     child: InkWell(
                       onTap: () {
                         Navigator.of(context).pop();
@@ -73,8 +73,6 @@ class Gallery extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    width: MediaQuery.of(context).size.width/2,
-                    padding: EdgeInsets.only(left: 70),
                     child: Center(
                       child: Text("GALERÍA",
                         style: TextStyle(
@@ -82,6 +80,8 @@ class Gallery extends StatelessWidget {
                             fontWeight: FontWeight.bold
                         ),),
                     ),
+                  ),
+                  Container(
                   )
                 ],
               ),
@@ -109,6 +109,7 @@ class Gallery extends StatelessWidget {
             Container(
               padding: EdgeInsets.all(30),
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Container(
                     color: Colors.grey,
@@ -119,14 +120,14 @@ class Gallery extends StatelessWidget {
                           height: 250,
                           width: 148,
                           child: Center(
-                            child: Image.asset("assets/image1.jpg",
-                            fit: BoxFit.fill,),
-                            // child: Text("gallery Image",
-                            // style: TextStyle(
-                            //   fontWeight: FontWeight.bold,
-                            //   fontSize: 25,
-                            //   color: Colors.white
-                            // ),),
+                            // child: Image.asset("assets/image1.jpg",
+                            // fit: BoxFit.fill,),
+                            child: Text("gallery Image",
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 25,
+                              color: Colors.white
+                            ),),
                           ),
                         ),
                         Container(
@@ -148,14 +149,14 @@ class Gallery extends StatelessWidget {
                           height: 250,
                           //width: 140,
                           child: Center(
-                            child: Image.asset("assets/image2.jpg",
-                            fit: BoxFit.fill,),
-                            // child: Text("gallery Image",
-                            //   style: TextStyle(
-                            //       fontWeight: FontWeight.bold,
-                            //       fontSize: 25,
-                            //       color: Colors.white
-                            //   ),),
+                            // child: Image.asset("assets/image2.jpg",
+                            // fit: BoxFit.fill,),
+                            child: Text("gallery Image",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 25,
+                                  color: Colors.white
+                              ),),
                            ),
                         ),
                         Container(
@@ -170,36 +171,19 @@ class Gallery extends StatelessWidget {
             Container(
               child: InkWell(
                 onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => ModificationSubscription(),
-                    ),
-                  );
                 },
                 child: Container(
                   padding: EdgeInsets.all(30),
                   child: Center(
                     child: Column(
                       children: [
-                        Stack(
-                          children: [
-                            Image.asset("assets/camera.png",
-                              height: 60,
-                              width: 60,),
-                            Positioned(
-                              left: 15,
-                                top: 18,
-                                child: Icon(Icons.add,
-                              color: Colors.green,
-                                size: 30,))
-
-                        ]),
+                        Icon(Icons.camera_enhance_rounded, size: 60,),
                         SizedBox(height: 5,),
                         Container(
                           child: Text("Subir Foto",
                           style: TextStyle(
                             color: Colors.grey.shade800,
-                            fontSize: 20,
+                            fontSize: 24,
                             fontWeight: FontWeight.bold
                           ),),
                         )

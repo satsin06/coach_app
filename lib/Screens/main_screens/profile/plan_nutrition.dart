@@ -16,6 +16,7 @@ class _PlanNutritionState extends State<PlanNutrition> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
         appBar: AppBar(
             elevation: 0,
             backgroundColor: Colors.white,
@@ -56,7 +57,7 @@ class _PlanNutritionState extends State<PlanNutrition> {
         ),
       body: Container(
         child: Padding(
-          padding: const EdgeInsets.all(25.0),
+          padding: const EdgeInsets.all(12.0),
           child: Column(
             children: [
               SizedBox(
@@ -161,31 +162,34 @@ class _PlanNutritionState extends State<PlanNutrition> {
               SizedBox(
                 height: 20,
               ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Objecto',
-                      style: TextStyle(
-                          color: Colors.grey.shade600
-                      )
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  ToggleSwitch(
-                    minWidth: 100.0,
-                    initialLabelIndex: 0,
-                    activeBgColor: [Colors.green],
-                    inactiveBgColor: Colors.grey.shade300,
-                    labels: ['Bajar', 'Mantener', 'Subir'],
-                    fontSize: 12,
-                    totalSwitches: 3,
-                    onToggle: (index) {
-                      print('Switched to: $index');
-                    },
-                  )
-                ],
+              Container(
+                width: MediaQuery.of(context).size.width,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Objecto',
+                        style: TextStyle(
+                            color: Colors.grey.shade600
+                        )
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    ToggleSwitch(
+                      minWidth: MediaQuery.of(context).size.width * 1,
+                      initialLabelIndex: 0,
+                      activeBgColor: [Colors.green],
+                      inactiveBgColor: Colors.grey.shade300,
+                      labels: ['Bajar', 'Mantener', 'Subir'],
+                      fontSize: 12,
+                      totalSwitches: 3,
+                      onToggle: (index) {
+                        print('Switched to: $index');
+                      },
+                    )
+                  ],
+                ),
               ),
               SizedBox(
                 height: 20,
@@ -209,31 +213,34 @@ class _PlanNutritionState extends State<PlanNutrition> {
               SizedBox(
                 height: 20,
               ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Velocidad',
-                      style: TextStyle(
-                          color: Colors.grey.shade600
-                      )
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  ToggleSwitch(
-                    minWidth: 100.0,
-                    initialLabelIndex: 0,
-                    activeBgColor: [Colors.green],
-                    inactiveBgColor: Colors.grey.shade300,
-                    labels: ['Acelerada', 'Recomendada', 'Lento'],
-                    fontSize: 12,
-                    totalSwitches: 3,
-                    onToggle: (index) {
-                      print('Switched to: $index');
-                    },
-                  )
-                ],
+              Container(
+                width: MediaQuery.of(context).size.width,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Velocidad',
+                        style: TextStyle(
+                            color: Colors.grey.shade600
+                        )
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    ToggleSwitch(
+                      minWidth: MediaQuery.of(context).size.width,
+                      initialLabelIndex: 0,
+                      activeBgColor: [Colors.green],
+                      inactiveBgColor: Colors.grey.shade300,
+                      labels: ['Acelerada', 'Recomendada', 'Lento'],
+                      fontSize: 12,
+                      totalSwitches: 3,
+                      onToggle: (index) {
+                        print('Switched to: $index');
+                      },
+                    )
+                  ],
+                ),
               ),
               SizedBox(
                 height: 20,
