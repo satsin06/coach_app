@@ -1,3 +1,4 @@
+import 'package:coach_app/Screens/main_screens/profile/adminnotification.dart';
 import 'package:coach_app/Screens/splash_screen.dart';
 import 'package:coach_app/widget/profile_tile.dart';
 import 'package:flutter/cupertino.dart';
@@ -175,49 +176,25 @@ class Profile extends StatelessWidget {
               Divider(
                 thickness: 2,
               ),
-              profileTileWithTrailing(
-                  title: 'Administrar notificaciones',
-                  icon: Icons.arrow_forward_ios,
-                  onTap: () {},
-                  context: context),
-              profileTileWithTrailing(
-                  title: 'Plan nutricional',
-                  icon: Icons.arrow_forward_ios,
-                  onTap: () {},
-                  context: context),
-              profileTileWithTrailing(
-                  title: 'Galería de fotos',
-                  icon: Icons.arrow_forward_ios,
-                  onTap: () {},
-                  context: context),
-              profileTileWithTrailing(
-                  title: 'Modificar Suscripción',
-                  icon: Icons.arrow_forward_ios,
-                  onTap: () {},
-                  context: context),
-              profileTileWithTrailing(
-                  title: 'Ajustes',
-                  icon: Icons.arrow_forward_ios,
-                  onTap: () {},
-                  context: context),
-              profileTile(
-                  title: 'Comentarios y sugerencias',
-                  onTap: () {},
-                  context: context),
-              profileTile(
-                  title: 'Reportar un problema',
-                  onTap: () {},
-                  context: context),
-              profileTile(
-                  title: 'Términos y condiciones',
-                  onTap: () {},
-                  context: context),
-              profileTile(
-                  title: 'Políticas de privacidad',
-                  onTap: () {},
-                  context: context),
-              SizedBox(
-                height: 40,
+              profileTileWithTrailing(title: 'Administrar notificaciones', icon: Icons.arrow_forward_ios, onTap: () {}, context: context),
+              profileTileWithTrailing(title: 'Plan nutricional', icon: Icons.arrow_forward_ios, onTap: () {}, context: context),
+              profileTileWithTrailing(title: 'Galería de fotos', icon: Icons.arrow_forward_ios, onTap: () {}, context: context),
+              profileTileWithTrailing(title: 'Modificar Suscripción', icon: Icons.arrow_forward_ios, onTap: () {}, context: context),
+              profileTileWithTrailing(title: 'Ajustes', icon: Icons.arrow_forward_ios, onTap: () {}, context: context),
+              profileTile(title: 'Comentarios y sugerencias', onTap: () {}, context: context),
+              profileTile(title: 'Reportar un problema', onTap: () {}, context: context),
+              profileTile(title: 'Términos y condiciones', onTap: () {}, context: context),
+              profileTile(title: 'Políticas de privacidad', onTap: () {}, context: context),
+              SizedBox(height: 40,),
+              ElevatedButton(onPressed: (){
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => AdminNotify(),
+                  ),
+                );
+              }, child: Text('CERRAR SESIÓN', style: TextStyle(
+                color: Colors.black38, fontSize: 24,
+              ),
               ),
               ElevatedButton(
                 onPressed: () {},
