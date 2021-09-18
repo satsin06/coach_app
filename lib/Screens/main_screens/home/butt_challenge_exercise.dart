@@ -218,7 +218,7 @@ class ButtChallengeExercise extends StatelessWidget {
                       child: ElevatedButton(
                           onPressed: () {},
                           style: ElevatedButton.styleFrom(
-                            primary: Colors.green.shade500,
+                            primary: Color(0xff79dd72),
                             shape: RoundedRectangleBorder(
                                 borderRadius:
                                 BorderRadius.circular(15)),
@@ -228,7 +228,7 @@ class ButtChallengeExercise extends StatelessWidget {
                             // )
                           ),
                           child: Text(
-                            "INICO",
+                            "TERMINADO",
                             textAlign: TextAlign.center,
                             style: TextStyle(
                               color: Colors.black,

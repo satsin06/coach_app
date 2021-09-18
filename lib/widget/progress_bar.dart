@@ -21,7 +21,7 @@ class ProgressBar extends StatelessWidget {
           children: [
             Container(
               width: x,
-              height: 13,
+              height: 18,
               decoration: BoxDecoration(
                 color: Color(0xffd3d3d3),
                 borderRadius: BorderRadius.circular(35),
@@ -30,7 +30,7 @@ class ProgressBar extends StatelessWidget {
             AnimatedContainer(
               duration: Duration(milliseconds: 500),
               width: percent,
-              height: 13,
+              height: 18,
               decoration: BoxDecoration(
                 color: color,
                 borderRadius: BorderRadius.circular(35),

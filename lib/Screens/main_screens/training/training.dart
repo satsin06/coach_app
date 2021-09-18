@@ -1,6 +1,7 @@
+import 'package:calendar_timeline/calendar_timeline.dart';
 import 'package:coach_app/Screens/main_screens/bottom_bar.dart';
 import 'package:coach_app/Screens/main_screens/home/home_screen.dart';
-import 'package:coach_app/widget/calender_strip.dart';
+import 'package:coach_app/widget/calendar_strip.dart';
 import 'package:coach_app/widget/training_tile.dart';
 import 'package:coach_app/widget/video_tile.dart';
 import 'package:flutter/material.dart';
@@ -92,7 +93,7 @@ class Training extends StatelessWidget {
                             TextSpan(
                               text: 'ENTRENAMIENTO',
                               style: TextStyle(
-                                  color: Color(0xff6EAD7A),
+                                  color: Color(0xff79dd72),
                                   fontSize: 22,
                                   fontWeight: FontWeight.w800),
                             )
@@ -118,30 +119,44 @@ class Training extends StatelessWidget {
                   ),
                 ),
               ),
-              Container(
-                child: SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      CalenderStrip(16, "Lu", true),
-                      CalenderStrip(17, "Ma", false),
-                      CalenderStrip(18, "Mi", false),
-                      CalenderStrip(19, "Ju", false),
-                      CalenderStrip(20, "Vi", false),
-                      CalenderStrip(21, "Sa", false),
-                      CalenderStrip(22, "Do", false),
-                      CalenderStrip(23, "Do", false),
-                      CalenderStrip(24,"Ma", false),
-                      CalenderStrip(25,"Mi", false),
-                      CalenderStrip(26,"Ju", false),
-                      CalenderStrip(27,"Vi", false),
-                      CalenderStrip(28,"Sa", false),
-                      CalenderStrip(29,"Do", false),
-                      CalenderStrip(30,"Lu", false),
-                    ],
-                  ),
-                ),
+              // Container(
+              //   child: SingleChildScrollView(
+              //     scrollDirection: Axis.horizontal,
+              //     child: Row(
+              //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              //       children: [
+              //         CalendarStrip(16, "Lu", true),
+              //         CalendarStrip(17, "Ma", false),
+              //         CalendarStrip(18, "Mi", false),
+              //         CalendarStrip(19, "Ju", false),
+              //         CalendarStrip(20, "Vi", false),
+              //         CalendarStrip(21, "Sa", false),
+              //         CalendarStrip(22, "Do", false),
+              //         CalendarStrip(23, "Do", false),
+              //         CalendarStrip(24,"Ma", false),
+              //         CalendarStrip(25,"Mi", false),
+              //         CalendarStrip(26,"Ju", false),
+              //         CalendarStrip(27,"Vi", false),
+              //         CalendarStrip(28,"Sa", false),
+              //         CalendarStrip(29,"Do", false),
+              //         CalendarStrip(30,"Lu", false),
+              //       ],
+              //     ),
+              //   ),
+              // ),
+              CalendarTimeline(
+                initialDate: DateTime.now(),
+                firstDate: DateTime(2019, 1, 15),
+                lastDate: DateTime(2030, 12, 31),
+                onDateSelected: (date) => print(date),
+                leftMargin: 20,
+                monthColor: Colors.blueGrey,
+                dayColor: Colors.teal[200],
+                activeDayColor: Colors.white,
+                activeBackgroundDayColor: Colors.redAccent[100],
+                dotsColor: Color(0xFF333A47),
+                //selectableDayPredicate: (date) => date.day != 23,
+                //locale: 'en_ISO',
               ),
               SizedBox(
                 height: 23,
@@ -210,12 +225,46 @@ class Training extends StatelessWidget {
                 child: SingleChildScrollView(
                   child: Column(
                     children: [
-                      InkWell(onTap: () {
-                        Navigator.of(context).push(MaterialPageRoute(builder: (context) => VideoTile(ytid: 'T9dJ_cE5Asw', text: "Sentadillas",text1: "6-8 resps",text2: 'rest 30"',text3: "4 sets",)));
-                      },child: TrainingTile(alpha1: 'A1', alpha2: 'A2', text: 'Sentadillas', text1: '6-8 resps', text2: 'rest 30”', text3: '4 sets', texta: 'Desplantes',)),
-                      InkWell(onTap:() {
-                        Navigator.of(context).push(MaterialPageRoute(builder: (context) => VideoTile(ytid: 'T9dJ_cE5Asw', text: "Sentadillas",text1: "6-8 resps",text2: 'rest 30"',text3: "4 sets",)));
-                      },child: TrainingTile(alpha1: 'B1', alpha2: 'B2', text: 'ABS', text1: '6-8 resps', text2: 'rest 30”', text3: '4 sets', texta: 'Tijeras',)),
+                      InkWell(
+                          onTap: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => VideoTile(
+                                      ytid: 'T9dJ_cE5Asw',
+                                      text: "Sentadillas",
+                                      text1: "6-8 resps",
+                                      text2: 'rest 30"',
+                                      text3: "4 sets",
+                                    )));
+                          },
+                          child: TrainingTile(
+                            alpha1: 'A1',
+                            alpha2: 'A2',
+                            text: 'Sentadillas',
+                            text1: '6-8 resps',
+                            text2: 'rest 30”',
+                            text3: '4 sets',
+                            texta: 'Desplantes',
+                          )),
+                      InkWell(
+                          onTap: () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context) => VideoTile(
+                                      ytid: 'T9dJ_cE5Asw',
+                                      text: "Sentadillas",
+                                      text1: "6-8 resps",
+                                      text2: 'rest 30"',
+                                      text3: "4 sets",
+                                    )));
+                          },
+                          child: TrainingTile(
+                            alpha1: 'B1',
+                            alpha2: 'B2',
+                            text: 'ABS',
+                            text1: '6-8 resps',
+                            text2: 'rest 30”',
+                            text3: '4 sets',
+                            texta: 'Tijeras',
+                          )),
                     ],
                   ),
                 ),
@@ -227,4 +276,3 @@ class Training extends StatelessWidget {
     );
   }
 }
-
