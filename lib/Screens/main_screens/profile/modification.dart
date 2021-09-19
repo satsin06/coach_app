@@ -93,7 +93,7 @@ class _ModificationState extends State<Modification> {
                         onTap: () {
                           Navigator.of(context).push(
                             MaterialPageRoute(
-                              builder: (context) => SettingPage(),
+                              builder: (context) => Setting(),
                             ),
                           );
                         },

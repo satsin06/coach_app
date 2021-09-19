@@ -165,7 +165,7 @@ class _ModificationSubscriptionState extends State<ModificationSubscription> {
                 },
                 child: Container(
                   height: MediaQuery.of(context).size.height * 0.20,
-                  width: MediaQuery.of(context).size.width * 0.80,
+                  width: MediaQuery.of(context).size.width * 0.90,
                   color: _color,
                   child: Column(
                     children: [
@@ -247,7 +247,7 @@ class _ModificationSubscriptionState extends State<ModificationSubscription> {
                 },
                 child: Container(
                   height: MediaQuery.of(context).size.height * 0.20,
-                  width: MediaQuery.of(context).size.width * 0.80,
+                  width: MediaQuery.of(context).size.width * 0.90,
                   color: _color2,
                   child: Column(
                     children: [
@@ -329,7 +329,7 @@ class _ModificationSubscriptionState extends State<ModificationSubscription> {
                 },
                 child: Container(
                   height: MediaQuery.of(context).size.height * 0.22,
-                  width: MediaQuery.of(context).size.width * 0.80,
+                  width: MediaQuery.of(context).size.width * 0.90,
                   color: _color3,
                   child: Column(
                     children: [
