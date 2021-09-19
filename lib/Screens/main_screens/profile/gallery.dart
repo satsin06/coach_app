@@ -1,3 +1,4 @@
+
 import 'package:coach_app/Screens/main_screens/profile/modification_subscription.dart';
 import 'package:coach_app/Screens/main_screens/profile/setting.dart';
 import 'package:flutter/material.dart';
@@ -120,8 +121,6 @@ class Gallery extends StatelessWidget {
                           height: 250,
                           width: 148,
                           child: Center(
-                            // child: Image.asset("assets/image1.jpg",
-                            // fit: BoxFit.fill,),
                             child: Text("gallery Image",
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
@@ -149,8 +148,6 @@ class Gallery extends StatelessWidget {
                           height: 250,
                           //width: 140,
                           child: Center(
-                            // child: Image.asset("assets/image2.jpg",
-                            // fit: BoxFit.fill,),
                             child: Text("gallery Image",
                               style: TextStyle(
                                   fontWeight: FontWeight.bold,
