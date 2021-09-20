@@ -78,8 +78,8 @@ class SignUpPage extends StatelessWidget {
             ),
           ),
           ElevatedButton(
-            onPressed: () {
-              authService.createWithEmailAndPassword(emailController.text, passwordController.text);
+            onPressed: () async {
+             await authService.createUserWithEmailAndPassword(emailController.text, passwordController.text);
             },
             child: Text(
               'CONTINUAR',

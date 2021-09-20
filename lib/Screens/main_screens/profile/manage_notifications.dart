@@ -1,5 +1,3 @@
-import 'package:coach_app/Screens/main_screens/profile/gallery.dart';
-import 'package:coach_app/Screens/main_screens/profile/plan_nutrition.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_switch/flutter_switch.dart';
@@ -8,10 +6,49 @@ import '../../../custom_icons_icons.dart';
 
 
 bool isChecked = false;
+bool isChecked1 = false;
+bool isChecked2 = false;
 
 
-class ManageNotifications extends StatelessWidget {
+class ManageNotifications extends StatefulWidget {
   const ManageNotifications({Key? key}) : super(key: key);
+
+  @override
+  State<ManageNotifications> createState() => _ManageNotificationsState();
+}
+
+class _ManageNotificationsState extends State<ManageNotifications> {
+  String _selectedTime = "02:00 am";
+  String _selectedTime2 = "08:00 am";
+  String _selectedTime3 = "02:00 am";
+
+  Future<void> _show() async {
+    final TimeOfDay? result =
+    await showTimePicker(context: context, initialTime: TimeOfDay.now());
+    if (result != null) {
+      setState(() {
+        _selectedTime = result.format(context);
+      });
+    }
+  }
+  Future<void> _show2() async {
+    final TimeOfDay? result =
+    await showTimePicker(context: context, initialTime: TimeOfDay.now());
+    if (result != null) {
+      setState(() {
+        _selectedTime2 = result.format(context);
+      });
+    }
+  }
+  Future<void> _show3() async {
+    final TimeOfDay? result =
+    await showTimePicker(context: context, initialTime: TimeOfDay.now());
+    if (result != null) {
+      setState(() {
+        _selectedTime3 = result.format(context);
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -136,7 +173,7 @@ class ManageNotifications extends StatelessWidget {
                             //height: 30,
                             child: Container(
                               child: ElevatedButton(
-                                  onPressed: () {},
+                                  onPressed: _show,
                                   style: ElevatedButton.styleFrom(
                                       primary: Colors.white,
                                       shape: RoundedRectangleBorder(
@@ -147,7 +184,7 @@ class ManageNotifications extends StatelessWidget {
                                         width: 2,
                                       )),
                                   child: Text(
-                                    "2:00 am",
+                                  _selectedTime,
                                     textAlign: TextAlign.center,
                                     style: TextStyle(
                                         color: Colors.black,
@@ -164,9 +201,12 @@ class ManageNotifications extends StatelessWidget {
                             toggleSize: 20.0,
                             borderRadius: 20.0,
                             activeColor: Colors.green,
-                            value: true,
+                            value: isChecked,
                             onToggle: (value) {
-                              print("click");
+                              print(value);
+                              setState(() {
+                                isChecked = value;
+                              });
                             },
                           ),
                         )
@@ -198,7 +238,7 @@ class ManageNotifications extends StatelessWidget {
                                 //height: 30,
                                 child: Container(
                                   child: ElevatedButton(
-                                      onPressed: () {},
+                                      onPressed: _show2,
                                       style: ElevatedButton.styleFrom(
                                           primary: Colors.white,
                                           shape: RoundedRectangleBorder(
@@ -209,7 +249,7 @@ class ManageNotifications extends StatelessWidget {
                                             width: 2,
                                           )),
                                       child: Text(
-                                        "8:00 am",
+                                        _selectedTime2,
                                         textAlign: TextAlign.center,
                                         style: TextStyle(
                                             color: Colors.black,
@@ -226,9 +266,12 @@ class ManageNotifications extends StatelessWidget {
                                   toggleSize: 20.0,
                                   borderRadius: 20.0,
                                   activeColor: Colors.green,
-                                  value: false,
+                                  value: isChecked1,
                                   onToggle: (value) {
-                                    print("click");
+                                    print(value);
+                                    setState(() {
+                                      isChecked1 = value;
+                                    });
                                   },
                                 ),
                               )
@@ -260,7 +303,7 @@ class ManageNotifications extends StatelessWidget {
                                 //height: 30,
                                 child: Container(
                                   child: ElevatedButton(
-                                      onPressed: () {},
+                                      onPressed: _show3,
                                       style: ElevatedButton.styleFrom(
                                           primary: Colors.white,
                                           shape: RoundedRectangleBorder(
@@ -271,7 +314,7 @@ class ManageNotifications extends StatelessWidget {
                                             width: 2,
                                           )),
                                       child: Text(
-                                        "8:00 am",
+                                        _selectedTime3,
                                         textAlign: TextAlign.center,
                                         style: TextStyle(
                                             color: Colors.black,
@@ -288,9 +331,12 @@ class ManageNotifications extends StatelessWidget {
                                   toggleSize: 20.0,
                                   borderRadius: 20.0,
                                   activeColor: Colors.green,
-                                  value: false,
+                                  value: isChecked2,
                                   onToggle: (value) {
-                                    print("click");
+                                    print(value);
+                                    setState(() {
+                                      isChecked2 = value;
+                                    });
                                   },
                                 ),
 

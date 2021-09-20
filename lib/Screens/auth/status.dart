@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:coach_app/Screens/auth/signin.dart';
+import 'package:coach_app/services/auth_wrapper.dart';
 import 'package:flutter/material.dart';
 
 class Status extends StatefulWidget {
@@ -32,7 +33,7 @@ class _StatusState extends State<Status> {
   }
   route() {
     Navigator.pushReplacement(context, MaterialPageRoute(
-        builder: (context) => SignInPage()
+        builder: (context) => AuthWrapper()
     )
     );
   }
