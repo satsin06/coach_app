@@ -5,8 +5,7 @@ import 'package:coach_app/custom_icons_icons.dart';
 import 'package:flutter/material.dart';
 
 import 'diet/diet.dart';
-import 'home/HomePage.dart';
-//import 'home/home_screen.dart';
+import 'home/home_screen.dart';
 
 
 class BottomBar extends StatefulWidget {

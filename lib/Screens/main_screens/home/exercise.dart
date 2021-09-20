@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 import '../../../custom_icons_icons.dart';
 
 
-class ButtChallengeExercise extends StatelessWidget {
-  const ButtChallengeExercise({Key? key}) : super(key: key);
+class Exercise extends StatelessWidget {
+  const Exercise({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

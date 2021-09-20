@@ -1,5 +1,5 @@
 import 'package:calendar_timeline/calendar_timeline.dart';
-import 'package:coach_app/Screens/main_screens/home/butt_challenge_exercise.dart';
+import 'package:coach_app/Screens/main_screens/home/exercise.dart';
 import 'package:coach_app/Screens/main_screens/home/exercise_date.dart';
 import 'package:coach_app/Screens/main_screens/home/my_performance.dart';
 import 'package:coach_app/widget/calendar_strip.dart';
@@ -145,7 +145,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 activeBackgroundDayColor: Colors.redAccent[100],
                 dotsColor: Color(0xFF333A47),
                 //selectableDayPredicate: (date) => date.day != 23,
-                //locale: 'en_ISO',
+                locale: 'en_ISO',
               ),
               SizedBox(
                 height: 23,

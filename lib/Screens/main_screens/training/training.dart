@@ -158,7 +158,7 @@ class Training extends StatelessWidget {
                 activeBackgroundDayColor: Colors.redAccent[100],
                 dotsColor: Color(0xFF333A47),
                 //selectableDayPredicate: (date) => date.day != 23,
-                //locale: 'en_ISO',
+                locale: 'en_ISO',
               ),
               SizedBox(
                 height: 20,
