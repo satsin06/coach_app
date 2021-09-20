@@ -1,3 +1,4 @@
+import 'package:coach_app/Screens/auth/signup.dart';
 import 'package:coach_app/services/auth_service.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -78,6 +79,30 @@ class EmailLogin extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal: 70, vertical: 10),
               textStyle: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
             ),
+          ),
+          Column(
+            children: [
+              Text(
+                '¿Ya tienes cuenta?',
+                style: TextStyle(
+                    color: Color(0xff79dd72),
+                    fontWeight: FontWeight.bold,
+                    fontSize: 40),
+              ),
+              SizedBox(height: 15,),
+              TextButton(
+                  onPressed: () {
+                    Navigator.of(context)
+                        .push(MaterialPageRoute(builder: (context) => SignUpPage()));
+                  },
+                  child: Text(
+                    'INICIA SESIÓN',
+                    style: TextStyle(
+                        color: Color(0xff76bcd4),
+                        fontWeight: FontWeight.normal,
+                        fontSize: 36),
+                  )),
+            ],
           ),
         ],
       ),

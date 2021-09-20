@@ -1,9 +1,6 @@
 import 'package:calendar_timeline/calendar_timeline.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:intl/intl.dart';
 import 'package:coach_app/Screens/main_screens/bottom_bar.dart';
-import 'package:coach_app/Screens/main_screens/home/home_screen.dart';
-import 'package:coach_app/widget/calendar_strip.dart';
 import 'package:coach_app/widget/training_tile.dart';
 import 'package:coach_app/widget/video_tile.dart';
 import 'package:flutter/material.dart';

@@ -3,11 +3,13 @@ import 'package:coach_app/Screens/main_screens/profile/manage_notifications.dart
 import 'package:coach_app/Screens/main_screens/profile/modification_subscription.dart';
 import 'package:coach_app/Screens/main_screens/profile/plan_nutrition.dart';
 import 'package:coach_app/Screens/main_screens/profile/setting.dart';
+import 'package:coach_app/services/auth_service.dart';
 import 'package:coach_app/widget/profile_tile.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
+import 'package:provider/provider.dart';
 
 import '../../../custom_icons_icons.dart';
 
@@ -16,6 +18,7 @@ class Profile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final authService = Provider.of<AuthService>(context);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
@@ -553,12 +556,8 @@ class Profile extends StatelessWidget {
                 height: 40,
               ),
               ElevatedButton(
-                onPressed: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => ManageNotifications(),
-                    ),
-                  );
+                onPressed: () async {
+                  await authService.signOut();
                 },
                 child: Text(
                   'CERRAR SESIÓN',
