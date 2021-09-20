@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_datepicker/datepicker.dart';
 
 import '../../../custom_icons_icons.dart';
-import 'butt_challenge_exercise.dart';
+import 'exercise.dart';
 
 class ExerciseDate extends StatefulWidget {
 
@@ -155,7 +155,7 @@ class _ExerciseDateState extends State<ExerciseDate> {
               SizedBox(height: 100,),
               ElevatedButton(
                   onPressed: () {
-                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => ButtChallengeExercise()));
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => Exercise()));
                   },
                   style: ElevatedButton.styleFrom(
                     fixedSize: Size(240, 40),
