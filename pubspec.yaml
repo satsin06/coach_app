@@ -40,6 +40,7 @@ dependencies:
   toggle_switch: ^1.2.0
   date_time_picker: "^2.1.0"
   fluttertoast: ^8.0.8
+  intl: ^0.17.0
 
   #Firebase
   firebase_core: ^1.6.0

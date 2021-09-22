@@ -17,133 +17,195 @@ class _FifthTabScreenState extends State<FifthTabScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xff222220),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: [
-          Column(
-            children: [
-              Icon(Icons.keyboard_return, color: Color(0xff79dd72), size: 72,),
-              Center(
-                child: Text(
-                  'Altura',
-                  style: TextStyle(
-                    color: Color(0xff627674),
-                    fontSize: 36,
-                    fontWeight: FontWeight.w200,
+      body: Padding(
+        padding: const EdgeInsets.only(top: 28.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Container(
+                  height: 8,
+                  width: 40,
+                  decoration: BoxDecoration(
+                      shape: BoxShape.rectangle,
+                      borderRadius: BorderRadius.circular(4),
+                      color: Color(0xff79dd72)
                   ),
                 ),
-              ),
-            ],
-          ),
-          Icon(CustomIcons.tab5, color: Color(0xff79dd72), size: 180,),
-          Text('', style: TextStyle(
-            color: Color(0xff627674),
-            fontSize: 36,
-            fontWeight: FontWeight.w200,
-          ),),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 48.0),
-            child: Container(
-              height: MediaQuery.of(context).copyWith().size.height / 6,
-              child: Row(
-                children: <Widget>[
-                  Expanded(
-                    child: Center(
-                      child: CupertinoPicker(
-                        itemExtent: 70,
-                        scrollController: FixedExtentScrollController(initialItem: 3),
-                        selectionOverlay: Container(),
-                        onSelectedItemChanged: (value) {
-                          setState(() {
-                            _selectedValue = value;
-                          });
-                        },
-                        children: List<Widget>.generate(8, (int index) {
-                          return Center(
+                Container(
+                  height: 8,
+                  width: 40,
+                  decoration: BoxDecoration(
+                      shape: BoxShape.rectangle,
+                      borderRadius: BorderRadius.circular(4),
+                      color: Color(0xff79dd72)
+                  ),
+                ),
+                Container(
+                  height: 8,
+                  width: 40,
+                  decoration: BoxDecoration(
+                      shape: BoxShape.rectangle,
+                      borderRadius: BorderRadius.circular(4),
+                      color: Color(0xff79dd72)
+                  ),
+                ),
+                Container(
+                  height: 8,
+                  width: 40,
+                  decoration: BoxDecoration(
+                      shape: BoxShape.rectangle,
+                      borderRadius: BorderRadius.circular(4),
+                      color: Color(0xff79dd72)
+                  ),
+                ),
+                Container(
+                  height: 8,
+                  width: 40,
+                  decoration: BoxDecoration(
+                      shape: BoxShape.rectangle,
+                      borderRadius: BorderRadius.circular(4),
+                      color: Color(0xff79dd72)
+                  ),
+                ),
+                Container(
+                  height: 8,
+                  width: 40,
+                  decoration: BoxDecoration(
+                      shape: BoxShape.rectangle,
+                      borderRadius: BorderRadius.circular(4),
+                      color: Colors.white
+                  ),
+                ),
+              ],
+            ),
+            Column(
+              children: [
+                Icon(Icons.keyboard_return, color: Color(0xff79dd72), size: 72,),
+                Center(
+                  child: Text(
+                    'Altura',
+                    style: TextStyle(
+                      color: Color(0xff627674),
+                      fontSize: 36,
+                      fontWeight: FontWeight.w200,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            Icon(CustomIcons.tab5, color: Color(0xff79dd72), size: 180,),
+            Text('', style: TextStyle(
+              color: Color(0xff627674),
+              fontSize: 36,
+              fontWeight: FontWeight.w200,
+            ),),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 48.0),
+              child: Container(
+                height: MediaQuery.of(context).copyWith().size.height / 6,
+                child: Row(
+                  children: <Widget>[
+                    Expanded(
+                      child: Center(
+                        child: CupertinoPicker(
+                          itemExtent: 70,
+                          scrollController: FixedExtentScrollController(initialItem: 3),
+                          selectionOverlay: Container(),
+                          onSelectedItemChanged: (value) {
+                            setState(() {
+                              _selectedValue = value;
+                            });
+                          },
+                          children: List<Widget>.generate(8, (int index) {
+                            return Center(
+                                child: Text(
+                                  ( 7 - index).toString(), style: TextStyle(color: Colors.white,fontSize: 32, fontWeight: FontWeight.bold
+                                ),
+                                ));
+                          }),
+                        ),
+                      ),
+                    ),
+                    Expanded(child: Center(
+                      child: Text('.', style: TextStyle(color: Colors.white,fontSize: 32, fontWeight: FontWeight.bold
+                      ),),
+                    )),
+                    Expanded(
+                      child: Center(
+                        child: CupertinoPicker(
+                          itemExtent: 70,
+                          scrollController: FixedExtentScrollController(initialItem: 31),
+                          selectionOverlay: Container(),
+                          onSelectedItemChanged: (value) {
+                            setState(() {
+                              _selectedValue = value;
+                            });
+                          },
+                          children: List<Widget>.generate(100, (int index) {
+                            return Center(
+                                child: Text(
+                                  ( 99 - index).toString(), style: TextStyle(color: Colors.white,fontSize: 32, fontWeight: FontWeight.bold
+                                ),
+                                ));
+                          }),
+                        ),
+                      ),
+                    ),
+                    Expanded(
+                      child: Center(
+                        child: CupertinoPicker(
+                          itemExtent: 70,
+                          scrollController: FixedExtentScrollController(initialItem: 1),
+                          selectionOverlay: Container(),
+                          children: const <Widget>[
+                            Center(
                               child: Text(
-                                ( 7 - index).toString(), style: TextStyle(color: Colors.white,fontSize: 32, fontWeight: FontWeight.bold
+                                'ft',style: TextStyle(color: Colors.white,fontSize: 32, fontWeight: FontWeight.bold),
                               ),
-                              ));
-                        }),
-                      ),
-                    ),
-                  ),
-                  Expanded(child: Center(
-                    child: Text('.', style: TextStyle(color: Colors.white,fontSize: 32, fontWeight: FontWeight.bold
-                    ),),
-                  )),
-                  Expanded(
-                    child: Center(
-                      child: CupertinoPicker(
-                        itemExtent: 70,
-                        scrollController: FixedExtentScrollController(initialItem: 31),
-                        selectionOverlay: Container(),
-                        onSelectedItemChanged: (value) {
-                          setState(() {
-                            _selectedValue = value;
-                          });
-                        },
-                        children: List<Widget>.generate(100, (int index) {
-                          return Center(
+                            ),
+                            Center(
                               child: Text(
-                                ( 99 - index).toString(), style: TextStyle(color: Colors.white,fontSize: 32, fontWeight: FontWeight.bold
+                                'mts', style: TextStyle(color: Colors.white,fontSize: 32, fontWeight: FontWeight.bold),
                               ),
-                              ));
-                        }),
+                            ),
+                          ],
+                          onSelectedItemChanged: (value) {
+                            setState(() {
+                              _selectedValue = value;
+                            });
+                          },
+                        ),
                       ),
                     ),
-                  ),
-                  Expanded(
-                    child: Center(
-                      child: CupertinoPicker(
-                        itemExtent: 70,
-                        scrollController: FixedExtentScrollController(initialItem: 1),
-                        selectionOverlay: Container(),
-                        children: const <Widget>[
-                          Center(
-                            child: Text(
-                              'ft',style: TextStyle(color: Colors.white,fontSize: 32, fontWeight: FontWeight.bold),
-                            ),
-                          ),
-                          Center(
-                            child: Text(
-                              'mts', style: TextStyle(color: Colors.white,fontSize: 32, fontWeight: FontWeight.bold),
-                            ),
-                          ),
-                        ],
-                        onSelectedItemChanged: (value) {
-                          setState(() {
-                            _selectedValue = value;
-                          });
-                        },
-                      ),
-                    ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
-          ),
-          ElevatedButton(
-            onPressed: () {
-              DefaultTabController.of(context)!.animateTo(5);
-            },
-            child: Text(
-              'CONTINUAR',
-              style: TextStyle(
-                  color: Color(0xff627674), fontWeight: FontWeight.normal),
-            ),
-            style: ElevatedButton.styleFrom(
-              primary: Color(0xff79dd72),
-              shape: new RoundedRectangleBorder(
-                borderRadius: new BorderRadius.circular(30.0),
+            ElevatedButton(
+              onPressed: () {
+                DefaultTabController.of(context)!.animateTo(6);
+              },
+              child: Text(
+                'CONTINUAR',
+                style: TextStyle(
+                    color: Color(0xff627674), fontWeight: FontWeight.normal),
               ),
-              padding: EdgeInsets.symmetric(horizontal: 70, vertical: 10),
-              textStyle: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+              style: ElevatedButton.styleFrom(
+                primary: Color(0xff79dd72),
+                shape: new RoundedRectangleBorder(
+                  borderRadius: new BorderRadius.circular(30.0),
+                ),
+                padding: EdgeInsets.symmetric(horizontal: 70, vertical: 10),
+                textStyle: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+              ),
             ),
-          ),
-          Container(),
-          Container()
-        ],
+            Container(),
+            Container()
+          ],
+        ),
       ),
     );
   }

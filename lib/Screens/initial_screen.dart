@@ -15,59 +15,64 @@ class InitialPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
             Container(),
-            Column(
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Stack(
-                      children: [
-                        Text(
-                          'COACH',
-                          style: TextStyle(
-                              fontSize: 68,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white,
-                              fontFamily: 'GeometricSlab'),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.fromLTRB(57, 28, 0, 0),
-                          child: Icon(
-                            CustomIcons.name,
-                            color: Color(0xff79dd72),
-                            size: 12,
+            Container(
+              width: MediaQuery.of(context).size.width,
+              child: Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Stack(
+
+                        children: [
+                          Text(
+                            'COACH',
+                            style: TextStyle(
+                                fontSize: 68,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                                fontFamily: 'GeometricSlab'),
                           ),
-                        ),
-                      ],
-                    ),
-                    Icon(
-                      CustomIcons.flash,
-                      color: Color(0xff79dd72),
-                      size: 60,
-                    ),
-                    Text(
-                      'APP',
-                      style: TextStyle(
-                          fontSize: 68,
-                          fontWeight: FontWeight.bold,
-                          fontFamily: 'GeometricSlab',
-                          color: Colors.white),
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  height: 60,
-                ),
-                Text(
-                  "Tu plan de entrenamiento\ny dieta personalizado",
-                  style: TextStyle(
-                    color: Color(0xff79dd72),
-                    fontSize: 22,
-                    fontWeight: FontWeight.bold,
+                          Positioned(
+                            left: 72,
+                            top: 36,
+                            child: Icon(
+                              CustomIcons.name,
+                              color: Color(0xff79dd72),
+                              size: 12,
+                            ),
+                          ),
+                        ],
+                      ),
+                      Icon(
+                        CustomIcons.flash,
+                        color: Color(0xff79dd72),
+                        size: 60,
+                      ),
+                      Text(
+                        'APP',
+                        style: TextStyle(
+                            fontSize: 68,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: 'GeometricSlab',
+                            color: Colors.white),
+                      ),
+                    ],
                   ),
-                  textAlign: TextAlign.center,
-                ),
-              ],
+                  SizedBox(
+                    height: 60,
+                  ),
+                  Text(
+                    "Tu plan de entrenamiento\ny dieta personalizado",
+                    style: TextStyle(
+                      color: Color(0xff79dd72),
+                      fontSize: 22,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ],
+              ),
             ),
             Column(
               children: [

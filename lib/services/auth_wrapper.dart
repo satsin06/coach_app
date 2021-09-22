@@ -1,6 +1,4 @@
 import 'package:coach_app/Screens/auth/email_login.dart';
-import 'package:coach_app/Screens/auth/signin.dart';
-import 'package:coach_app/Screens/auth/signup.dart';
 import 'package:coach_app/Screens/main_screens/bottom_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';

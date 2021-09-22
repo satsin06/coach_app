@@ -1,3 +1,4 @@
+import 'package:coach_app/Screens/auth/phone_auth.dart';
 import 'package:coach_app/Screens/main_screens/profile/gallery.dart';
 import 'package:coach_app/Screens/main_screens/profile/manage_notifications.dart';
 import 'package:coach_app/Screens/main_screens/profile/modification_subscription.dart';
@@ -5,6 +6,7 @@ import 'package:coach_app/Screens/main_screens/profile/plan_nutrition.dart';
 import 'package:coach_app/Screens/main_screens/profile/setting.dart';
 import 'package:coach_app/services/auth_service.dart';
 import 'package:coach_app/widget/profile_tile.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
@@ -13,8 +15,20 @@ import 'package:provider/provider.dart';
 
 import '../../../custom_icons_icons.dart';
 
-class Profile extends StatelessWidget {
+class Profile extends StatefulWidget {
   const Profile({Key? key}) : super(key: key);
+
+  @override
+  State<Profile> createState() => _ProfileState();
+}
+
+class _ProfileState extends State<Profile> {
+  FirebaseAuth _auth = FirebaseAuth.instance;
+
+  void signOut() async{
+    await _auth.signOut();
+    Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => PhoneAuth()), (route) => false);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -556,9 +570,7 @@ class Profile extends StatelessWidget {
                 height: 40,
               ),
               ElevatedButton(
-                onPressed: () async {
-                  await authService.signOut();
-                },
+                onPressed: signOut,
                 child: Text(
                   'CERRAR SESIÓN',
                   style: TextStyle(
