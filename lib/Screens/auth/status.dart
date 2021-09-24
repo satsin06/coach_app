@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:coach_app/Screens/auth/phone_auth.dart';
 import 'package:coach_app/Screens/auth/signin.dart';
 import 'package:coach_app/services/auth_wrapper.dart';
 import 'package:flutter/material.dart';
@@ -33,7 +34,7 @@ class _StatusState extends State<Status> {
   }
   route() {
     Navigator.pushReplacement(context, MaterialPageRoute(
-        builder: (context) => AuthWrapper()
+        builder: (context) => PhoneAuth()
     )
     );
   }

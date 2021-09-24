@@ -127,31 +127,6 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                 ),
-                // Container(
-                //   child: SingleChildScrollView(
-                //     scrollDirection: Axis.horizontal,
-                //     child: Row(
-                //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                //       children: [
-                //         CalenderStrip(16,"Lu", true),
-                //         CalenderStrip(17,"Ma", false),
-                //         CalenderStrip(18,"Mi", false),
-                //         CalenderStrip(19,"Ju", false),
-                //         CalenderStrip(20,"Vi", false),
-                //         CalenderStrip(21,"Sa", false),
-                //         CalenderStrip(22,"Do", false),
-                //         CalenderStrip(23,"Lu", false),
-                //         CalenderStrip(24,"Ma", false),
-                //         CalenderStrip(25,"Mi", false),
-                //         CalenderStrip(26,"Ju", false),
-                //         CalenderStrip(27,"Vi", false),
-                //         CalenderStrip(28,"Sa", false),
-                //         CalenderStrip(29,"Do", false),
-                //         CalenderStrip(30,"Lu", false),
-                //       ],
-                //     ),
-                //   ),
-                // ),
                 CalendarTimeline(
                   initialDate: DateTime.now(),
                   firstDate: DateTime(2019, 1, 15),
@@ -164,10 +139,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   activeBackgroundDayColor: Colors.redAccent[100],
                   dotsColor: Color(0xFF333A47),
                   //selectableDayPredicate: (date) => date.day != 23,
-                  locale: 'en_ISO',
+                  locale: 'es_MX',
                 ),
                 SizedBox(
-                  height: 23,
+                  height: 20,
                 ),
                 Container(
                     padding: EdgeInsets.all(15),

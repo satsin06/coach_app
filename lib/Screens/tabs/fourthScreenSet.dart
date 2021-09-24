@@ -4,17 +4,17 @@ import 'package:flutter/material.dart';
 
 import '../../custom_icons_icons.dart';
 
-class FourthTabScreen extends StatefulWidget {
-  const FourthTabScreen({Key? key}) : super(key: key);
+
+class FourthScreenSet extends StatefulWidget {
+  const FourthScreenSet({Key? key}) : super(key: key);
 
   @override
-  _FourthTabScreenState createState() => _FourthTabScreenState();
+  _FourthScreenSetState createState() => _FourthScreenSetState();
 }
 
-class _FourthTabScreenState extends State<FourthTabScreen> {
+class _FourthScreenSetState extends State<FourthScreenSet> {
   int _selectedValue1 = 0;
   int _selectedValue2 = 0;
-  //String _selectedValue3 = ;
 
   @override
   Widget build(BuildContext context) {
@@ -69,7 +69,7 @@ class _FourthTabScreenState extends State<FourthTabScreen> {
                 ]),
                 SizedBox(height: 20),
                 Text(
-                  'ACTUAL',
+                  'DESEADO',
                   style: TextStyle(
                     color: Color(0xff627674),
                     fontSize: 36,
@@ -89,7 +89,7 @@ class _FourthTabScreenState extends State<FourthTabScreen> {
                         child: CupertinoPicker(
                           itemExtent: 70,
                           scrollController:
-                              FixedExtentScrollController(initialItem: 50),
+                          FixedExtentScrollController(initialItem: 50),
                           selectionOverlay: Container(),
                           onSelectedItemChanged: (value) {
                             setState(() {
@@ -99,32 +99,32 @@ class _FourthTabScreenState extends State<FourthTabScreen> {
                           children: List<Widget>.generate(100, (int index) {
                             return Center(
                                 child: Text(
-                              (0 + index).toString(),
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 32,
-                                  fontWeight: FontWeight.bold),
-                            ));
+                                  (0 + index).toString(),
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 32,
+                                      fontWeight: FontWeight.bold),
+                                ));
                           }),
                         ),
                       ),
                     ),
                     Expanded(
                         child: Center(
-                      child: Text(
-                        '.',
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 32,
-                            fontWeight: FontWeight.bold),
-                      ),
-                    )),
+                          child: Text(
+                            '.',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 32,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        )),
                     Expanded(
                       child: Center(
                         child: CupertinoPicker(
                           itemExtent: 70,
                           scrollController:
-                              FixedExtentScrollController(initialItem: 0),
+                          FixedExtentScrollController(initialItem: 0),
                           selectionOverlay: Container(),
                           onSelectedItemChanged: (value) {
                             setState(() {
@@ -134,12 +134,12 @@ class _FourthTabScreenState extends State<FourthTabScreen> {
                           children: List<Widget>.generate(10, (int index) {
                             return Center(
                                 child: Text(
-                              (0 + index).toString(),
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 32,
-                                  fontWeight: FontWeight.bold),
-                            ));
+                                  (0 + index).toString(),
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 32,
+                                      fontWeight: FontWeight.bold),
+                                ));
                           }),
                         ),
                       ),
@@ -149,7 +149,7 @@ class _FourthTabScreenState extends State<FourthTabScreen> {
                         child: CupertinoPicker(
                           itemExtent: 70,
                           scrollController:
-                              FixedExtentScrollController(initialItem: 1),
+                          FixedExtentScrollController(initialItem: 1),
                           selectionOverlay: Container(),
                           children: const <Widget>[
                             Center(
@@ -185,7 +185,7 @@ class _FourthTabScreenState extends State<FourthTabScreen> {
             ),
             ElevatedButton(
               onPressed: () {
-                DefaultTabController.of(context)!.animateTo(4);
+                DefaultTabController.of(context)!.animateTo(5);
               },
               child: FittedBox(
                 fit: BoxFit.fitWidth,
@@ -207,8 +207,8 @@ class _FourthTabScreenState extends State<FourthTabScreen> {
               ),
             ),
             Container(
-                //child: Text('$_selectedValue'),
-                ),
+              //child: Text('$_selectedValue'),
+            ),
             Container()
           ],
         ),

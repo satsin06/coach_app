@@ -118,31 +118,6 @@ class Training extends StatelessWidget {
                   ),
                 ),
               ),
-              // Container(
-              //   child: SingleChildScrollView(
-              //     scrollDirection: Axis.horizontal,
-              //     child: Row(
-              //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              //       children: [
-              //         CalendarStrip(16, "Lu", true),
-              //         CalendarStrip(17, "Ma", false),
-              //         CalendarStrip(18, "Mi", false),
-              //         CalendarStrip(19, "Ju", false),
-              //         CalendarStrip(20, "Vi", false),
-              //         CalendarStrip(21, "Sa", false),
-              //         CalendarStrip(22, "Do", false),
-              //         CalendarStrip(23, "Do", false),
-              //         CalendarStrip(24,"Ma", false),
-              //         CalendarStrip(25,"Mi", false),
-              //         CalendarStrip(26,"Ju", false),
-              //         CalendarStrip(27,"Vi", false),
-              //         CalendarStrip(28,"Sa", false),
-              //         CalendarStrip(29,"Do", false),
-              //         CalendarStrip(30,"Lu", false),
-              //       ],
-              //     ),
-              //   ),
-              // ),
               CalendarTimeline(
                 initialDate: DateTime.now(),
                 firstDate: DateTime(2019, 1, 15),
@@ -155,7 +130,7 @@ class Training extends StatelessWidget {
                 activeBackgroundDayColor: Colors.redAccent[100],
                 dotsColor: Color(0xFF333A47),
                 //selectableDayPredicate: (date) => date.day != 23,
-                locale: 'en_ISO',
+                locale: 'es_MX',
               ),
               SizedBox(
                 height: 20,

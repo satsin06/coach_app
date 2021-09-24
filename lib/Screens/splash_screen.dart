@@ -49,43 +49,47 @@ class _SplashScreenState extends State<SplashScreen> {
         children: [
           Center(
             child:
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Stack(
-                  children: [
-                    Text(
-                      'COACH',
-                      style: TextStyle(
-                          fontSize: 68,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                          fontFamily: 'GeometricSlab'),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(57, 28, 0, 0),
-                      child: Icon(
-                        CustomIcons.name,
-                        color: Color(0xff79dd72),
-                        size: 12,
+            Container(
+              width: MediaQuery.of(context).size.width * 0.9,
+              height: MediaQuery.of(context).size.height * 0.2,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Stack(
+                    children: [
+                      Text(
+                        'COACH',
+                        style: TextStyle(
+                            fontSize: 68,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                            fontFamily: 'GeometricSlab'),
                       ),
-                    ),
-                  ],
-                ),
-                Icon(
-                  CustomIcons.flash,
-                  color: Color(0xff79dd72),
-                  size: 60,
-                ),
-                Text(
-                  'APP',
-                  style: TextStyle(
-                      fontSize: 68,
-                      fontWeight: FontWeight.bold,
-                      fontFamily: 'GeometricSlab',
-                      color: Colors.white),
-                ),
-              ],
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(57, 28, 0, 0),
+                        child: Icon(
+                          CustomIcons.name,
+                          color: Color(0xff79dd72),
+                          size: 12,
+                        ),
+                      ),
+                    ],
+                  ),
+                  Icon(
+                    CustomIcons.flash,
+                    color: Color(0xff79dd72),
+                    size: 60,
+                  ),
+                  Text(
+                    'APP',
+                    style: TextStyle(
+                        fontSize: 68,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: 'GeometricSlab',
+                        color: Colors.white),
+                  ),
+                ],
+              ),
             ),
           ),
           SizedBox(
