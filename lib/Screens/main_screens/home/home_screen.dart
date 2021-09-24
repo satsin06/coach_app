@@ -139,10 +139,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   activeBackgroundDayColor: Colors.redAccent[100],
                   dotsColor: Color(0xFF333A47),
                   //selectableDayPredicate: (date) => date.day != 23,
-                  locale: 'en_ISO',
+                  locale: 'es_MX',
                 ),
                 SizedBox(
-                  height: 23,
+                  height: 20,
                 ),
                 Container(
                     padding: EdgeInsets.all(15),

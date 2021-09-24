@@ -1,4 +1,5 @@
 import 'package:coach_app/Screens/tabs/fourthScreen.dart';
+import 'package:coach_app/widget/tab_status.dart';
 import 'package:flutter/material.dart';
 
 import '../../custom_icons_icons.dart';
@@ -15,64 +16,13 @@ class ThirdTabScreen extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Container(
-                    height: 8,
-                    width: 40,
-                    decoration: BoxDecoration(
-                        shape: BoxShape.rectangle,
-                        borderRadius: BorderRadius.circular(4),
-                        color: Color(0xff79dd72)
-                    ),
-                  ),
-                  Container(
-                    height: 8,
-                    width: 40,
-                    decoration: BoxDecoration(
-                        shape: BoxShape.rectangle,
-                        borderRadius: BorderRadius.circular(4),
-                        color: Color(0xff79dd72)
-                    ),
-                  ),
-                  Container(
-                    height: 8,
-                    width: 40,
-                    decoration: BoxDecoration(
-                        shape: BoxShape.rectangle,
-                        borderRadius: BorderRadius.circular(4),
-                        color: Color(0xff79dd72)
-                    ),
-                  ),
-                  Container(
-                    height: 8,
-                    width: 40,
-                    decoration: BoxDecoration(
-                        shape: BoxShape.rectangle,
-                        borderRadius: BorderRadius.circular(4),
-                        color: Colors.white
-                    ),
-                  ),
-                  Container(
-                    height: 8,
-                    width: 40,
-                    decoration: BoxDecoration(
-                        shape: BoxShape.rectangle,
-                        borderRadius: BorderRadius.circular(4),
-                        color: Colors.white
-                    ),
-                  ),
-                  Container(
-                    height: 8,
-                    width: 40,
-                    decoration: BoxDecoration(
-                        shape: BoxShape.rectangle,
-                        borderRadius: BorderRadius.circular(4),
-                        color: Colors.white
-                    ),
-                  ),
-                ],
+              TabStatus(
+                color1: Color(0xff79dd72),
+                color2: Color(0xff79dd72),
+                color3: Color(0xff79dd72),
+                color4: Colors.white,
+                color5: Colors.white,
+                color6: Colors.white,
               ),
               Column(
                 children: [
@@ -94,12 +44,17 @@ class ThirdTabScreen extends StatelessWidget {
                 children: [
                   ElevatedButton(
                     onPressed: () {},
-                    child: Text(
-                      'PRINCIPIANTE',
-                      style: TextStyle(
-                          color: Color(0xff79dd72), fontWeight: FontWeight.normal),
+                    child: FittedBox(
+                      fit: BoxFit.fitWidth,
+                      child: Text(
+                        'PRINCIPIANTE',
+                        maxLines: 1,
+                        style: TextStyle(
+                            color: Color(0xff79dd72), fontWeight: FontWeight.normal),
+                      ),
                     ),
                     style: ElevatedButton.styleFrom(
+                      fixedSize: Size.fromWidth(MediaQuery.of(context).size.width * 0.7),
                       side: BorderSide(
                         width: 2.0,
                         color: Color(0xff79dd72),
@@ -115,12 +70,17 @@ class ThirdTabScreen extends StatelessWidget {
                   SizedBox(height: 10,),
                   ElevatedButton(
                     onPressed: () {},
-                    child: Text(
-                      'INTERMEDIO',
-                      style: TextStyle(
-                          color: Color(0xff79dd72), fontWeight: FontWeight.normal),
+                    child: FittedBox(
+                      fit: BoxFit.fitWidth,
+                      child: Text(
+                        'INTERMEDIO',
+                        maxLines: 1,
+                        style: TextStyle(
+                            color: Color(0xff79dd72), fontWeight: FontWeight.normal),
+                      ),
                     ),
                     style: ElevatedButton.styleFrom(
+                      fixedSize: Size.fromWidth(MediaQuery.of(context).size.width * 0.7),
                       side: BorderSide(
                         width: 2.0,
                         color: Color(0xff79dd72),
@@ -136,12 +96,17 @@ class ThirdTabScreen extends StatelessWidget {
                   SizedBox(height: 10,),
                   ElevatedButton(
                     onPressed: () {},
-                    child: Text(
-                      'AVANZADO',
-                      style: TextStyle(
-                          color: Color(0xff79dd72), fontWeight: FontWeight.normal),
+                    child: FittedBox(
+                      fit: BoxFit.fitWidth,
+                      child: Text(
+                        'AVANZADO',
+                        maxLines: 1,
+                        style: TextStyle(
+                            color: Color(0xff79dd72), fontWeight: FontWeight.normal),
+                      ),
                     ),
                     style: ElevatedButton.styleFrom(
+                      fixedSize: Size.fromWidth(MediaQuery.of(context).size.width * 0.7),
                       side: BorderSide(
                         width: 2.0,
                         color: Color(0xff79dd72),
@@ -160,12 +125,17 @@ class ThirdTabScreen extends StatelessWidget {
                 onPressed: () {
                   DefaultTabController.of(context)!.animateTo(3);
                 },
-                child: Text(
-                  'CONTINUAR',
-                  style: TextStyle(
-                      color: Color(0xff627674), fontWeight: FontWeight.normal),
+                child: FittedBox(
+                  fit: BoxFit.fitWidth,
+                  child: Text(
+                    'CONTINUAR',
+                    maxLines: 1,
+                    style: TextStyle(
+                        color: Color(0xff627674), fontWeight: FontWeight.normal),
+                  ),
                 ),
                 style: ElevatedButton.styleFrom(
+                  fixedSize: Size.fromWidth(MediaQuery.of(context).size.width * 0.7),
                   primary: Color(0xff79dd72),
                   shape: new RoundedRectangleBorder(
                     borderRadius: new BorderRadius.circular(30.0),

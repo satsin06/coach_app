@@ -15,39 +15,8 @@ class TaberScreen extends StatelessWidget {
     return DefaultTabController(
         length: 7,
         child: Scaffold(
-          // appBar: AppBar(
-          //   elevation: 0,
-          //   automaticallyImplyLeading: false,
-          //   backgroundColor: Color(0xff222220),
-          //   bottom: TabBar(
-          //     isScrollable: false,
-          //     indicator: UnderlineTabIndicator(
-          //         borderSide: BorderSide(width: 5.0, color: Color(0xff79dd72),),
-          //         insets: EdgeInsets.symmetric(horizontal:50.0, vertical:30),
-          //     ),
-          //     tabs: [
-          //       Tab(
-          //         child: Text(''),
-          //       ),
-          //       Tab(
-          //         child: Text(''),
-          //       ),
-          //       Tab(
-          //         child: Text(''),
-          //       ),
-          //       Tab(
-          //         child: Text(''),
-          //       ),
-          //       Tab(
-          //         child: Text(''),
-          //       ),
-          //       Tab(
-          //         child: Text(''),
-          //       )
-          //     ],
-          //   ),
-          // ),
           body: TabBarView(
+            physics: NeverScrollableScrollPhysics(),
             children: [
               FirstTabScreen(),
               SecondTabScreen(),

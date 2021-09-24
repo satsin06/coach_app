@@ -1,5 +1,6 @@
 import 'package:coach_app/Screens/auth/signin.dart';
 import 'package:coach_app/Screens/auth/status.dart';
+import 'package:coach_app/widget/tab_status.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -24,64 +25,13 @@ class _SixthTabScreenState extends State<SixthTabScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Container(
-                  height: 8,
-                  width: 40,
-                  decoration: BoxDecoration(
-                      shape: BoxShape.rectangle,
-                      borderRadius: BorderRadius.circular(4),
-                      color: Color(0xff79dd72)
-                  ),
-                ),
-                Container(
-                  height: 8,
-                  width: 40,
-                  decoration: BoxDecoration(
-                      shape: BoxShape.rectangle,
-                      borderRadius: BorderRadius.circular(4),
-                      color: Color(0xff79dd72)
-                  ),
-                ),
-                Container(
-                  height: 8,
-                  width: 40,
-                  decoration: BoxDecoration(
-                      shape: BoxShape.rectangle,
-                      borderRadius: BorderRadius.circular(4),
-                      color: Color(0xff79dd72)
-                  ),
-                ),
-                Container(
-                  height: 8,
-                  width: 40,
-                  decoration: BoxDecoration(
-                      shape: BoxShape.rectangle,
-                      borderRadius: BorderRadius.circular(4),
-                      color: Color(0xff79dd72)
-                  ),
-                ),
-                Container(
-                  height: 8,
-                  width: 40,
-                  decoration: BoxDecoration(
-                      shape: BoxShape.rectangle,
-                      borderRadius: BorderRadius.circular(4),
-                      color: Color(0xff79dd72)
-                  ),
-                ),
-                Container(
-                  height: 8,
-                  width: 40,
-                  decoration: BoxDecoration(
-                      shape: BoxShape.rectangle,
-                      borderRadius: BorderRadius.circular(4),
-                      color: Color(0xff79dd72)
-                  ),
-                ),
-              ],
+            TabStatus(
+              color1: Color(0xff79dd72),
+              color2: Color(0xff79dd72),
+              color3: Color(0xff79dd72),
+              color4: Color(0xff79dd72),
+              color5: Color(0xff79dd72),
+              color6: Color(0xff79dd72),
             ),
             Column(
               children: [
@@ -146,12 +96,17 @@ class _SixthTabScreenState extends State<SixthTabScreen> {
                     MaterialPageRoute(builder: (context) => Status())
                 );
               },
-              child: Text(
-                'CONTINUAR',
-                style: TextStyle(
-                    color: Color(0xff627674), fontWeight: FontWeight.normal),
+              child: FittedBox(
+                fit: BoxFit.fitWidth,
+                child: Text(
+                  'CONTINUAR',
+                  maxLines: 1,
+                  style: TextStyle(
+                      color: Color(0xff627674), fontWeight: FontWeight.normal),
+                ),
               ),
               style: ElevatedButton.styleFrom(
+                fixedSize: Size.fromWidth(MediaQuery.of(context).size.width * 0.7),
                 primary: Color(0xff79dd72),
                 shape: new RoundedRectangleBorder(
                   borderRadius: new BorderRadius.circular(30.0),

@@ -16,33 +16,35 @@ class InitialPage extends StatelessWidget {
           children: [
             Container(),
             Container(
-              width: MediaQuery.of(context).size.width,
+              width: MediaQuery.of(context).size.width * 0.9,
+              height: MediaQuery.of(context).size.height * 0.2,
               child: Column(
                 children: [
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Stack(
-
-                        children: [
-                          Text(
-                            'COACH',
-                            style: TextStyle(
-                                fontSize: 68,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white,
-                                fontFamily: 'GeometricSlab'),
-                          ),
-                          Positioned(
-                            left: 72,
-                            top: 36,
-                            child: Icon(
-                              CustomIcons.name,
-                              color: Color(0xff79dd72),
-                              size: 12,
+                      FittedBox(
+                        fit: BoxFit.fitWidth,
+                        child: Stack(
+                          children: [
+                            Text(
+                              'COACH',
+                              style: TextStyle(
+                                  fontSize: 68,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                  fontFamily: 'GeometricSlab'),
                             ),
-                          ),
-                        ],
+                            Padding(
+                              padding: const EdgeInsets.fromLTRB(57, 28, 0, 0),
+                              child: Icon(
+                                CustomIcons.name,
+                                color: Color(0xff79dd72),
+                                size: 12,
+                              ),
+                            )
+                          ],
+                        ),
                       ),
                       Icon(
                         CustomIcons.flash,
@@ -87,10 +89,14 @@ class InitialPage extends StatelessWidget {
                     Navigator.of(context)
                         .push(MaterialPageRoute(builder: (context) => TaberScreen()));
                   },
-                  child: Text(
-                    'EMPEZAR',
-                    style: TextStyle(
-                        color: Color(0xff627674), fontWeight: FontWeight.normal),
+                  child: FittedBox(
+                    fit: BoxFit.fitWidth,
+                    child: Text(
+                      'EMPEZAR',
+                      maxLines: 1,
+                      style: TextStyle(
+                          color: Color(0xff627674), fontWeight: FontWeight.normal),
+                    ),
                   ),
                   style: ElevatedButton.styleFrom(
                     primary: Color(0xff79dd72),
@@ -106,12 +112,16 @@ class InitialPage extends StatelessWidget {
                 ),
                 TextButton(
                     onPressed: () {},
-                    child: Text(
-                      'INICIAR SESIÓN',
-                      style: TextStyle(
-                          color: Color(0xff79dd72),
-                          fontWeight: FontWeight.w100,
-                          fontSize: 24),
+                    child: FittedBox(
+                      fit: BoxFit.fitWidth,
+                      child: Text(
+                        'INICIAR SESIÓN',
+                        maxLines: 1,
+                        style: TextStyle(
+                            color: Color(0xff79dd72),
+                            fontWeight: FontWeight.w100,
+                            fontSize: 24),
+                      ),
                     )),
               ],
             )

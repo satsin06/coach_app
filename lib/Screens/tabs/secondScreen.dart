@@ -1,4 +1,5 @@
 import 'package:coach_app/Screens/tabs/thirdScreen.dart';
+import 'package:coach_app/widget/tab_status.dart';
 import 'package:flutter/material.dart';
 
 import '../../custom_icons_icons.dart';
@@ -15,70 +16,19 @@ class SecondTabScreen extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Container(
-                    height: 8,
-                    width: 40,
-                    decoration: BoxDecoration(
-                        shape: BoxShape.rectangle,
-                        borderRadius: BorderRadius.circular(4),
-                        color: Color(0xff79dd72)
-                    ),
-                  ),
-                  Container(
-                    height: 8,
-                    width: 40,
-                    decoration: BoxDecoration(
-                        shape: BoxShape.rectangle,
-                        borderRadius: BorderRadius.circular(4),
-                        color: Color(0xff79dd72)
-                    ),
-                  ),
-                  Container(
-                    height: 8,
-                    width: 40,
-                    decoration: BoxDecoration(
-                        shape: BoxShape.rectangle,
-                        borderRadius: BorderRadius.circular(4),
-                        color: Colors.white
-                    ),
-                  ),
-                  Container(
-                    height: 8,
-                    width: 40,
-                    decoration: BoxDecoration(
-                        shape: BoxShape.rectangle,
-                        borderRadius: BorderRadius.circular(4),
-                        color: Colors.white
-                    ),
-                  ),
-                  Container(
-                    height: 8,
-                    width: 40,
-                    decoration: BoxDecoration(
-                        shape: BoxShape.rectangle,
-                        borderRadius: BorderRadius.circular(4),
-                        color: Colors.white
-                    ),
-                  ),
-                  Container(
-                    height: 8,
-                    width: 40,
-                    decoration: BoxDecoration(
-                        shape: BoxShape.rectangle,
-                        borderRadius: BorderRadius.circular(4),
-                        color: Colors.white
-                    ),
-                  ),
-                ],
+              TabStatus(
+                color1: Color(0xff79dd72),
+                color2: Color(0xff79dd72),
+                color3: Colors.white,
+                color4: Colors.white,
+                color5: Colors.white,
+                color6: Colors.white,
               ),
               Center(
                 child: Text(
                   'Elige tu objetivo',
                   style: TextStyle(
-                    color: Color(0xff627674),
+                    color: Colors.white,
                     fontSize: 36,
                     fontWeight: FontWeight.w200,
                   ),
@@ -89,12 +39,17 @@ class SecondTabScreen extends StatelessWidget {
                 children: [
                   ElevatedButton(
                     onPressed: () {},
-                    child: Text(
-                      'PERDER GRASA',
-                      style: TextStyle(
-                          color: Color(0xff79dd72), fontWeight: FontWeight.normal),
+                    child: FittedBox(
+                      fit: BoxFit.fitWidth,
+                      child: Text(
+                        'PERDER GRASA',
+                        maxLines: 1,
+                        style: TextStyle(
+                            color: Color(0xff79dd72), fontWeight: FontWeight.normal),
+                      ),
                     ),
                     style: ElevatedButton.styleFrom(
+                      fixedSize: Size.fromWidth(MediaQuery.of(context).size.width * 0.7),
                       side: BorderSide(
                         width: 2.0,
                         color: Color(0xff79dd72),
@@ -110,12 +65,17 @@ class SecondTabScreen extends StatelessWidget {
                   SizedBox(height: 10,),
                   ElevatedButton(
                     onPressed: () {},
-                    child: Text(
-                      'MANTENIMIENTO',
-                      style: TextStyle(
-                          color: Color(0xff79dd72), fontWeight: FontWeight.normal),
+                    child: FittedBox(
+                      fit: BoxFit.fitWidth,
+                      child: Text(
+                        'MANTENIMIENTO',
+                        maxLines: 1,
+                        style: TextStyle(
+                            color: Color(0xff79dd72), fontWeight: FontWeight.normal),
+                      ),
                     ),
                     style: ElevatedButton.styleFrom(
+                      fixedSize: Size.fromWidth(MediaQuery.of(context).size.width * 0.7),
                       side: BorderSide(
                         width: 2.0,
                         color: Color(0xff79dd72),
@@ -131,12 +91,17 @@ class SecondTabScreen extends StatelessWidget {
                   SizedBox(height: 10,),
                   ElevatedButton(
                     onPressed: () {},
-                    child: Text(
-                      'AUMENTAR MÚSCULO',
-                      style: TextStyle(
-                          color: Color(0xff79dd72), fontWeight: FontWeight.normal),
+                    child: FittedBox(
+                      fit: BoxFit.fitWidth,
+                      child: Text(
+                        'AUMENTAR MÚSCULO',
+                        maxLines: 1,
+                        style: TextStyle(
+                            color: Color(0xff79dd72), fontWeight: FontWeight.normal),
+                      ),
                     ),
                     style: ElevatedButton.styleFrom(
+                      fixedSize: Size.fromWidth(MediaQuery.of(context).size.width * 0.7),
                       side: BorderSide(
                         width: 2.0,
                         color: Color(0xff79dd72),
@@ -155,12 +120,17 @@ class SecondTabScreen extends StatelessWidget {
                 onPressed: () {
                   DefaultTabController.of(context)!.animateTo(2);
                 },
-                child: Text(
-                  'CONTINUAR',
-                  style: TextStyle(
-                      color: Color(0xff627674), fontWeight: FontWeight.normal),
+                child: FittedBox(
+                  fit: BoxFit.fitWidth,
+                  child: Text(
+                    'CONTINUAR',
+                    maxLines: 1,
+                    style: TextStyle(
+                        color: Color(0xff627674), fontWeight: FontWeight.normal),
+                  ),
                 ),
                 style: ElevatedButton.styleFrom(
+                  fixedSize: Size.fromWidth(MediaQuery.of(context).size.width * 0.7),
                   primary: Color(0xff79dd72),
                   shape: new RoundedRectangleBorder(
                     borderRadius: new BorderRadius.circular(30.0),

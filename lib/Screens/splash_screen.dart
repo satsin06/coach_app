@@ -43,15 +43,16 @@ class _SplashScreenState extends State<SplashScreen> {
   initScreen(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xff222220),
-      body: Container(
-        width: MediaQuery.of(context).size.width,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Center(
-              child:
-              Row(
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Center(
+            child:
+            Container(
+              width: MediaQuery.of(context).size.width * 0.9,
+              height: MediaQuery.of(context).size.height * 0.2,
+              child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Stack(
@@ -64,9 +65,8 @@ class _SplashScreenState extends State<SplashScreen> {
                             color: Colors.white,
                             fontFamily: 'GeometricSlab'),
                       ),
-                      Positioned(
-                        left: 72,
-                        top: 36,
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(57, 28, 0, 0),
                         child: Icon(
                           CustomIcons.name,
                           color: Color(0xff79dd72),
@@ -91,22 +91,22 @@ class _SplashScreenState extends State<SplashScreen> {
                 ],
               ),
             ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.22,
-            ),
-            Center(
-              child: Text("powered by",
-                  style: TextStyle(color: Colors.white, fontSize: 16)),
-            ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.01,
-            ),
-            Center(
-              child: Text("< e a s y c o d e >",
-                  style: TextStyle(color: Colors.white, fontSize: 32)),
-            )
-          ],
-        ),
+          ),
+          SizedBox(
+            height: MediaQuery.of(context).size.height * 0.22,
+          ),
+          Center(
+            child: Text("powered by",
+                style: TextStyle(color: Colors.white, fontSize: 16)),
+          ),
+          SizedBox(
+            height: MediaQuery.of(context).size.height * 0.01,
+          ),
+          Center(
+            child: Text("< e a s y c o d e >",
+                style: TextStyle(color: Colors.white, fontSize: 32)),
+          )
+        ],
       ),
     );
   }
