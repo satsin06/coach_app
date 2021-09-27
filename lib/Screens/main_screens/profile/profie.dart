@@ -4,6 +4,7 @@ import 'package:coach_app/Screens/main_screens/profile/manage_notifications.dart
 import 'package:coach_app/Screens/main_screens/profile/modification_subscription.dart';
 import 'package:coach_app/Screens/main_screens/profile/plan_nutrition.dart';
 import 'package:coach_app/Screens/main_screens/profile/setting.dart';
+import 'package:coach_app/Screens/test.dart';
 import 'package:coach_app/services/auth_service.dart';
 import 'package:coach_app/widget/profile_tile.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -25,9 +26,10 @@ class Profile extends StatefulWidget {
 class _ProfileState extends State<Profile> {
   FirebaseAuth _auth = FirebaseAuth.instance;
 
-  void signOut() async{
+  void signOut() async {
     await _auth.signOut();
-    Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => PhoneAuth()), (route) => false);
+    Navigator.pushAndRemoveUntil(context,
+        MaterialPageRoute(builder: (context) => PhoneAuth()), (route) => false);
   }
 
   @override
@@ -106,10 +108,14 @@ class _ProfileState extends State<Profile> {
                                     fontWeight: FontWeight.w800),
                               )
                             ])),
-                        Icon(
-                          CustomIcons.profile_edit,
-                          size: 28,
-                        )
+                        IconButton(
+                            onPressed: () {
+                              // Navigator.of(context).push(MaterialPageRoute(builder: (context) => Test()));
+                            },
+                            icon: Icon(
+                              CustomIcons.profile_edit,
+                              size: 28,
+                            )),
                       ],
                     ),
                   ),
@@ -262,8 +268,11 @@ class _ProfileState extends State<Profile> {
                                           MainAxisAlignment.spaceBetween,
                                       children: [
                                         Container(
-                                          child:
-                                              Text("Comentarios y Sugerencias", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20)),
+                                          child: Text(
+                                              "Comentarios y Sugerencias",
+                                              style: TextStyle(
+                                                  fontWeight: FontWeight.bold,
+                                                  fontSize: 20)),
                                         ),
                                         InkWell(
                                           onTap: () {
@@ -350,7 +359,10 @@ class _ProfileState extends State<Profile> {
                                           MainAxisAlignment.spaceBetween,
                                       children: [
                                         Container(
-                                          child: Text("Reportar un Problema", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20)),
+                                          child: Text("Reportar un Problema",
+                                              style: TextStyle(
+                                                  fontWeight: FontWeight.bold,
+                                                  fontSize: 20)),
                                         ),
                                         InkWell(
                                           onTap: () {
@@ -437,7 +449,10 @@ class _ProfileState extends State<Profile> {
                                           MainAxisAlignment.spaceBetween,
                                       children: [
                                         Container(
-                                          child: Text("Términos y Condiciones", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20)),
+                                          child: Text("Términos y Condiciones",
+                                              style: TextStyle(
+                                                  fontWeight: FontWeight.bold,
+                                                  fontSize: 20)),
                                         ),
                                         InkWell(
                                           onTap: () {
@@ -458,16 +473,18 @@ class _ProfileState extends State<Profile> {
                                   thickness: 1,
                                 ),
                                 Padding(
-                                  padding: const EdgeInsets.symmetric(horizontal: 12.0),
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 12.0),
                                   child: Container(
-                                    height:
-                                        MediaQuery.of(context).size.height *
-                                            0.15,
-                                    width: MediaQuery.of(context).size.width *
-                                        0.8,
+                                    height: MediaQuery.of(context).size.height *
+                                        0.15,
+                                    width:
+                                        MediaQuery.of(context).size.width * 0.8,
                                     child: Text(
                                       'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex',
-                                      style: TextStyle(fontSize: 22, fontWeight: FontWeight.normal),
+                                      style: TextStyle(
+                                          fontSize: 22,
+                                          fontWeight: FontWeight.normal),
                                     ),
                                   ),
                                 ),
@@ -521,10 +538,15 @@ class _ProfileState extends State<Profile> {
                                   child: Container(
                                     child: Row(
                                       mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
+                                          MainAxisAlignment.spaceBetween,
                                       children: [
                                         Container(
-                                          child: Text("Políticas de Privacidad", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),),
+                                          child: Text(
+                                            "Políticas de Privacidad",
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 20),
+                                          ),
                                         ),
                                         InkWell(
                                           onTap: () {
@@ -545,16 +567,18 @@ class _ProfileState extends State<Profile> {
                                   thickness: 1,
                                 ),
                                 Padding(
-                                  padding: const EdgeInsets.symmetric(horizontal: 12.0),
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 12.0),
                                   child: Container(
-                                    height:
-                                    MediaQuery.of(context).size.height *
+                                    height: MediaQuery.of(context).size.height *
                                         0.15,
-                                    width: MediaQuery.of(context).size.width *
-                                        0.8,
+                                    width:
+                                        MediaQuery.of(context).size.width * 0.8,
                                     child: Text(
                                       'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex',
-                                      style: TextStyle(fontSize: 22, fontWeight: FontWeight.normal),
+                                      style: TextStyle(
+                                          fontSize: 22,
+                                          fontWeight: FontWeight.normal),
                                     ),
                                   ),
                                 ),

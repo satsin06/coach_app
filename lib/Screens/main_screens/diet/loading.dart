@@ -1,7 +1,9 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:percent_indicator/circular_percent_indicator.dart';
 
+import '../../../custom_icons_icons.dart';
 import 'my_diet.dart';
 
 class Loading extends StatefulWidget {
@@ -55,10 +57,21 @@ class _LoadingState extends State<Loading> {
                     ]
                 ),
                 ),
-                SizedBox(height: 30,),
-                Image.asset(
-                  'assets/images/status.PNG',
-                  height: 250,
+                SizedBox(
+                  height: 40,
+                ),
+                CircularPercentIndicator(
+                  startAngle: 45,
+                  radius: 200.0,
+                  animation: true,
+                  animationDuration: 3000,
+                  lineWidth: 30.0,
+                  backgroundWidth: 15,
+                  percent: 0.3,
+                  circularStrokeCap: CircularStrokeCap.round,
+                  backgroundColor: Colors.grey,
+                  progressColor: Color(0xff79dd72),
+                  center: Icon(CustomIcons.create_meal, color: Color(0xff79dd72), size: 120,),
                 ),
               ],
             ),
