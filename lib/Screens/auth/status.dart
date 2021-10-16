@@ -1,9 +1,12 @@
 import 'dart:async';
 
 import 'package:coach_app/Screens/auth/phone_auth.dart';
-import 'package:coach_app/Screens/auth/signin.dart';
-import 'package:coach_app/services/auth_wrapper.dart';
+import 'package:coach_app/Screens/main_screens/bottom_bar.dart';
+
 import 'package:flutter/material.dart';
+import 'package:percent_indicator/circular_percent_indicator.dart';
+
+import '../../custom_icons_icons.dart';
 
 class Status extends StatefulWidget {
   const Status({Key? key}) : super(key: key);
@@ -34,7 +37,7 @@ class _StatusState extends State<Status> {
   }
   route() {
     Navigator.pushReplacement(context, MaterialPageRoute(
-        builder: (context) => PhoneAuth()
+        builder: (context) => BottomBar()
     )
     );
   }
@@ -56,10 +59,21 @@ class _StatusState extends State<Status> {
                  ]
                 ),
                 ),
-                SizedBox(height: 30,),
-                Image.asset(
-                  'assets/images/status.PNG',
-                  height: 250,
+                SizedBox(
+                  height: 40,
+                ),
+                CircularPercentIndicator(
+                  startAngle: 45,
+                  radius: 200.0,
+                  animation: true,
+                  animationDuration: 3000,
+                  lineWidth: 30.0,
+                  backgroundWidth: 15,
+                  percent: 0.25,
+                  circularStrokeCap: CircularStrokeCap.round,
+                  backgroundColor: Colors.grey,
+                  progressColor: Color(0xff79dd72),
+                  center: Icon(CustomIcons.flash, color: Color(0xff79dd72), size: 120,),
                 ),
               ],
             ),

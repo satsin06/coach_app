@@ -30,39 +30,10 @@ class Training extends StatelessWidget {
             ),
           ),
         ),
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Stack(
-              children: [
-                Text(
-                  'COACH APP',
-                  style: TextStyle(
-                      fontSize: 32,
-                      fontWeight: FontWeight.w100,
-                      color: Colors.black,
-                      fontFamily: 'GeometricSlab'),
-                ),
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(27, 13, 0, 0),
-                  child: Icon(
-                    CustomIcons.name,
-                    color: Color(0xff79dd72),
-                    size: 6,
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(88, 5, 0, 0),
-                  child: Icon(
-                    CustomIcons.flash,
-                    color: Color(0xff79dd72),
-                    size: 24,
-                  ),
-                ),
-              ],
-            ),
-          ],
-        ),
+        title: Image.asset("assets/appbar.png",
+          height: 25,
+          fit: BoxFit.cover,),
+        centerTitle: true,
       ),
       body: SingleChildScrollView(
         child: Container(
@@ -125,9 +96,9 @@ class Training extends StatelessWidget {
                 onDateSelected: (date) => print(date),
                 leftMargin: 20,
                 monthColor: Colors.blueGrey,
-                dayColor: Colors.teal[200],
-                activeDayColor: Colors.white,
-                activeBackgroundDayColor: Colors.redAccent[100],
+                dayColor: Colors.black45,
+                activeDayColor: Colors.black,
+                activeBackgroundDayColor: Color(0xff79dd72),
                 dotsColor: Color(0xFF333A47),
                 //selectableDayPredicate: (date) => date.day != 23,
                 locale: 'es_MX',

@@ -1,4 +1,6 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:coach_app/Screens/main_screens/bottom_bar.dart';
+import 'package:coach_app/Screens/tabs/tabscreens.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -21,6 +23,8 @@ class _PhoneAuthState extends State<PhoneAuth> {
   LoginScreen currentState = LoginScreen.SHOW_MOBILE_FORM_WIDGET;
   FirebaseAuth _auth = FirebaseAuth.instance;
   String verificationID = "";
+  CollectionReference users = FirebaseFirestore.instance.collection('users');
+  User? user = FirebaseAuth.instance.currentUser;
 
 
 
@@ -35,7 +39,7 @@ class _PhoneAuthState extends State<PhoneAuth> {
 
       if(authCred.user != null)
       {
-        Navigator.pushReplacement(context,MaterialPageRoute(builder: (context) => BottomBar()));
+        Navigator.pushReplacement(context,MaterialPageRoute(builder: (context) => TaberScreen()));
       }
     } on FirebaseAuthException catch (e) {
 
@@ -75,7 +79,7 @@ class _PhoneAuthState extends State<PhoneAuth> {
             ElevatedButton(onPressed: ()  async{
               await _auth.verifyPhoneNumber(
 
-                  phoneNumber: "+91${phoneController.text}",
+                  phoneNumber: "+${phoneController.text}",
                   verificationCompleted: (phoneAuthCredential) async{
 
 
@@ -124,7 +128,7 @@ class _PhoneAuthState extends State<PhoneAuth> {
           SizedBox(height: 7,),
           SizedBox(height: 20,),
           Center(
-            child:       TextField(
+            child: TextField(
               style: TextStyle(
                   color: Colors.white
               ),
@@ -141,6 +145,8 @@ class _PhoneAuthState extends State<PhoneAuth> {
           ElevatedButton(onPressed: () {
             AuthCredential phoneAuthCredential = PhoneAuthProvider.credential(verificationId: verificationID, smsCode: otpController.text);
             signInWithPhoneAuthCred(phoneAuthCredential);
+            users.doc(user!.uid).set({'Phone': "+${phoneController.text}"});
+            print('User Logged In');
           }, child: Text("Verify",style: TextStyle(
               color: Color(0xff627674), fontWeight: FontWeight.normal),),style: ElevatedButton.styleFrom(
             primary: Color(0xff79dd72),

@@ -23,21 +23,6 @@ class _ExerciseDateState extends State<ExerciseDate> {
     super.initState();
   }
 
-  // void _onSelectionChanged(DateRangePickerSelectionChangedArgs args) {
-  //   setState(() {
-  //     if (args.value is PickerDateRange) {
-  //       _range =
-  //           DateFormat('dd/MM/yyyy').format(args.value.startDate).toString() +
-  //               ' - ' +
-  //               DateFormat('dd/MM/yyyy')
-  //                   .format(args.value.endDate ?? args.value.startDate)
-  //                   .toString();
-  //     } else if (args.value is DateTime) {
-  //     } else if (args.value is List<DateTime>) {
-  //       _dateCount = args.value.length.toString();
-  //     }
-  //   });
-  // }
 
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,39 +30,10 @@ class _ExerciseDateState extends State<ExerciseDate> {
         elevation: 0,
         backgroundColor: Colors.transparent,
         automaticallyImplyLeading: false,
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Stack(
-              children: [
-                Text(
-                  'COACH APP',
-                  style: TextStyle(
-                      fontSize: 32,
-                      fontWeight: FontWeight.w100,
-                      color: Colors.black,
-                      fontFamily: 'GeometricSlab'),
-                ),
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(27, 13, 0, 0),
-                  child: Icon(
-                    CustomIcons.name,
-                    color: Color(0xff79dd72),
-                    size: 6,
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(88, 5, 0, 0),
-                  child: Icon(
-                    CustomIcons.flash,
-                    color: Color(0xff79dd72),
-                    size: 24,
-                  ),
-                ),
-              ],
-            ),
-          ],
-        ),
+        title: Image.asset("assets/appbar.png",
+          height: 25,
+          fit: BoxFit.cover,),
+        centerTitle: true,
       ),
       body: Container(
         height: MediaQuery.of(context).size.height,

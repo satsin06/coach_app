@@ -1,4 +1,6 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:coach_app/widget/tab_status.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -13,9 +15,12 @@ class FifthTabScreen extends StatefulWidget {
 
 class _FifthTabScreenState extends State<FifthTabScreen> {
   int _selectedValue = 0;
+  int _selectedValue1 = 0;
 
   @override
   Widget build(BuildContext context) {
+    CollectionReference users = FirebaseFirestore.instance.collection('users');
+    User? user = FirebaseAuth.instance.currentUser;
     return Scaffold(
       backgroundColor: Color(0xff222220),
       body: Padding(
@@ -72,7 +77,7 @@ class _FifthTabScreenState extends State<FifthTabScreen> {
                           children: List<Widget>.generate(8, (int index) {
                             return Center(
                                 child: Text(
-                                  ( 7 - index).toString(), style: TextStyle(color: Colors.white,fontSize: 32, fontWeight: FontWeight.bold
+                                  ( 0 + index).toString(), style: TextStyle(color: Colors.white,fontSize: 32, fontWeight: FontWeight.bold
                                 ),
                                 ));
                           }),
@@ -91,13 +96,13 @@ class _FifthTabScreenState extends State<FifthTabScreen> {
                           selectionOverlay: Container(),
                           onSelectedItemChanged: (value) {
                             setState(() {
-                              _selectedValue = value;
+                              _selectedValue1 = value;
                             });
                           },
                           children: List<Widget>.generate(100, (int index) {
                             return Center(
                                 child: Text(
-                                  ( 99 - index).toString(), style: TextStyle(color: Colors.white,fontSize: 32, fontWeight: FontWeight.bold
+                                  ( 0 + index).toString(), style: TextStyle(color: Colors.white,fontSize: 32, fontWeight: FontWeight.bold
                                 ),
                                 ));
                           }),
@@ -124,7 +129,7 @@ class _FifthTabScreenState extends State<FifthTabScreen> {
                           ],
                           onSelectedItemChanged: (value) {
                             setState(() {
-                              _selectedValue = value;
+                              //_selectedValue = value;
                             });
                           },
                         ),
@@ -136,6 +141,7 @@ class _FifthTabScreenState extends State<FifthTabScreen> {
             ),
             ElevatedButton(
               onPressed: () {
+                users.doc(user!.uid).update({'height': '$_selectedValue' + '.' +'$_selectedValue1' + ' ' + 'ft'});
                 DefaultTabController.of(context)!.animateTo(6);
               },
               child: FittedBox(

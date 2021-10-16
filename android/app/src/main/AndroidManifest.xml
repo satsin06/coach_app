@@ -1,9 +1,18 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.coach_app">
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
    <application
         android:label="coach_app"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/launcher_icon">
+       <receiver android:name="com.dexterous.flutterlocalnotifications.ScheduledNotificationBootReceiver">
+           <intent-filter>
+               <action android:name="android.intent.action.BOOT_COMPLETED"></action>
+           </intent-filter>
+       </receiver>
+       <receiver android:name="com.dexterous.flutterlocalnotifications.ScheduledNotificationReceiver" />
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
@@ -38,5 +47,21 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
+       <service
+           android:name="dev.fluttercommunity.plus.androidalarmmanager.AlarmService"
+           android:permission="android.permission.BIND_JOB_SERVICE"
+           android:exported="false"/>
+       <receiver
+           android:name="dev.fluttercommunity.plus.androidalarmmanager.AlarmBroadcastReceiver"
+           android:exported="false"/>
+       <receiver
+           android:name="dev.fluttercommunity.plus.androidalarmmanager.RebootBroadcastReceiver"
+           android:enabled="false">
+           <intent-filter>
+               <action android:name="android.intent.action.BOOT_COMPLETED"></action>
+           </intent-filter>
+       </receiver>
+
+       Check out our documentation website to learn more. [Plus plugins documentation](https://plus.fluttercommunity.dev/docs/overview)
     </application>
 </manifest>

@@ -1,9 +1,10 @@
-import 'package:coach_app/Screens/main_screens/profile/gallery.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:coach_app/model/user_data.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:toggle_switch/toggle_switch.dart';
 
-import '../../../custom_icons_icons.dart';
 
 class PlanNutrition extends StatefulWidget {
   const PlanNutrition({Key? key}) : super(key: key);
@@ -13,6 +14,23 @@ class PlanNutrition extends StatefulWidget {
 }
 
 class _PlanNutritionState extends State<PlanNutrition> {
+
+  User? user = FirebaseAuth.instance.currentUser;
+  UserData loggedInUser = UserData();
+
+  @override
+  void initState() {
+    super.initState();
+    FirebaseFirestore.instance
+        .collection("users")
+        .doc(user!.uid)
+        .get()
+        .then((value) {
+      this.loggedInUser = UserData.fromMap(value.data());
+      setState(() {});
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,39 +39,10 @@ class _PlanNutritionState extends State<PlanNutrition> {
             elevation: 0,
             backgroundColor: Colors.white,
             automaticallyImplyLeading: false,
-            title: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Stack(
-                  children: [
-                    Text(
-                      'COACH APP',
-                      style: TextStyle(
-                          fontSize: 32,
-                          fontWeight: FontWeight.w100,
-                          color: Colors.black,
-                          fontFamily: 'GeometricSlab'),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(27, 13, 0, 0),
-                      child: Icon(
-                        CustomIcons.name,
-                        color: Color(0xff79dd72),
-                        size: 6,
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(88, 5, 0, 0),
-                      child: Icon(
-                        CustomIcons.flash,
-                        color: Color(0xff79dd72),
-                        size: 24,
-                      ),
-                    ),
-                  ],
-                ),
-              ],
-            )
+            title: Image.asset("assets/appbar.png",
+              height: 25,
+              fit: BoxFit.cover,),
+          centerTitle: true,
         ),
       body: Container(
         child: Padding(
@@ -136,7 +125,7 @@ class _PlanNutritionState extends State<PlanNutrition> {
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10.0),
                           border: Border.all(color: Colors.grey)),
-                      child: Center(child: Container(child: Text('1.80 m'))))
+                      child: Center(child: Container(child: Text("${loggedInUser.height}",))))
                 ],
               ),
               SizedBox(
@@ -155,7 +144,7 @@ class _PlanNutritionState extends State<PlanNutrition> {
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10.0),
                         border: Border.all(color: Colors.grey)),
-                    child: Center(child: Container(child: Text('70 kg'))),
+                    child: Center(child: Container(child: Text("${loggedInUser.weight}",))),
                   )
                 ],
               ),
@@ -207,7 +196,7 @@ class _PlanNutritionState extends State<PlanNutrition> {
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10.0),
                           border: Border.all(color: Colors.grey)),
-                      child: Center(child: Container(child: Text('70 kg'))))
+                      child: Center(child: Container(child: Text("${loggedInUser.desiredWeight}",))))
                 ],
               ),
               SizedBox(
@@ -258,7 +247,7 @@ class _PlanNutritionState extends State<PlanNutrition> {
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10.0),
                         border: Border.all(color: Colors.grey)),
-                    child: Center(child: Container(child: Text('2700 Kcal'))),
+                    child: Center(child: Container(child: Text("${loggedInUser.targetCalories}",))),
                   )
                 ],
               ),
@@ -320,11 +309,6 @@ class _PlanNutritionState extends State<PlanNutrition> {
                           child: Container(child: Text('Actualizer Objetivo'))),
                     ),
                     onTap: () {
-                      Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder: (context) => Gallery(),
-                        ),
-                      );
                     },
                   )
                 ],

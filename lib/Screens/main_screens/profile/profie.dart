@@ -1,17 +1,20 @@
-import 'package:coach_app/Screens/auth/phone_auth.dart';
+import 'dart:io';
+import 'package:camera/camera.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:coach_app/Screens/main_screens/profile/edit_profile.dart';
 import 'package:coach_app/Screens/main_screens/profile/gallery.dart';
 import 'package:coach_app/Screens/main_screens/profile/manage_notifications.dart';
 import 'package:coach_app/Screens/main_screens/profile/modification_subscription.dart';
 import 'package:coach_app/Screens/main_screens/profile/plan_nutrition.dart';
 import 'package:coach_app/Screens/main_screens/profile/setting.dart';
-import 'package:coach_app/services/auth_service.dart';
+import 'package:coach_app/Screens/splash_screen.dart';
+import 'package:coach_app/model/user_data.dart';
 import 'package:coach_app/widget/profile_tile.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
-import 'package:provider/provider.dart';
 
 import '../../../custom_icons_icons.dart';
 
@@ -23,53 +26,45 @@ class Profile extends StatefulWidget {
 }
 
 class _ProfileState extends State<Profile> {
-  FirebaseAuth _auth = FirebaseAuth.instance;
 
-  void signOut() async{
+  User? user = FirebaseAuth.instance.currentUser;
+  UserData loggedInUser = UserData();
+
+  @override
+  void initState() {
+    super.initState();
+    FirebaseFirestore.instance
+        .collection("users")
+        .doc(user!.uid)
+        .get()
+        .then((value) {
+      this.loggedInUser = UserData.fromMap(value.data());
+      setState(() {});
+    });
+  }
+
+
+  FirebaseAuth _auth = FirebaseAuth.instance;
+  List<File> capturedImages = [];
+  final cameras = availableCameras();
+
+
+  void signOut() async {
     await _auth.signOut();
-    Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => PhoneAuth()), (route) => false);
+    Navigator.pushAndRemoveUntil(context,
+        MaterialPageRoute(builder: (context) => SplashScreen()), (route) => false);
   }
 
   @override
   Widget build(BuildContext context) {
-    final authService = Provider.of<AuthService>(context);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Stack(
-              children: [
-                Text(
-                  'COACH APP',
-                  style: TextStyle(
-                      fontSize: 32,
-                      fontWeight: FontWeight.w100,
-                      color: Colors.black,
-                      fontFamily: 'GeometricSlab'),
-                ),
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(27, 13, 0, 0),
-                  child: Icon(
-                    CustomIcons.name,
-                    color: Color(0xff79dd72),
-                    size: 6,
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(88, 5, 0, 0),
-                  child: Icon(
-                    CustomIcons.flash,
-                    color: Color(0xff79dd72),
-                    size: 24,
-                  ),
-                ),
-              ],
-            ),
-          ],
-        ),
+        title: Image.asset("assets/appbar.png",
+          height: 25,
+          fit: BoxFit.cover,),
+        centerTitle: true,
       ),
       body: Container(
         height: MediaQuery.of(context).size.height,
@@ -106,10 +101,17 @@ class _ProfileState extends State<Profile> {
                                     fontWeight: FontWeight.w800),
                               )
                             ])),
-                        Icon(
-                          CustomIcons.profile_edit,
-                          size: 28,
-                        )
+                        IconButton(
+                            onPressed: () {
+                              // Navigator.of(context).push(MaterialPageRoute(builder: (context) => Test()));
+                            },
+                            icon: IconButton(
+                              icon: Icon(CustomIcons.profile_edit,
+                                size: 28,),
+                              onPressed: () {
+                                Navigator.of(context).push(MaterialPageRoute(builder: (context) => EditProfile()));
+                              }
+                            )),
                       ],
                     ),
                   ),
@@ -133,7 +135,7 @@ class _ProfileState extends State<Profile> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              'JASON',
+                              "${loggedInUser.name}",
                               style: TextStyle(
                                 fontSize: 24,
                                 fontWeight: FontWeight.bold,
@@ -145,7 +147,7 @@ class _ProfileState extends State<Profile> {
                                   fontSize: 18, fontWeight: FontWeight.w600),
                             ),
                             Text(
-                              'correo',
+                              "${loggedInUser.email}",
                               style: TextStyle(
                                   fontSize: 18, fontWeight: FontWeight.w100),
                             )
@@ -175,7 +177,7 @@ class _ProfileState extends State<Profile> {
                           TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
                     ),
                     Text(
-                      'México',
+                      "${loggedInUser.country}",
                       style:
                           TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
                     ),
@@ -252,7 +254,7 @@ class _ProfileState extends State<Profile> {
                           elevation: 16,
                           child: Container(
                             padding: EdgeInsets.all(10),
-                            height: MediaQuery.of(context).size.height * 0.35,
+                            height: MediaQuery.of(context).size.height * 0.45,
                             child: Column(
                               children: [
                                 Container(
@@ -262,8 +264,11 @@ class _ProfileState extends State<Profile> {
                                           MainAxisAlignment.spaceBetween,
                                       children: [
                                         Container(
-                                          child:
-                                              Text("Comentarios y Sugerencias", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20)),
+                                          child: Text(
+                                              "Comentarios y Sugerencias",
+                                              style: TextStyle(
+                                                  fontWeight: FontWeight.bold,
+                                                  fontSize: 20)),
                                         ),
                                         InkWell(
                                           onTap: () {
@@ -340,7 +345,7 @@ class _ProfileState extends State<Profile> {
                           elevation: 16,
                           child: Container(
                             padding: EdgeInsets.all(10),
-                            height: MediaQuery.of(context).size.height * 0.35,
+                            height: MediaQuery.of(context).size.height * 0.45,
                             child: Column(
                               children: [
                                 Container(
@@ -350,7 +355,10 @@ class _ProfileState extends State<Profile> {
                                           MainAxisAlignment.spaceBetween,
                                       children: [
                                         Container(
-                                          child: Text("Reportar un Problema", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20)),
+                                          child: Text("Reportar un Problema",
+                                              style: TextStyle(
+                                                  fontWeight: FontWeight.bold,
+                                                  fontSize: 20)),
                                         ),
                                         InkWell(
                                           onTap: () {
@@ -427,7 +435,7 @@ class _ProfileState extends State<Profile> {
                           elevation: 16,
                           child: Container(
                             padding: EdgeInsets.all(10),
-                            height: MediaQuery.of(context).size.height * 0.3,
+                            height: MediaQuery.of(context).size.height * 0.35,
                             child: Column(
                               children: [
                                 Container(
@@ -437,7 +445,10 @@ class _ProfileState extends State<Profile> {
                                           MainAxisAlignment.spaceBetween,
                                       children: [
                                         Container(
-                                          child: Text("Términos y Condiciones", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20)),
+                                          child: Text("Términos y Condiciones",
+                                              style: TextStyle(
+                                                  fontWeight: FontWeight.bold,
+                                                  fontSize: 20)),
                                         ),
                                         InkWell(
                                           onTap: () {
@@ -458,16 +469,18 @@ class _ProfileState extends State<Profile> {
                                   thickness: 1,
                                 ),
                                 Padding(
-                                  padding: const EdgeInsets.symmetric(horizontal: 12.0),
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 12.0),
                                   child: Container(
-                                    height:
-                                        MediaQuery.of(context).size.height *
-                                            0.15,
-                                    width: MediaQuery.of(context).size.width *
-                                        0.8,
+                                    height: MediaQuery.of(context).size.height *
+                                        0.15,
+                                    width:
+                                        MediaQuery.of(context).size.width * 0.8,
                                     child: Text(
                                       'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex',
-                                      style: TextStyle(fontSize: 22, fontWeight: FontWeight.normal),
+                                      style: TextStyle(
+                                          fontSize: 22,
+                                          fontWeight: FontWeight.normal),
                                     ),
                                   ),
                                 ),
@@ -514,17 +527,22 @@ class _ProfileState extends State<Profile> {
                           elevation: 16,
                           child: Container(
                             padding: EdgeInsets.all(10),
-                            height: MediaQuery.of(context).size.height * 0.3,
+                            height: MediaQuery.of(context).size.height * 0.35,
                             child: Column(
                               children: [
                                 Container(
                                   child: Container(
                                     child: Row(
                                       mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
+                                          MainAxisAlignment.spaceBetween,
                                       children: [
                                         Container(
-                                          child: Text("Políticas de Privacidad", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),),
+                                          child: Text(
+                                            "Políticas de Privacidad",
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 20),
+                                          ),
                                         ),
                                         InkWell(
                                           onTap: () {
@@ -545,16 +563,18 @@ class _ProfileState extends State<Profile> {
                                   thickness: 1,
                                 ),
                                 Padding(
-                                  padding: const EdgeInsets.symmetric(horizontal: 12.0),
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 12.0),
                                   child: Container(
-                                    height:
-                                    MediaQuery.of(context).size.height *
+                                    height: MediaQuery.of(context).size.height *
                                         0.15,
-                                    width: MediaQuery.of(context).size.width *
-                                        0.8,
+                                    width:
+                                        MediaQuery.of(context).size.width * 0.8,
                                     child: Text(
                                       'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex',
-                                      style: TextStyle(fontSize: 22, fontWeight: FontWeight.normal),
+                                      style: TextStyle(
+                                          fontSize: 22,
+                                          fontWeight: FontWeight.normal),
                                     ),
                                   ),
                                 ),

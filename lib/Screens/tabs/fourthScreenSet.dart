@@ -1,4 +1,6 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:coach_app/widget/tab_status.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -18,6 +20,8 @@ class _FourthScreenSetState extends State<FourthScreenSet> {
 
   @override
   Widget build(BuildContext context) {
+    CollectionReference users = FirebaseFirestore.instance.collection('users');
+    User? user = FirebaseAuth.instance.currentUser;
     return Scaffold(
       backgroundColor: Color(0xff222220),
       body: Padding(
@@ -185,6 +189,7 @@ class _FourthScreenSetState extends State<FourthScreenSet> {
             ),
             ElevatedButton(
               onPressed: () {
+                users.doc(user!.uid).update({'desiredWeight': '$_selectedValue1' + ' ' + 'Kg'});
                 DefaultTabController.of(context)!.animateTo(5);
               },
               child: FittedBox(

@@ -36,12 +36,15 @@ class HomeTile extends StatelessWidget {
                                 padding: const EdgeInsets.fromLTRB(0, 20, 0, 10),
                                 child: Icon(CustomIcons.flash, color: Color(0xff79dd72), size: 48,)
                               ),
-                              Text(
-                                title,
-                                style: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 24,
-                                    fontWeight: FontWeight.bold),
+                              FittedBox(
+                                fit: BoxFit.fitWidth,
+                                child: Text(
+                                  title,
+                                  maxLines: 1,
+                                  style: TextStyle(
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.bold),
+                                ),
                               )
                             ],
                           ),
