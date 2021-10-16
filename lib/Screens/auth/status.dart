@@ -1,8 +1,8 @@
 import 'dart:async';
 
 import 'package:coach_app/Screens/auth/phone_auth.dart';
-import 'package:coach_app/Screens/auth/signin.dart';
-import 'package:coach_app/services/auth_wrapper.dart';
+import 'package:coach_app/Screens/main_screens/bottom_bar.dart';
+
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 
@@ -37,7 +37,7 @@ class _StatusState extends State<Status> {
   }
   route() {
     Navigator.pushReplacement(context, MaterialPageRoute(
-        builder: (context) => PhoneAuth()
+        builder: (context) => BottomBar()
     )
     );
   }

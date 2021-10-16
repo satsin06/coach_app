@@ -32,42 +32,10 @@ class _MyPerformanceState extends State<MyPerformance> {
             ),
           ),
         ),
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(top: 12.0, right: 24),
-              child: Stack(
-                children: [
-                  Text(
-                    'COACH APP',
-                    style: TextStyle(
-                        fontSize: 32,
-                        fontWeight: FontWeight.w100,
-                        color: Colors.black,
-                        fontFamily: 'GeometricSlab'),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(27, 13, 0, 0),
-                    child: Icon(
-                      CustomIcons.name,
-                      color: Color(0xff79dd72),
-                      size: 6,
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(88, 5, 0, 0),
-                    child: Icon(
-                      CustomIcons.flash,
-                      color: Color(0xff79dd72),
-                      size: 24,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ),
+        title: Image.asset("assets/appbar.png",
+          height: 25,
+          fit: BoxFit.cover,),
+        centerTitle: true,
       ),
       body: Container(
         child: Padding(

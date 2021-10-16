@@ -1,5 +1,6 @@
-import 'package:coach_app/Screens/tabs/thirdScreen.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:coach_app/widget/tab_status.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import '../../custom_icons_icons.dart';
@@ -9,6 +10,8 @@ class SecondTabScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    CollectionReference users = FirebaseFirestore.instance.collection('users');
+    User? user = FirebaseAuth.instance.currentUser;
     return Scaffold(
         backgroundColor: Color(0xff222220),
         body: Padding(
@@ -38,7 +41,10 @@ class SecondTabScreen extends StatelessWidget {
               Column(
                 children: [
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      users.doc(user!.uid).update({'goal': 'LOSE FAT'});
+                      DefaultTabController.of(context)!.animateTo(2);
+                    },
                     child: FittedBox(
                       fit: BoxFit.fitWidth,
                       child: Text(
@@ -64,7 +70,10 @@ class SecondTabScreen extends StatelessWidget {
                   ),
                   SizedBox(height: 10,),
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      users.doc(user!.uid).update({'goal': 'MAINTENANCE'});
+                      DefaultTabController.of(context)!.animateTo(2);
+                    },
                     child: FittedBox(
                       fit: BoxFit.fitWidth,
                       child: Text(
@@ -90,7 +99,10 @@ class SecondTabScreen extends StatelessWidget {
                   ),
                   SizedBox(height: 10,),
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      users.doc(user!.uid).set({'goal': 'INCREASE MUSCLE'});
+                      DefaultTabController.of(context)!.animateTo(2);
+                    },
                     child: FittedBox(
                       fit: BoxFit.fitWidth,
                       child: Text(

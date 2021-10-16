@@ -1,6 +1,7 @@
-import 'package:coach_app/Screens/auth/signin.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:coach_app/Screens/auth/status.dart';
 import 'package:coach_app/widget/tab_status.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -18,6 +19,8 @@ class _SixthTabScreenState extends State<SixthTabScreen> {
 
   @override
   Widget build(BuildContext context) {
+    CollectionReference users = FirebaseFirestore.instance.collection('users');
+    User? user = FirebaseAuth.instance.currentUser;
     return Scaffold(
       backgroundColor: Color(0xff222220),
       body: Padding(
@@ -74,7 +77,7 @@ class _SixthTabScreenState extends State<SixthTabScreen> {
                           children: List<Widget>.generate(86, (int index) {
                             return Center(
                                 child: Text(
-                                  ( 99 - index).toString(), style: TextStyle(color: Colors.white,fontSize: 32, fontWeight: FontWeight.bold
+                                  ( 0 + index).toString(), style: TextStyle(color: Colors.white,fontSize: 32, fontWeight: FontWeight.bold
                                 ),
                                 ));
                           }),
@@ -82,8 +85,11 @@ class _SixthTabScreenState extends State<SixthTabScreen> {
                       ),
                     ),
                     Expanded(child: Center(
-                      child: Text('años', style: TextStyle(color: Colors.white,fontSize: 32, fontWeight: FontWeight.bold
-                      ),),
+                      child: FittedBox(
+                        fit: BoxFit.fitWidth,
+                        child: Text('años', maxLines: 1, style: TextStyle(color: Colors.white,fontSize: 32, fontWeight: FontWeight.bold
+                        ),),
+                      ),
                     )
                     ),
                   ],
@@ -92,9 +98,9 @@ class _SixthTabScreenState extends State<SixthTabScreen> {
             ),
             ElevatedButton(
               onPressed: () {
-                Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => Status())
-                );
+                users.doc(user!.uid).update({'age': '$_selectedValue'});
+                Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) =>
+                    Status()), (Route<dynamic> route) => false);
               },
               child: FittedBox(
                 fit: BoxFit.fitWidth,

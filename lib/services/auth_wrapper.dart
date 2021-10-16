@@ -1,5 +1,6 @@
-import 'package:coach_app/Screens/auth/email_login.dart';
+import 'package:coach_app/Screens/auth/phone_auth.dart';
 import 'package:coach_app/Screens/main_screens/bottom_bar.dart';
+import 'package:coach_app/Screens/tabs/tabscreens.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:coach_app/model/user_model.dart';
@@ -12,12 +13,12 @@ class AuthWrapper extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final authService = Provider.of<AuthService>(context);
-    return StreamBuilder<User?>(
+    return StreamBuilder<UserModel?>(
         stream: authService.user,
-        builder: (_, AsyncSnapshot<User?> snapshot) {
+        builder: (_, AsyncSnapshot<UserModel?> snapshot) {
           if (snapshot.connectionState == ConnectionState.active) {
-            final User? user = snapshot.data;
-            return user == null ? EmailLogin() : BottomBar();
+            final UserModel? user = snapshot.data;
+            return user == null ? PhoneAuth() : BottomBar();
           } else {
             return Scaffold(
               body: Center(

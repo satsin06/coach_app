@@ -1,7 +1,7 @@
-import 'package:coach_app/Screens/tabs/tabscreens.dart';
+import 'package:coach_app/Screens/auth/phone_auth.dart';
+import 'package:coach_app/services/auth_wrapper.dart';
 import 'package:flutter/material.dart';
 
-import '../custom_icons_icons.dart';
 
 class InitialPage extends StatelessWidget {
   const InitialPage({Key? key}) : super(key: key);
@@ -20,46 +20,13 @@ class InitialPage extends StatelessWidget {
               height: MediaQuery.of(context).size.height * 0.2,
               child: Column(
                 children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      FittedBox(
-                        fit: BoxFit.fitWidth,
-                        child: Stack(
-                          children: [
-                            Text(
-                              'COACH',
-                              style: TextStyle(
-                                  fontSize: 68,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white,
-                                  fontFamily: 'GeometricSlab'),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.fromLTRB(57, 28, 0, 0),
-                              child: Icon(
-                                CustomIcons.name,
-                                color: Color(0xff79dd72),
-                                size: 12,
-                              ),
-                            )
-                          ],
-                        ),
-                      ),
-                      Icon(
-                        CustomIcons.flash,
-                        color: Color(0xff79dd72),
-                        size: 60,
-                      ),
-                      Text(
-                        'APP',
-                        style: TextStyle(
-                            fontSize: 68,
-                            fontWeight: FontWeight.bold,
-                            fontFamily: 'GeometricSlab',
-                            color: Colors.white),
-                      ),
-                    ],
+                  Expanded(
+                    child:  Image.asset(
+                      'assets/images/homescreen.png',
+                      width: 600.0,
+                      height: 200.0,
+                      fit: BoxFit.cover,
+                    ),
                   ),
                   SizedBox(
                     height: 60,
@@ -87,7 +54,7 @@ class InitialPage extends StatelessWidget {
                 ElevatedButton(
                   onPressed: () {
                     Navigator.of(context)
-                        .push(MaterialPageRoute(builder: (context) => TaberScreen()));
+                        .push(MaterialPageRoute(builder: (context) => AuthWrapper()));
                   },
                   child: FittedBox(
                     fit: BoxFit.fitWidth,
@@ -111,7 +78,9 @@ class InitialPage extends StatelessWidget {
                   height: 10,
                 ),
                 TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.of(context).push(MaterialPageRoute(builder: (context) => PhoneAuth()));
+                    },
                     child: FittedBox(
                       fit: BoxFit.fitWidth,
                       child: Text(

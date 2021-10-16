@@ -1,5 +1,7 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:coach_app/custom_icons_icons.dart';
 import 'package:coach_app/widget/tab_status.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class FirstTabScreen extends StatelessWidget {
@@ -7,6 +9,8 @@ class FirstTabScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    CollectionReference users = FirebaseFirestore.instance.collection('users');
+    User? user = FirebaseAuth.instance.currentUser;
     return Scaffold(
         backgroundColor: Color(0xff222220),
         body: Padding(
@@ -40,7 +44,10 @@ class FirstTabScreen extends StatelessWidget {
               Column(
                 children: [
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () async {
+                      users.doc(user!.uid).set({'sex': 'Female'});
+                      DefaultTabController.of(context)!.animateTo(1);
+                    },
                     child: FittedBox(
                       fit: BoxFit.fitWidth,
                       child: Text(
@@ -52,7 +59,8 @@ class FirstTabScreen extends StatelessWidget {
                       ),
                     ),
                     style: ElevatedButton.styleFrom(
-                      fixedSize: Size.fromWidth(MediaQuery.of(context).size.width * 0.7),
+                      fixedSize: Size.fromWidth(
+                          MediaQuery.of(context).size.width * 0.7),
                       side: BorderSide(
                         width: 2.0,
                         color: Color(0xff79dd72),
@@ -71,7 +79,10 @@ class FirstTabScreen extends StatelessWidget {
                     height: 20,
                   ),
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      users.doc(user!.uid).set({'sex': 'Male'});
+                      DefaultTabController.of(context)!.animateTo(1);
+                    },
                     child: FittedBox(
                       fit: BoxFit.fitWidth,
                       child: Text(
@@ -83,7 +94,8 @@ class FirstTabScreen extends StatelessWidget {
                       ),
                     ),
                     style: ElevatedButton.styleFrom(
-                      fixedSize: Size.fromWidth(MediaQuery.of(context).size.width * 0.7),
+                      fixedSize: Size.fromWidth(
+                          MediaQuery.of(context).size.width * 0.7),
                       side: BorderSide(
                         width: 2.0,
                         color: Color(0xff79dd72),
@@ -105,16 +117,18 @@ class FirstTabScreen extends StatelessWidget {
                   DefaultTabController.of(context)!.animateTo(1);
                 },
                 child: FittedBox(
-                    fit: BoxFit.fitWidth,
-                    child: Text(
-                      'CONTINUAR',
-                      maxLines: 1,
-                      style: TextStyle(
-                          color: Color(0xff627674),
-                          fontWeight: FontWeight.normal),
-                    )),
+                  fit: BoxFit.fitWidth,
+                  child: Text(
+                    'CONTINUAR',
+                    maxLines: 1,
+                    style: TextStyle(
+                        color: Color(0xff627674),
+                        fontWeight: FontWeight.normal),
+                  ),
+                ),
                 style: ElevatedButton.styleFrom(
-                  fixedSize: Size.fromWidth(MediaQuery.of(context).size.width * 0.7),
+                  fixedSize:
+                      Size.fromWidth(MediaQuery.of(context).size.width * 0.7),
                   primary: Color(0xff79dd72),
                   shape: new RoundedRectangleBorder(
                     borderRadius: new BorderRadius.circular(30.0),

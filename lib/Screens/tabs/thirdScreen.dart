@@ -1,5 +1,7 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:coach_app/Screens/tabs/fourthScreen.dart';
 import 'package:coach_app/widget/tab_status.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import '../../custom_icons_icons.dart';
@@ -9,6 +11,8 @@ class ThirdTabScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    CollectionReference users = FirebaseFirestore.instance.collection('users');
+    User? user = FirebaseAuth.instance.currentUser;
     return Scaffold(
         backgroundColor: Color(0xff222220),
         body: Padding(
@@ -43,7 +47,10 @@ class ThirdTabScreen extends StatelessWidget {
               Column(
                 children: [
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      users.doc(user!.uid).update({'condition': 'BEGINNER'});
+                      DefaultTabController.of(context)!.animateTo(3);
+                    },
                     child: FittedBox(
                       fit: BoxFit.fitWidth,
                       child: Text(
@@ -69,7 +76,10 @@ class ThirdTabScreen extends StatelessWidget {
                   ),
                   SizedBox(height: 10,),
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      users.doc(user!.uid).update({'condition': 'INTERMEDIATE'});
+                      DefaultTabController.of(context)!.animateTo(3);
+                    },
                     child: FittedBox(
                       fit: BoxFit.fitWidth,
                       child: Text(
@@ -95,7 +105,10 @@ class ThirdTabScreen extends StatelessWidget {
                   ),
                   SizedBox(height: 10,),
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      users.doc(user!.uid).update({'condition': 'ADVANCED'});
+                      DefaultTabController.of(context)!.animateTo(3);
+                    },
                     child: FittedBox(
                       fit: BoxFit.fitWidth,
                       child: Text(

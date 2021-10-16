@@ -3,8 +3,6 @@ import 'dart:async';
 import 'package:coach_app/Screens/initial_screen.dart';
 import 'package:flutter/material.dart';
 
-import '../custom_icons_icons.dart';
-
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
 
@@ -50,45 +48,14 @@ class _SplashScreenState extends State<SplashScreen> {
           Center(
             child:
             Container(
-              width: MediaQuery.of(context).size.width * 0.9,
-              height: MediaQuery.of(context).size.height * 0.2,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Stack(
-                    children: [
-                      Text(
-                        'COACH',
-                        style: TextStyle(
-                            fontSize: 68,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
-                            fontFamily: 'GeometricSlab'),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.fromLTRB(57, 28, 0, 0),
-                        child: Icon(
-                          CustomIcons.name,
-                          color: Color(0xff79dd72),
-                          size: 12,
-                        ),
-                      ),
-                    ],
-                  ),
-                  Icon(
-                    CustomIcons.flash,
-                    color: Color(0xff79dd72),
-                    size: 60,
-                  ),
-                  Text(
-                    'APP',
-                    style: TextStyle(
-                        fontSize: 68,
-                        fontWeight: FontWeight.bold,
-                        fontFamily: 'GeometricSlab',
-                        color: Colors.white),
-                  ),
-                ],
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(8.0)
+              ),
+              child: Image.asset(
+                'assets/images/LOGO.PNG',
+                width: 600.0,
+                height: 400.0,
+                fit: BoxFit.cover,
               ),
             ),
           ),

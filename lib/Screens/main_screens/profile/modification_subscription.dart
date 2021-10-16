@@ -24,39 +24,10 @@ class _ModificationSubscriptionState extends State<ModificationSubscription> {
           elevation: 0,
           backgroundColor: Colors.white,
           automaticallyImplyLeading: false,
-          title: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Stack(
-                children: [
-                  Text(
-                    'COACH APP',
-                    style: TextStyle(
-                        fontSize: 32,
-                        fontWeight: FontWeight.w100,
-                        color: Colors.black,
-                        fontFamily: 'GeometricSlab'),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(27, 13, 0, 0),
-                    child: Icon(
-                      CustomIcons.name,
-                      color: Color(0xff79dd72),
-                      size: 6,
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(88, 5, 0, 0),
-                    child: Icon(
-                      CustomIcons.flash,
-                      color: Color(0xff79dd72),
-                      size: 24,
-                    ),
-                  ),
-                ],
-              ),
-            ],
-          )
+          title: Image.asset("assets/appbar.png",
+            height: 25,
+            fit: BoxFit.cover,),
+        centerTitle: true,
       ),
       body: SingleChildScrollView(
         child: Container(
