@@ -1,8 +1,15 @@
+import 'dart:io';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:coach_app/Screens/main_screens/bottom_bar.dart';
 import 'package:coach_app/model/user_data.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:path/path.dart';
+import 'package:path_provider/path_provider.dart';
 
 class EditProfile extends StatefulWidget {
   const EditProfile({Key? key}) : super(key: key);
@@ -12,6 +19,75 @@ class EditProfile extends StatefulWidget {
 }
 
 class _EditProfileState extends State<EditProfile> {
+  File? image;
+  String? imagePath;
+  late String downloadUrl;
+  final picker = ImagePicker();
+
+  Future pickImage() async {
+    final pickedFile = await picker.pickImage(source: ImageSource.gallery);
+    setState(() {
+      image = File(pickedFile!.path);
+    });
+  }
+
+
+  Future cameraImage() async {
+    final pickedFile = await picker.pickImage(source: ImageSource.camera);
+
+    setState(() {
+      image = File(pickedFile!.path);
+    });
+  }
+
+  Future<File> saveImagePermanently(String imagePath) async {
+    final directory = await getApplicationDocumentsDirectory();
+    final name = basename(imagePath);
+    final image = File('${directory.path}/$name');
+
+    return File(imagePath).copy(image.path);
+  }
+  Future uploadImageToFirebase(BuildContext context) async {
+    String fileName = basename(image!.path);
+    Reference firebaseStorageRef =
+    FirebaseStorage.instance.ref().child('uploads/$fileName');
+    UploadTask uploadTask = firebaseStorageRef.putFile(image!);
+    TaskSnapshot taskSnapshot = await uploadTask.whenComplete(() => null);
+    taskSnapshot.ref.getDownloadURL().then(
+          (value) => print("Done: $value"),
+    );
+  }
+
+  void _showPicker(context) {
+    showModalBottomSheet(
+        context: context,
+        builder: (BuildContext bc) {
+          return SafeArea(
+            child: Container(
+              child: new Wrap(
+                children: <Widget>[
+                  new ListTile(
+                      leading: new Icon(Icons.photo_library),
+                      title: new Text('Photo Library'),
+                      onTap: () {
+                        pickImage();
+                        Navigator.of(context).pop();
+                      }),
+                  new ListTile(
+                    leading: new Icon(Icons.photo_camera),
+                    title: new Text('Camera'),
+                    onTap: () {
+                      cameraImage();
+                      Navigator.of(context).pop();
+                    },
+                  ),
+                ],
+              ),
+            ),
+          );
+        });
+  }
+
   User? user = FirebaseAuth.instance.currentUser;
   UserData loggedInUser = UserData();
 
@@ -131,10 +207,12 @@ class _EditProfileState extends State<EditProfile> {
           onPressed: () {
             users.doc(user!.uid).update({
               'name': nameEditingController.text,
+              'imagePath': imagePath.toString(),
               'email': emailEditingController.text,
               'country': countryEditingController.text
             });
-            Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => BottomBar()));
+            Navigator.of(context).pushReplacement(
+                MaterialPageRoute(builder: (context) => BottomBar()));
             //Navigator.of(context).pop();
           },
           child: Text(
@@ -164,6 +242,39 @@ class _EditProfileState extends State<EditProfile> {
               key: _editProfileKey,
               child: Column(
                 children: [
+                  Spacer(),
+                  Center(
+                    child: GestureDetector(
+                      onTap: () {
+                        _showPicker(context);
+                      },
+                      child: CircleAvatar(
+                        radius: 55,
+                        child: image != null
+                            ? ClipRRect(
+                                borderRadius: BorderRadius.circular(50),
+                                child: Image.file(
+                                  image!,
+                                  width: 128,
+                                  height: 128,
+                                  fit: BoxFit.cover,
+                                ),
+                              )
+                            : Container(
+                                decoration: BoxDecoration(
+                                    color: Colors.grey[200],
+                                    borderRadius: BorderRadius.circular(50)),
+                                width: 100,
+                                height: 100,
+                                child: Icon(
+                                  Icons.camera_alt,
+                                  color: Colors.grey[800],
+                                ),
+                              ),
+                      ),
+                    ),
+                  ),
+                  Spacer(),
                   nameField,
                   SizedBox(
                     height: 40,
@@ -176,7 +287,10 @@ class _EditProfileState extends State<EditProfile> {
                   SizedBox(
                     height: 40,
                   ),
-                  saveButton
+                  saveButton,
+                  Spacer(),
+                  Spacer(),
+                  Spacer(),
                 ],
               ),
             )),

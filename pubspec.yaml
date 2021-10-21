@@ -54,7 +54,7 @@ dependencies:
   firebase_auth: ^3.1.1
   provider: ^6.0.0
   firebase_storage: ^10.0.3
-  image_picker: ^0.8.4+2
+  image_picker: ^0.8.3+1
   path: ^1.8.0
   camera: ^0.9.4
   cloud_firestore: ^2.5.3

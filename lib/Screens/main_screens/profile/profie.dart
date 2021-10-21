@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:camera/camera.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:coach_app/Screens/main_screens/profile/alarm_temp.dart';
 import 'package:coach_app/Screens/main_screens/profile/edit_profile.dart';
 import 'package:coach_app/Screens/main_screens/profile/gallery.dart';
 import 'package:coach_app/Screens/main_screens/profile/manage_notifications.dart';
@@ -15,6 +16,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
+import 'package:image_picker/image_picker.dart';
 
 import '../../../custom_icons_icons.dart';
 
@@ -26,9 +28,17 @@ class Profile extends StatefulWidget {
 }
 
 class _ProfileState extends State<Profile> {
-
+  File? image;
+  final picker = ImagePicker();
   User? user = FirebaseAuth.instance.currentUser;
   UserData loggedInUser = UserData();
+  
+  Future pickImage() async {
+    final pickedFile = await picker.pickImage(source: ImageSource.gallery);
+    setState(() {
+      image = File(pickedFile!.path);
+    });
+  }
 
   @override
   void initState() {
@@ -102,16 +112,12 @@ class _ProfileState extends State<Profile> {
                               )
                             ])),
                         IconButton(
-                            onPressed: () {
-                              // Navigator.of(context).push(MaterialPageRoute(builder: (context) => Test()));
-                            },
-                            icon: IconButton(
                               icon: Icon(CustomIcons.profile_edit,
                                 size: 28,),
                               onPressed: () {
                                 Navigator.of(context).push(MaterialPageRoute(builder: (context) => EditProfile()));
                               }
-                            )),
+                            ),
                       ],
                     ),
                   ),
@@ -124,9 +130,34 @@ class _ProfileState extends State<Profile> {
                   children: [
                     Row(
                       children: [
-                        CircleAvatar(
-                          backgroundColor: Colors.grey,
-                          radius: 40,
+                        GestureDetector(
+                          onTap: () {
+                           pickImage();
+                          },
+                          child: CircleAvatar(
+                            radius: 55,
+                            child: image != null
+                                ? ClipRRect(
+                              borderRadius: BorderRadius.circular(50),
+                              child: Image.file(
+                                image!,
+                                width: 110,
+                                height: 110,
+                                fit: BoxFit.cover,
+                              ),
+                            )
+                                : Container(
+                              decoration: BoxDecoration(
+                                  color: Colors.grey[200],
+                                  borderRadius: BorderRadius.circular(50)),
+                              width: 100,
+                              height: 100,
+                              child: Icon(
+                                Icons.camera_alt,
+                                color: Colors.grey[800],
+                              ),
+                            ),
+                          ),
                         ),
                         SizedBox(
                           width: 10,
@@ -193,7 +224,7 @@ class _ProfileState extends State<Profile> {
                   onTap: () {
                     Navigator.of(context).push(
                       MaterialPageRoute(
-                        builder: (context) => ManageNotifications(),
+                        builder: (context) => Alarm(),
                       ),
                     );
                   },
