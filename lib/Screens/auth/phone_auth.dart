@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:coach_app/Screens/auth/user_details.dart';
 import 'package:coach_app/Screens/main_screens/bottom_bar.dart';
 import 'package:coach_app/Screens/tabs/tabscreens.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -39,7 +40,7 @@ class _PhoneAuthState extends State<PhoneAuth> {
 
       if(authCred.user != null)
       {
-        Navigator.pushReplacement(context,MaterialPageRoute(builder: (context) => TaberScreen()));
+        Navigator.pushReplacement(context,MaterialPageRoute(builder: (context) => UserDetails()));
       }
     } on FirebaseAuthException catch (e) {
 

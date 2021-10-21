@@ -100,7 +100,7 @@ class SecondTabScreen extends StatelessWidget {
                   SizedBox(height: 10,),
                   ElevatedButton(
                     onPressed: () {
-                      users.doc(user!.uid).set({'goal': 'INCREASE MUSCLE'});
+                      users.doc(user!.uid).update({'goal': 'INCREASE MUSCLE'});
                       DefaultTabController.of(context)!.animateTo(2);
                     },
                     child: FittedBox(

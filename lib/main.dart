@@ -1,7 +1,5 @@
-import 'package:coach_app/Screens/main_screens/profile/profie.dart';
 import 'package:coach_app/Screens/splash_screen.dart';
 import 'package:coach_app/services/auth_service.dart';
-import 'package:coach_app/services/auth_wrapper.dart';
 import 'package:coach_app/services/notification_service.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
