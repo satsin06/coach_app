@@ -33,18 +33,12 @@ class _ProfileState extends State<Profile> {
   final picker = ImagePicker();
   User? user = FirebaseAuth.instance.currentUser;
   UserData loggedInUser = UserData();
-  
+
   Future pickImage() async {
     final pickedFile = await picker.pickImage(source: ImageSource.gallery);
-    if (image == null) return;
-
-    final imagePermanent = await saveImagePermanently();
     setState(() {
-      this.image = imagePermanent;
-    } on PlatformException catch (e) {
-
-    }
-    );
+      image = File(pickedFile!.path);
+    });
   }
 
   @override
