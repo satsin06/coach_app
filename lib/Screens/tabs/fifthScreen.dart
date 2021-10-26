@@ -92,7 +92,7 @@ class _FifthTabScreenState extends State<FifthTabScreen> {
                       child: Center(
                         child: CupertinoPicker(
                           itemExtent: 70,
-                          scrollController: FixedExtentScrollController(initialItem: 31),
+                          scrollController: FixedExtentScrollController(initialItem: 4),
                           selectionOverlay: Container(),
                           onSelectedItemChanged: (value) {
                             setState(() {
@@ -113,7 +113,7 @@ class _FifthTabScreenState extends State<FifthTabScreen> {
                       child: Center(
                         child: CupertinoPicker(
                           itemExtent: 70,
-                          scrollController: FixedExtentScrollController(initialItem: 1),
+                          scrollController: FixedExtentScrollController(initialItem: 0),
                           selectionOverlay: Container(),
                           children: const <Widget>[
                             Center(

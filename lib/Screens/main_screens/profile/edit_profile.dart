@@ -242,38 +242,38 @@ class _EditProfileState extends State<EditProfile> {
               key: _editProfileKey,
               child: Column(
                 children: [
-                  Spacer(),
-                  Center(
-                    child: GestureDetector(
-                      onTap: () {
-                        _showPicker(context);
-                      },
-                      child: CircleAvatar(
-                        radius: 55,
-                        child: image != null
-                            ? ClipRRect(
-                                borderRadius: BorderRadius.circular(50),
-                                child: Image.file(
-                                  image!,
-                                  width: 128,
-                                  height: 128,
-                                  fit: BoxFit.cover,
-                                ),
-                              )
-                            : Container(
-                                decoration: BoxDecoration(
-                                    color: Colors.grey[200],
-                                    borderRadius: BorderRadius.circular(50)),
-                                width: 100,
-                                height: 100,
-                                child: Icon(
-                                  Icons.camera_alt,
-                                  color: Colors.grey[800],
-                                ),
-                              ),
-                      ),
-                    ),
-                  ),
+                  //Spacer(),
+                  // Center(
+                  //   child: GestureDetector(
+                  //     onTap: () {
+                  //       _showPicker(context);
+                  //     },
+                  //     child: CircleAvatar(
+                  //       radius: 55,
+                  //       child: image != null
+                  //           ? ClipRRect(
+                  //               borderRadius: BorderRadius.circular(50),
+                  //               child: Image.file(
+                  //                 image!,
+                  //                 width: 128,
+                  //                 height: 128,
+                  //                 fit: BoxFit.cover,
+                  //               ),
+                  //             )
+                  //           : Container(
+                  //               decoration: BoxDecoration(
+                  //                   color: Colors.grey[200],
+                  //                   borderRadius: BorderRadius.circular(50)),
+                  //               width: 100,
+                  //               height: 100,
+                  //               child: Icon(
+                  //                 Icons.camera_alt,
+                  //                 color: Colors.grey[800],
+                  //               ),
+                  //             ),
+                  //     ),
+                  //   ),
+                  // ),
                   Spacer(),
                   nameField,
                   SizedBox(
@@ -284,9 +284,7 @@ class _EditProfileState extends State<EditProfile> {
                     height: 40,
                   ),
                   countryField,
-                  SizedBox(
-                    height: 40,
-                  ),
+                  Spacer(),
                   saveButton,
                   Spacer(),
                   Spacer(),

@@ -16,6 +16,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
 
 import '../../../custom_icons_icons.dart';
@@ -35,9 +36,15 @@ class _ProfileState extends State<Profile> {
   
   Future pickImage() async {
     final pickedFile = await picker.pickImage(source: ImageSource.gallery);
+    if (image == null) return;
+
+    final imagePermanent = await saveImagePermanently();
     setState(() {
-      image = File(pickedFile!.path);
-    });
+      this.image = imagePermanent;
+    } on PlatformException catch (e) {
+
+    }
+    );
   }
 
   @override

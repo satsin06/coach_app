@@ -4,11 +4,20 @@ import 'package:coach_app/Screens/main_screens/bottom_bar.dart';
 import 'package:coach_app/widget/training_tile.dart';
 import 'package:coach_app/widget/video_tile.dart';
 import 'package:flutter/material.dart';
+import 'package:toggle_switch/toggle_switch.dart';
+import 'dart:ui';
 
 import '../../../custom_icons_icons.dart';
 
-class Training extends StatelessWidget {
+class Training extends StatefulWidget {
   const Training({Key? key}) : super(key: key);
+
+  @override
+  State<Training> createState() => _TrainingState();
+}
+
+class _TrainingState extends State<Training> {
+  late final List<bool> isSelected;
 
   @override
   Widget build(BuildContext context) {
@@ -48,8 +57,12 @@ class Training extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Icon(
-                        Icons.arrow_back_ios,
+                      IconButton(
+                        icon: Icon(Icons.arrow_back_ios),
+                        onPressed: () {
+                          Navigator.of(context)
+                              .push(MaterialPageRoute(builder: (context) => BottomBar()));
+                        },
                         color: Colors.black,
                       ),
                       RichText(
@@ -109,50 +122,24 @@ class Training extends StatelessWidget {
               Text('Selecciona tu lugar de entrenamiento', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),),
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 28.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    ElevatedButton(
-                      onPressed: () {
-
-                      },
-                      child: Text(
-                        "En CASA",
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 20,
-                        ),
-                      ),
-                      style: ElevatedButton.styleFrom(
-                        minimumSize: Size(180, 40),
-                          primary: Colors.white,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(15)),
-                          side: BorderSide(
-                            color: Color(0xff79dd72),
-                            width: 3,
-                          )),
-                    ),
-                    ElevatedButton(
-                      onPressed: () {},
-                      child: Text(
-                        "EN GYM",
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 20,
-                        ),
-                      ),
-                      style: ElevatedButton.styleFrom(
-                        minimumSize: Size(180, 40),
-                        primary: Color(0xff79dd72),
-                        shape: new RoundedRectangleBorder(
-                          borderRadius: new BorderRadius.circular(30.0),
-                        ),
-                        padding: EdgeInsets.symmetric(
-                            horizontal: 50, vertical: 10),
-                      ),
-                    ),
-                  ],
+                child: ToggleSwitch(
+                  minWidth: MediaQuery.of(context).size.width,
+                  cornerRadius: 20.0,
+                  activeBgColor: [Color(0xff79dd72)],
+                  activeFgColor: Colors.white,
+                  inactiveBgColor: Colors.grey,
+                  inactiveFgColor: Colors.white,
+                  animate: true,
+                  dividerColor: Colors.black,
+                  borderColor: [Colors.green],
+                  fontSize: 24,
+                  initialLabelIndex: 1,
+                  totalSwitches: 2,
+                  labels: ['En CASA', 'EN GYM'],
+                  radiusStyle: true,
+                  onToggle: (index) {
+                    print('switched to: $index');
+                  },
                 ),
               ),
               SizedBox(

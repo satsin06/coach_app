@@ -132,7 +132,9 @@ class _GalleryState extends State<Gallery> {
                 ),
               ),
               Spacer(),
-              image != null ? Image.file(image!, width: 300, height: 300,) : Container(height: 300, width: 300, child: Center(child: Text('No photo found')),),
+              Container(
+                child: image !=null ? Image.file(image!, height: 300,width: 300,) : Container(height: 300, width: 300, child: Center(child: Text('No photo found')),),
+              ),
               Spacer(),
               InkWell(
                 onTap: () => _showPicker(context),
@@ -144,7 +146,7 @@ class _GalleryState extends State<Gallery> {
                           color: Colors.grey.shade800,
                           fontSize: 24,
                           fontWeight: FontWeight.bold
-                      ),)
+                      ),),
                   ],
                 ),
               ),
