@@ -1,6 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:coach_app/Screens/main_screens/bottom_bar.dart';
-import 'package:coach_app/Screens/tabs/tabscreens.dart';
+import 'package:coach_app/Screens/auth/status.dart';
 import 'package:coach_app/model/user_data.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -130,12 +129,12 @@ class _UserDetailsState extends State<UserDetails> {
           padding: EdgeInsets.fromLTRB(20, 15, 20, 15),
           minWidth: MediaQuery.of(context).size.width,
           onPressed: () {
-            users.doc(user!.uid).set({
+            users.doc(user!.uid).update({
               'name': nameEditingController.text,
               'email': emailEditingController.text,
               'country': countryEditingController.text
             });
-            Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => TaberScreen()));
+            Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => Status()));
             //Navigator.of(context).pop();
           },
           child: Text(

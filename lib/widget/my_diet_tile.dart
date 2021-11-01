@@ -284,9 +284,8 @@ class MyDietFood extends StatelessWidget {
           trailing: Padding(
             padding: const EdgeInsets.only(top: 16.0),
             child: Container(
-              width: 120,
+              width: MediaQuery.of(context).size.width * 0.3,
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   Column(
                     children: [

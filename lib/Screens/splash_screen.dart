@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:coach_app/Screens/initial_screen.dart';
+import 'package:coach_app/services/auth_wrapper.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -33,7 +33,7 @@ class _SplashScreenState extends State<SplashScreen> {
   }
   route() {
     Navigator.pushReplacement(context, MaterialPageRoute(
-        builder: (context) => InitialPage()
+        builder: (context) => AuthWrapper()
     )
     );
   }
@@ -53,8 +53,8 @@ class _SplashScreenState extends State<SplashScreen> {
               ),
               child: Image.asset(
                 'assets/images/LOGO.PNG',
-                width: 600.0,
-                height: 400.0,
+                width: MediaQuery.of(context).size.width * 0.9,
+                height: MediaQuery.of(context).size.height * 0.4,
                 fit: BoxFit.cover,
               ),
             ),

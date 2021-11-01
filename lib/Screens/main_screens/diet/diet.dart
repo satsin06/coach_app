@@ -166,41 +166,53 @@ class _DietState extends State<Diet> {
                   ),
                 ],
               ),
-              DietTile(
-                text: "PROTEÍNAS",
+              Protein(
+                title: "PROTEÍNAS",
+              ),
+              Carbohydrates(
+                title: "CARBOHIDRATOS",
               ),
               DietTile(
-                text: "CARBOHIDRATOS",
+                title: "GRASAS",
               ),
               DietTile(
-                text: "GRASAS",
+                title: "LÁCTEOS Y BEBIDAS",
               ),
               DietTile(
-                text: "LÁCTEOS Y BEBIDAS",
-              ),
-              DietTile(
-                text: "FRUTAS",
+                title: "FRUTAS",
               ),
               SizedBox(
                 height: 20,
               ),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => Loading()));
-                },
-                child: Text(
-                  "CREAR DIETA",
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 20,
-                  ),
-                ),
-                style: ElevatedButton.styleFrom(
-                  primary: Color(0xff79dd72),
-                  shape: new RoundedRectangleBorder(
-                    borderRadius: new BorderRadius.circular(30.0),
-                  ),
-                  padding: EdgeInsets.symmetric(horizontal: 50, vertical: 10),
+              // ElevatedButton(
+              //   onPressed: () {
+              //     Navigator.of(context)
+              //         .push(MaterialPageRoute(builder: (context) => Loading()));
+              //   },
+              //   child: Text(
+              //     "CREAR DIETA",
+              //     style: TextStyle(
+              //       color: Colors.black,
+              //       fontSize: 20,
+              //     ),
+              //   ),
+              //   style: ElevatedButton.styleFrom(
+              //     primary: Color(0xff79dd72),
+              //     shape: new RoundedRectangleBorder(
+              //       borderRadius: new BorderRadius.circular(30.0),
+              //     ),
+              //     padding: EdgeInsets.symmetric(horizontal: 50, vertical: 10),
+              //   ),
+              // ),
+              Padding(
+                padding: const EdgeInsets.only(bottom: 16.0),
+                child: FloatingActionButton.extended(
+                  onPressed: () {
+                    Navigator.of(context)
+                        .push(MaterialPageRoute(builder: (context) => Loading()));
+                  },
+                  label: const Text('CREAR DIETA', style: TextStyle(color: Colors.black),),
+                  backgroundColor: Color(0xff79dd72),
                 ),
               )
             ],

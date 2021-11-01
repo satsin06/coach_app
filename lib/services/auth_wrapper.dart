@@ -1,6 +1,5 @@
-import 'package:coach_app/Screens/auth/phone_auth.dart';
+import 'package:coach_app/Screens/initial_screen.dart';
 import 'package:coach_app/Screens/main_screens/bottom_bar.dart';
-import 'package:coach_app/Screens/tabs/tabscreens.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:coach_app/model/user_model.dart';
@@ -18,7 +17,7 @@ class AuthWrapper extends StatelessWidget {
         builder: (_, AsyncSnapshot<UserModel?> snapshot) {
           if (snapshot.connectionState == ConnectionState.active) {
             final UserModel? user = snapshot.data;
-            return user == null ? PhoneAuth() : BottomBar();
+            return user == null ? InitialPage() : BottomBar();
           } else {
             return Scaffold(
               body: Center(

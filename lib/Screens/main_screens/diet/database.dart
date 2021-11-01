@@ -72,11 +72,14 @@ class _DataBaseState extends State<DataBase> {
                             children: [
                               ElevatedButton(
                                 onPressed: () {},
-                                child: Text(
-                                  "BASE DE DATOS",
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 20,
+                                child: FittedBox(
+                                  fit: BoxFit.fitWidth,
+                                  child: Text(
+                                    "BASE DE DATOS",
+                                    maxLines: 1,
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                    ),
                                   ),
                                 ),
                                 style: ElevatedButton.styleFrom(
@@ -95,11 +98,14 @@ class _DataBaseState extends State<DataBase> {
                                 },
                                 child: Row(
                                   children: [
-                                    Text(
-                                      " FAVORITOS",
-                                      style: TextStyle(
-                                        color: Colors.black,
-                                        fontSize: 20,
+                                    FittedBox(
+                                      fit: BoxFit.fitWidth,
+                                      child: Text(
+                                        " FAVORITOS",
+                                        maxLines: 1,
+                                        style: TextStyle(
+                                          color: Colors.black,
+                                        ),
                                       ),
                                     ),
                                     SizedBox(
@@ -138,7 +144,7 @@ class _DataBaseState extends State<DataBase> {
                             children: [
                               Text('Buscar\nAlimento', textAlign: TextAlign.center, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),),
                               SizedBox(height: 20,),
-                              Icon(CustomIcons.search_food, size: 80,),
+                              FittedBox(fit: BoxFit.fill,child: Icon(CustomIcons.search_food, size: 80,)),
                             ],
                           ),
                           decoration: BoxDecoration(
@@ -153,7 +159,7 @@ class _DataBaseState extends State<DataBase> {
                             children: [
                               Text('Crear\Alimento', textAlign: TextAlign.center, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),),
                               SizedBox(height: 20,),
-                              Icon(CustomIcons.create_meal, size: 100,),
+                              FittedBox(fit: BoxFit.fill,child: Icon(CustomIcons.create_meal, size: 80,)),
                             ],
                           ),
                           decoration: BoxDecoration(
@@ -168,7 +174,7 @@ class _DataBaseState extends State<DataBase> {
                             children: [
                               Text('Ingreso\nRápido', textAlign: TextAlign.center, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),),
                               SizedBox(height: 20,),
-                              Icon(CustomIcons.quick_log, size: 80,),
+                              FittedBox(fit: BoxFit.fill,child: Icon(CustomIcons.quick_log, size: 100,)),
                             ],
                           ),
                           decoration: BoxDecoration(
@@ -187,7 +193,7 @@ class _DataBaseState extends State<DataBase> {
                               children: [
                                 Text('Recetas', textAlign: TextAlign.center, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),),
                                 SizedBox(height: 20,),
-                                Icon(CustomIcons.recipes, size: 80,),
+                                FittedBox(fit: BoxFit.fill,child: Icon(CustomIcons.recipes, size: 80,)),
                               ],
                             ),
                             decoration: BoxDecoration(

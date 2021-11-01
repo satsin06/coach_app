@@ -1,5 +1,4 @@
 import 'package:coach_app/Screens/auth/phone_auth.dart';
-import 'package:coach_app/services/auth_wrapper.dart';
 import 'package:flutter/material.dart';
 
 
@@ -23,8 +22,8 @@ class InitialPage extends StatelessWidget {
                   Expanded(
                     child:  Image.asset(
                       'assets/images/homescreen.png',
-                      width: 600.0,
-                      height: 200.0,
+                      width: MediaQuery.of(context).size.width * 0.9,
+                      height: MediaQuery.of(context).size.height * 0.2,
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -54,7 +53,7 @@ class InitialPage extends StatelessWidget {
                 ElevatedButton(
                   onPressed: () {
                     Navigator.of(context)
-                        .push(MaterialPageRoute(builder: (context) => AuthWrapper()));
+                        .push(MaterialPageRoute(builder: (context) => PhoneAuth()));
                   },
                   child: FittedBox(
                     fit: BoxFit.fitWidth,

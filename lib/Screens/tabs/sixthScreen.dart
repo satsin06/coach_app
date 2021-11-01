@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:coach_app/Screens/auth/status.dart';
+import 'package:coach_app/Screens/auth/user_details.dart';
 import 'package:coach_app/widget/tab_status.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
@@ -100,7 +100,7 @@ class _SixthTabScreenState extends State<SixthTabScreen> {
               onPressed: () {
                 users.doc(user!.uid).update({'age': '$_selectedValue'});
                 Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context) =>
-                    Status()), (Route<dynamic> route) => false);
+                    UserDetails()), (Route<dynamic> route) => false);
               },
               child: FittedBox(
                 fit: BoxFit.fitWidth,

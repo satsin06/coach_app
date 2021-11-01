@@ -45,7 +45,7 @@ class FirstTabScreen extends StatelessWidget {
                 children: [
                   ElevatedButton(
                     onPressed: () async {
-                      users.doc(user!.uid).update({'sex': 'Female'});
+                      users.doc(user!.uid).set({'sex': 'Female'});
                       DefaultTabController.of(context)!.animateTo(1);
                     },
                     child: FittedBox(
@@ -80,7 +80,7 @@ class FirstTabScreen extends StatelessWidget {
                   ),
                   ElevatedButton(
                     onPressed: () {
-                      users.doc(user!.uid).update({'sex': 'Male'});
+                      users.doc(user!.uid).set({'sex': 'Male'});
                       DefaultTabController.of(context)!.animateTo(1);
                     },
                     child: FittedBox(

@@ -16,6 +16,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
 
 import '../../../custom_icons_icons.dart';
@@ -32,7 +33,7 @@ class _ProfileState extends State<Profile> {
   final picker = ImagePicker();
   User? user = FirebaseAuth.instance.currentUser;
   UserData loggedInUser = UserData();
-  
+
   Future pickImage() async {
     final pickedFile = await picker.pickImage(source: ImageSource.gallery);
     setState(() {
