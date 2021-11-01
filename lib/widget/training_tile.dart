@@ -26,100 +26,106 @@ class TrainingTile extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Padding(
-          padding: const EdgeInsets.fromLTRB(0, 20, 0, 0),
-          child: Stack(children: [
-            Icon(
-              CustomIcons.twocirclestrip,
-              size: 160,
-            ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
             Padding(
-              padding: const EdgeInsets.fromLTRB(64, 18, 0, 0),
-              child: Text(
-                alpha1,
-                style:
-                TextStyle(fontSize: 32, color: Colors.white),
+              padding: const EdgeInsets.fromLTRB(0, 20, 0, 0),
+              child: Stack(children: [
+                Icon(
+                  CustomIcons.twocirclestrip,
+                  size: 160,
+                ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(64, 18, 0, 0),
+                  child: Text(
+                    alpha1,
+                    style:
+                    TextStyle(fontSize: 32, color: Colors.white),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(64, 110, 0, 0),
+                  child: Text(
+                  alpha2,
+                    style:
+                    TextStyle(fontSize: 32, color: Colors.white),
+                  ),
+                )
+              ]),
+            ),
+            SizedBox(width: 30,),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(0,24, 80, 0),
+              child: Column(
+                children: [
+                  RichText(
+                      text: TextSpan(
+                          text: text + '\n',
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 16,
+                              fontWeight: FontWeight.w800),
+                          children: [
+                            TextSpan(
+                              text: text1 + '\n',
+                              style: TextStyle(
+                                  color: Colors.grey,
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w800),
+                            ),
+                            TextSpan(
+                              text: text2 + '\n',
+                              style: TextStyle(
+                                  color: Colors.grey,
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w800),
+                            ),
+                            TextSpan(
+                              text: text3 + '\n',
+                              style: TextStyle(
+                                  color: Colors.grey,
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w800),
+                            ),
+                          ])),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  RichText(
+                      text: TextSpan(
+                          text: texta + '\n',
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 16,
+                              fontWeight: FontWeight.w800),
+                          children: [
+                            TextSpan(
+                              text: text1 + '\n',
+                              style: TextStyle(
+                                  color: Colors.grey,
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w800),
+                            ),
+                            TextSpan(
+                              text: text2 + '\n',
+                              style: TextStyle(
+                                  color: Colors.grey,
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w800),
+                            ),
+                            TextSpan(
+                              text: text3 + '\n',
+                              style: TextStyle(
+                                  color: Colors.grey,
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w800),
+                            ),
+                          ])),
+                ],
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(64, 110, 0, 0),
-              child: Text(
-              alpha2,
-                style:
-                TextStyle(fontSize: 32, color: Colors.white),
-              ),
-            )
-          ]),
-        ),
-        Padding(
-          padding: const EdgeInsets.fromLTRB(0,24, 80, 0),
-          child: Column(
-            children: [
-              RichText(
-                  text: TextSpan(
-                      text: text + '\n',
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 16,
-                          fontWeight: FontWeight.w800),
-                      children: [
-                        TextSpan(
-                          text: text1 + '\n',
-                          style: TextStyle(
-                              color: Colors.grey,
-                              fontSize: 12,
-                              fontWeight: FontWeight.w800),
-                        ),
-                        TextSpan(
-                          text: text2 + '\n',
-                          style: TextStyle(
-                              color: Colors.grey,
-                              fontSize: 12,
-                              fontWeight: FontWeight.w800),
-                        ),
-                        TextSpan(
-                          text: text3 + '\n',
-                          style: TextStyle(
-                              color: Colors.grey,
-                              fontSize: 12,
-                              fontWeight: FontWeight.w800),
-                        ),
-                      ])),
-              SizedBox(
-                height: 20,
-              ),
-              RichText(
-                  text: TextSpan(
-                      text: texta + '\n',
-                      style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 16,
-                          fontWeight: FontWeight.w800),
-                      children: [
-                        TextSpan(
-                          text: text1 + '\n',
-                          style: TextStyle(
-                              color: Colors.grey,
-                              fontSize: 12,
-                              fontWeight: FontWeight.w800),
-                        ),
-                        TextSpan(
-                          text: text2 + '\n',
-                          style: TextStyle(
-                              color: Colors.grey,
-                              fontSize: 12,
-                              fontWeight: FontWeight.w800),
-                        ),
-                        TextSpan(
-                          text: text3 + '\n',
-                          style: TextStyle(
-                              color: Colors.grey,
-                              fontSize: 12,
-                              fontWeight: FontWeight.w800),
-                        ),
-                      ])),
-            ],
-          ),
+          ],
         ),
         Padding(
           padding: const EdgeInsets.only(right: 24.0),

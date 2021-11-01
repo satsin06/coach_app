@@ -166,20 +166,20 @@ class _DietState extends State<Diet> {
                   ),
                 ],
               ),
-              DietTile(
-                text: "PROTEÍNAS",
+              Protein(
+                title: "PROTEÍNAS",
+              ),
+              Carbohydrates(
+                title: "CARBOHIDRATOS",
               ),
               DietTile(
-                text: "CARBOHIDRATOS",
+                title: "GRASAS",
               ),
               DietTile(
-                text: "GRASAS",
+                title: "LÁCTEOS Y BEBIDAS",
               ),
               DietTile(
-                text: "LÁCTEOS Y BEBIDAS",
-              ),
-              DietTile(
-                text: "FRUTAS",
+                title: "FRUTAS",
               ),
               SizedBox(
                 height: 20,

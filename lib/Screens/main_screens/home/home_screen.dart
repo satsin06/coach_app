@@ -1,14 +1,12 @@
 import 'package:calendar_timeline/calendar_timeline.dart';
 import 'package:coach_app/Screens/main_screens/home/exercise_date.dart';
 import 'package:coach_app/Screens/main_screens/home/my_performance.dart';
+import 'package:coach_app/Screens/test.dart';
 import 'package:coach_app/widget/home_tile.dart';
 import 'package:coach_app/widget/progress_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-
-import '../../../custom_icons_icons.dart';
-
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -179,11 +177,16 @@ class _HomeScreenState extends State<HomeScreen> {
                                 fit: BoxFit.fill,
                               ),title: "SENTADILLAS",),
                           ),
-                          HomeTile(
-                            img: Image.asset("assets/image2.png",width: 90,
-                              //height: double.infinity,
-                              fit: BoxFit.fill,
-                            ),title: "ABS CHALLENGE",),
+                          InkWell(
+                            onTap: () {
+                              //Navigator.of(context).push(MaterialPageRoute(builder: (context) => Test()));
+                            },
+                            child: HomeTile(
+                              img: Image.asset("assets/image2.png",width: 90,
+                                //height: double.infinity,
+                                fit: BoxFit.fill,
+                              ),title: "ABS CHALLENGE",),
+                          ),
                           HomeTile(
                             img: Image.asset("assets/image3.png",width: 90,
                               //height: double.infinity,
