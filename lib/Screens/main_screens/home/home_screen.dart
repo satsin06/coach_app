@@ -179,7 +179,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                           InkWell(
                             onTap: () {
-                              //Navigator.of(context).push(MaterialPageRoute(builder: (context) => Test()));
+                              Navigator.of(context).push(MaterialPageRoute(builder: (context) => Test()));
                             },
                             child: HomeTile(
                               img: Image.asset("assets/image2.png",width: 90,

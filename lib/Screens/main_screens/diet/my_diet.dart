@@ -4,13 +4,26 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
+import 'package:hive/hive.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
 import '../../../custom_icons_icons.dart';
 import '../bottom_bar.dart';
 
-class MyDiet extends StatelessWidget {
+class MyDiet extends StatefulWidget {
   const MyDiet({Key? key}) : super(key: key);
 
+  @override
+  State<MyDiet> createState() => _MyDietState();
+}
+
+class _MyDietState extends State<MyDiet> {
+  @override
+  void dispose() {
+    Hive.close();
+
+    super.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
