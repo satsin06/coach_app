@@ -4,7 +4,6 @@ import 'package:coach_app/widget/boxes.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:intl/intl.dart';
 
 class Test extends StatefulWidget {
   const Test({Key? key}) : super(key: key);
@@ -31,9 +30,9 @@ class _TestState extends State<Test> {
       body: ValueListenableBuilder<Box<MyDietModel>>(
         valueListenable: Boxes.getMyDietModel().listenable(),
         builder: (context, box, _) {
-          final myDietFoods = box.values.toList().cast<MyDietModel>();
+          final food = box.values.toList().cast<MyDietModel>();
 
-          return buildContent(myDietFoods);
+          return buildContent(food);
         },
       ),
       floatingActionButton: FloatingActionButton(
@@ -48,8 +47,8 @@ class _TestState extends State<Test> {
     );
   }
 
-  Widget buildContent(List<MyDietModel> myDietFoods) {
-    if (myDietFoods.isEmpty) {
+  Widget buildContent(List<MyDietModel> food) {
+    if (food.isEmpty) {
       return Center(
         child: Text(
           'No foods yet!',
@@ -63,10 +62,10 @@ class _TestState extends State<Test> {
           Expanded(
             child: ListView.builder(
               padding: EdgeInsets.all(8),
-              itemCount: myDietFoods.length,
+              itemCount: food.length,
               itemBuilder: (BuildContext context, int index) {
-                final myDietFood = myDietFoods[index];
-                return buildTransaction(context, myDietFood);
+                final foods = food[index];
+                return buildTransaction(context, foods);
               },
             ),
           ),
@@ -77,11 +76,11 @@ class _TestState extends State<Test> {
 
   Widget buildTransaction(
     BuildContext context,
-    MyDietModel myDietFood,
+    MyDietModel food,
   ) {
-    final name = myDietFood.name;
-    final weight = myDietFood.weight.toStringAsFixed(2) + ' g';
-    final kcal = myDietFood.kcal.toStringAsFixed(2) + ' kcal';
+    final name = food.name;
+    final weight = food.weight.toStringAsFixed(2) + ' g';
+    final kcal = food.kcal.toStringAsFixed(2) + ' kcal';
 
     return Card(
       color: Colors.white,
@@ -90,22 +89,22 @@ class _TestState extends State<Test> {
         title: Text(
           name,
           maxLines: 2,
-          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18, color: Colors.black),
         ),
         trailing: Column(
           children: [
             Text(
               weight,
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16, color: Colors.black),
             ),
             Text(
               kcal,
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16, color: Colors.black),
             ),
           ],
         ),
         children: [
-          buildButtons(context, myDietFood),
+          buildButtons(context, food),
         ],
       ),
     );
@@ -132,49 +131,37 @@ class _TestState extends State<Test> {
             child: TextButton.icon(
               label: Text('Delete'),
               icon: Icon(Icons.delete),
-              onPressed: () => deleteTransaction(myDietFood),
+              onPressed: () => deleteFood(myDietFood),
             ),
           )
         ],
       );
 
   Future addFood(String name, double weight, double kcal) async {
-    final transaction = MyDietModel()
+    final foods = MyDietModel()
       ..name = name
       ..weight = weight
       ..kcal = kcal;
 
     final box = Boxes.getMyDietModel();
-    box.add(transaction);
-    //box.put('mykey', transaction);
-
-    // final mybox = Boxes.getTransactions();
-    // final myTransaction = mybox.get('key');
-    // mybox.values;
-    // mybox.keys;
+    box.add(foods);
   }
 
   void editFood(
-    MyDietModel myDietFood,
+    MyDietModel foods,
     String name,
     double weight,
     double kcal,
   ) {
-    myDietFood.name = name;
-    myDietFood.weight = weight;
-    myDietFood.kcal = kcal;
+    foods.name = name;
+    foods.weight = weight;
+    foods.kcal = kcal;
 
-    // final box = Boxes.getTransactions();
-    // box.put(transaction.key, transaction);
-
-    myDietFood.save();
+    foods.save();
   }
 
-  void deleteTransaction(MyDietModel transaction) {
-    // final box = Boxes.getTransactions();
-    // box.delete(transaction.key);
+  void deleteFood(MyDietModel foods) {
 
-    transaction.delete();
-    //setState(() => transactions.remove(transaction));
+    foods.delete();
   }
 }

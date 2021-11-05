@@ -16,15 +16,21 @@ FlutterLocalNotificationsPlugin();
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
   await Hive.initFlutter();
   Hive.registerAdapter(MyDietModelAdapter());
-  await Hive.openBox<MyDietModel>('myDietFoods');
+  await Hive.openBox<MyDietModel>('foods');
+
   await Firebase.initializeApp();
+
   var initializationSettingsAndroid =
   AndroidInitializationSettings('icon');
+
   var initializationSettingsIOS = IOSInitializationSettings();
+
   final FlutterLocalNotificationsPlugin _flutterLocalNotificationsPlugin =
   FlutterLocalNotificationsPlugin();
+
   var initializationSettings = InitializationSettings(
       android: initializationSettingsAndroid, iOS: initializationSettingsIOS);
   await flutterLocalNotificationsPlugin.initialize(initializationSettings,

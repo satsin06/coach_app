@@ -3,5 +3,5 @@ import 'package:hive/hive.dart';
 
 class Boxes {
   static Box<MyDietModel> getMyDietModel() =>
-      Hive.box<MyDietModel>('myDietFoods');
+      Hive.box<MyDietModel>('foods');
 }
