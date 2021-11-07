@@ -1,4 +1,5 @@
 import 'package:coach_app/model/api_data.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class DietTile extends StatefulWidget {
@@ -23,20 +24,20 @@ class _DietTileState extends State<DietTile> {
       SizedBox(
         width: MediaQuery.of(context).size.width,
         child: ElevatedButton(
-            onPressed: () {},
-            style: ElevatedButton.styleFrom(
-              primary: Colors.grey[400],
+          onPressed: () {},
+          style: ElevatedButton.styleFrom(
+            primary: Colors.grey[400],
+          ),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 16.0),
+            child: Text(
+              widget.title,
+              style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 32,
+                  fontWeight: FontWeight.w800),
             ),
-            child: Padding(
-              padding: const EdgeInsets.symmetric(vertical: 16.0),
-              child: Text(
-                widget.title,
-                style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 32,
-                    fontWeight: FontWeight.w800),
-              ),
-            ),
+          ),
         ),
       ),
       Container(
@@ -100,70 +101,93 @@ class _ProteinState extends State<Protein> {
     super.initState();
     futureProteins = fetchProteins();
   }
+
   @override
   Widget build(BuildContext context) {
-    return Column(children: [
-      SizedBox(
-        width: MediaQuery.of(context).size.width,
-        child: ElevatedButton(
-          onPressed: () {},
-          style: ElevatedButton.styleFrom(
-            primary: Colors.grey[400],
-          ),
-          child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 16.0),
-            child: Text(
-              widget.title,
-              style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 32,
-                  fontWeight: FontWeight.w800),
+    return Column(
+      children: [
+        SizedBox(
+          width: MediaQuery.of(context).size.width,
+          child: ElevatedButton(
+            onPressed: () {},
+            style: ElevatedButton.styleFrom(
+              primary: Colors.grey[400],
+            ),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 16.0),
+              child: Text(
+                widget.title,
+                style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 32,
+                    fontWeight: FontWeight.w800),
+              ),
             ),
           ),
         ),
-      ),
-      Container(
-        height: MediaQuery.of(context).size.height / 2,
-        child: Center(
-          child: FutureBuilder<List<ProteinsModel>>(
-            future: futureProteins,
-            builder: (context, snapshot) {
-              if (snapshot.hasData) {
-                List<ProteinsModel>? data = snapshot.data;
-                return Padding(
-                  padding: const EdgeInsets.all(28.0),
-                  child: GridView.builder(
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 3),
-                      itemCount: data!.length,
-                      itemBuilder: (context, index) {
-                        return Center(
-                            child: Container(
-                                child: Column(
-                                  children: [
-                                    Text(data[index].name),
-                                    Flexible(child: Image.network(data[index].image))
-                                  ],
-                                )));
-                      }),
-                );
-                //   ListView.builder(
-                //     itemCount: data!.length,
-                //     itemBuilder: (context, index) {
-                //       return Center(child: Text(data[index].name));
-                //     }
-                // );
-              } else if (snapshot.hasError) {
-                return Text('${snapshot.error}');
-              }
+        Container(
+          height: MediaQuery.of(context).size.height / 1.8,
+          child: Center(
+            child: FutureBuilder<List<ProteinsModel>>(
+              future: futureProteins,
+              builder: (context, snapshot) {
+                if (snapshot.hasData) {
+                  List<ProteinsModel>? data = snapshot.data;
+                  return Padding(
+                    padding: const EdgeInsets.all(28.0),
+                    child: GridView.builder(
+                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 3,
+                          childAspectRatio: 3 / 2,
+                          crossAxisSpacing: 20,
+                          mainAxisSpacing: 20,
+                        ),
+                        itemCount: data!.length,
+                        itemBuilder: (context, index) {
+                          return Container(
+                            decoration: BoxDecoration(
+                                color: Colors.grey[100],
+                                borderRadius: BorderRadius.circular(15)),
+                            child: Center(
+                                child: Container(
+                                    child: Column(
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Text(
+                                    data[index].name,
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.bold),
+                                  ),
+                                ),
+                                Flexible(
+                                    child: Padding(
+                                      padding: const EdgeInsets.only(bottom: 8.0),
+                                      child: Image.network(data[index].image, fit: BoxFit.cover,),
+                                    ))
+                              ],
+                            ))),
+                          );
+                        }),
+                  );
+                  //   ListView.builder(
+                  //     itemCount: data!.length,
+                  //     itemBuilder: (context, index) {
+                  //       return Center(child: Text(data[index].name));
+                  //     }
+                  // );
+                } else if (snapshot.hasError) {
+                  return Text('${snapshot.error}');
+                }
 
-              // By default, show a loading spinner.
-              return const CircularProgressIndicator();
-            },
+                // By default, show a loading spinner.
+                return const CircularProgressIndicator();
+              },
+            ),
           ),
-        ),
-      )
-    ],);
+        )
+      ],
+    );
   }
 }
 
@@ -184,70 +208,92 @@ class _CarbohydratesState extends State<Carbohydrates> {
     super.initState();
     futureCarbohydrates = fetchCarbohydrates();
   }
+
   @override
   Widget build(BuildContext context) {
-    return Column(children: [
-      SizedBox(
-        width: MediaQuery.of(context).size.width,
-        child: ElevatedButton(
-          onPressed: () {},
-          style: ElevatedButton.styleFrom(
-            primary: Colors.grey[400],
-          ),
-          child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 16.0),
-            child: Text(
-              widget.title,
-              style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 32,
-                  fontWeight: FontWeight.w800),
+    return Column(
+      children: [
+        SizedBox(
+          width: MediaQuery.of(context).size.width,
+          child: ElevatedButton(
+            onPressed: () {},
+            style: ElevatedButton.styleFrom(
+              primary: Colors.grey[400],
+            ),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 16.0),
+              child: Text(
+                widget.title,
+                style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 32,
+                    fontWeight: FontWeight.w800),
+              ),
             ),
           ),
         ),
-      ),
-      Container(
-        height: MediaQuery.of(context).size.height / 2,
-        child: Center(
-          child: FutureBuilder<List<CarbohydratesModel>>(
-            future: futureCarbohydrates,
-            builder: (context, snapshot) {
-              if (snapshot.hasData) {
-                List<CarbohydratesModel>? data = snapshot.data;
-                return Padding(
-                  padding: const EdgeInsets.all(28.0),
-                  child: GridView.builder(
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 3),
-                      itemCount: data!.length,
-                      itemBuilder: (context, index) {
-                        return Center(
-                            child: Container(
-                                child: Column(
-                                  children: [
-                                    Text(data[index].name),
-                                    Flexible(child: Image.network(data[index].image))
-                                  ],
-                                )));
-                      }),
-                );
-                //   ListView.builder(
-                //     itemCount: data!.length,
-                //     itemBuilder: (context, index) {
-                //       return Center(child: Text(data[index].name));
-                //     }
-                // );
-              } else if (snapshot.hasError) {
-                return Text('${snapshot.error}');
-              }
+        Container(
+          height: MediaQuery.of(context).size.height / 1.85,
+          child: Center(
+            child: FutureBuilder<List<CarbohydratesModel>>(
+              future: futureCarbohydrates,
+              builder: (context, snapshot) {
+                if (snapshot.hasData) {
+                  List<CarbohydratesModel>? data = snapshot.data;
+                  return Padding(
+                    padding: const EdgeInsets.all(28.0),
+                    child: GridView.builder(
+                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 3,
+                          childAspectRatio: 3 / 2,
+                          crossAxisSpacing: 20,
+                          mainAxisSpacing: 20,),
+                        itemCount: data!.length,
+                        itemBuilder: (context, index) {
+                          return Container(
+                            decoration: BoxDecoration(
+                                color: Colors.grey[100],
+                                borderRadius: BorderRadius.circular(15)),
+                            child: Center(
+                                child: Container(
+                                    child: Column(
+                                      children: [
+                                        Padding(
+                                          padding: const EdgeInsets.all(8.0),
+                                          child: Text(
+                                            data[index].name,
+                                            style:
+                                            TextStyle(fontWeight: FontWeight.bold),
+                                          ),
+                                        ),
+                                        Flexible(
+                                            child: Padding(
+                                              padding: const EdgeInsets.only(bottom: 8.0),
+                                              child: Image.network(data[index].image, fit: BoxFit.cover),
+                                            ))
+                                      ],
+                                    ))),
+                          );
+                        }),
+                  );
+                  //   ListView.builder(
+                  //     itemCount: data!.length,
+                  //     itemBuilder: (context, index) {
+                  //       return Center(child: Text(data[index].name));
+                  //     }
+                  // );
+                } else if (snapshot.hasError) {
+                  return Text('${snapshot.error}');
+                }
 
-              // By default, show a loading spinner.
-              return const CircularProgressIndicator();
-            },
+                // By default, show a loading spinner.
+                return const CircularProgressIndicator();
+              },
+            ),
           ),
-        ),
-      )
-    ],);
+        )
+      ],
+    );
   }
 }
 
@@ -268,70 +314,92 @@ class _FatsState extends State<Fats> {
     super.initState();
     futureFats = fetchFats();
   }
+
   @override
   Widget build(BuildContext context) {
-    return Column(children: [
-      SizedBox(
-        width: MediaQuery.of(context).size.width,
-        child: ElevatedButton(
-          onPressed: () {},
-          style: ElevatedButton.styleFrom(
-            primary: Colors.grey[400],
-          ),
-          child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 16.0),
-            child: Text(
-              widget.title,
-              style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 32,
-                  fontWeight: FontWeight.w800),
+    return Column(
+      children: [
+        SizedBox(
+          width: MediaQuery.of(context).size.width,
+          child: ElevatedButton(
+            onPressed: () {},
+            style: ElevatedButton.styleFrom(
+              primary: Colors.grey[400],
+            ),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 16.0),
+              child: Text(
+                widget.title,
+                style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 32,
+                    fontWeight: FontWeight.w800),
+              ),
             ),
           ),
         ),
-      ),
-      Container(
-        height: MediaQuery.of(context).size.height / 2,
-        child: Center(
-          child: FutureBuilder<List<FatsModel>>(
-            future: futureFats,
-            builder: (context, snapshot) {
-              if (snapshot.hasData) {
-                List<FatsModel>? data = snapshot.data;
-                return Padding(
-                  padding: const EdgeInsets.all(28.0),
-                  child: GridView.builder(
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 3),
-                      itemCount: data!.length,
-                      itemBuilder: (context, index) {
-                        return Center(
-                            child: Container(
-                                child: Column(
-                                  children: [
-                                    Text(data[index].name),
-                                    Flexible(child: Image.network(data[index].image))
-                                  ],
-                                )));
-                      }),
-                );
-                //   ListView.builder(
-                //     itemCount: data!.length,
-                //     itemBuilder: (context, index) {
-                //       return Center(child: Text(data[index].name));
-                //     }
-                // );
-              } else if (snapshot.hasError) {
-                return Text('${snapshot.error}');
-              }
+        Container(
+          height: MediaQuery.of(context).size.height / 3,
+          child: Center(
+            child: FutureBuilder<List<FatsModel>>(
+              future: futureFats,
+              builder: (context, snapshot) {
+                if (snapshot.hasData) {
+                  List<FatsModel>? data = snapshot.data;
+                  return Padding(
+                    padding: const EdgeInsets.all(28.0),
+                    child: GridView.builder(
+                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 3,
+                          childAspectRatio: 3 / 2,
+                          crossAxisSpacing: 20,
+                          mainAxisSpacing: 20,),
+                        itemCount: data!.length,
+                        itemBuilder: (context, index) {
+                          return Container(
+                            decoration: BoxDecoration(
+                                color: Colors.grey[100],
+                                borderRadius: BorderRadius.circular(15)),
+                            child: Center(
+                                child: Container(
+                                    child: Column(
+                                      children: [
+                                        Padding(
+                                          padding: const EdgeInsets.all(8.0),
+                                          child: Text(
+                                            data[index].name,
+                                            style:
+                                            TextStyle(fontWeight: FontWeight.bold),
+                                          ),
+                                        ),
+                                        Flexible(
+                                            child: Padding(
+                                              padding: const EdgeInsets.only(bottom: 8.0),
+                                              child: Image.network(data[index].image, fit: BoxFit.cover),
+                                            ))
+                                      ],
+                                    ))),
+                          );
+                        }),
+                  );
+                  //   ListView.builder(
+                  //     itemCount: data!.length,
+                  //     itemBuilder: (context, index) {
+                  //       return Center(child: Text(data[index].name));
+                  //     }
+                  // );
+                } else if (snapshot.hasError) {
+                  return Text('${snapshot.error}');
+                }
 
-              // By default, show a loading spinner.
-              return const CircularProgressIndicator();
-            },
+                // By default, show a loading spinner.
+                return const CircularProgressIndicator();
+              },
+            ),
           ),
-        ),
-      )
-    ],);
+        )
+      ],
+    );
   }
 }
 
@@ -352,70 +420,92 @@ class _DairyState extends State<Dairy> {
     super.initState();
     futureDairy = fetchDairy();
   }
+
   @override
   Widget build(BuildContext context) {
-    return Column(children: [
-      SizedBox(
-        width: MediaQuery.of(context).size.width,
-        child: ElevatedButton(
-          onPressed: () {},
-          style: ElevatedButton.styleFrom(
-            primary: Colors.grey[400],
-          ),
-          child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 16.0),
-            child: Text(
-              widget.title,
-              style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 32,
-                  fontWeight: FontWeight.w800),
+    return Column(
+      children: [
+        SizedBox(
+          width: MediaQuery.of(context).size.width,
+          child: ElevatedButton(
+            onPressed: () {},
+            style: ElevatedButton.styleFrom(
+              primary: Colors.grey[400],
+            ),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 16.0),
+              child: Text(
+                widget.title,
+                style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 32,
+                    fontWeight: FontWeight.w800),
+              ),
             ),
           ),
         ),
-      ),
-      Container(
-        height: MediaQuery.of(context).size.height / 2,
-        child: Center(
-          child: FutureBuilder<List<DairyModel>>(
-            future: futureDairy,
-            builder: (context, snapshot) {
-              if (snapshot.hasData) {
-                List<DairyModel>? data = snapshot.data;
-                return Padding(
-                  padding: const EdgeInsets.all(28.0),
-                  child: GridView.builder(
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 3),
-                      itemCount: data!.length,
-                      itemBuilder: (context, index) {
-                        return Center(
-                            child: Container(
-                                child: Column(
-                                  children: [
-                                    Text(data[index].name),
-                                    Flexible(child: Image.network(data[index].image))
-                                  ],
-                                )));
-                      }),
-                );
-                //   ListView.builder(
-                //     itemCount: data!.length,
-                //     itemBuilder: (context, index) {
-                //       return Center(child: Text(data[index].name));
-                //     }
-                // );
-              } else if (snapshot.hasError) {
-                return Text('${snapshot.error}');
-              }
+        Container(
+          height: MediaQuery.of(context).size.height / 4,
+          child: Center(
+            child: FutureBuilder<List<DairyModel>>(
+              future: futureDairy,
+              builder: (context, snapshot) {
+                if (snapshot.hasData) {
+                  List<DairyModel>? data = snapshot.data;
+                  return Padding(
+                    padding: const EdgeInsets.all(28.0),
+                    child: GridView.builder(
+                        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 3,
+                          childAspectRatio: 3 / 2,
+                          crossAxisSpacing: 20,
+                          mainAxisSpacing: 20,),
+                        itemCount: data!.length,
+                        itemBuilder: (context, index) {
+                          return Container(
+                            decoration: BoxDecoration(
+                                color: Colors.grey[100],
+                                borderRadius: BorderRadius.circular(15)),
+                            child: Center(
+                                child: Container(
+                                    child: Column(
+                                      children: [
+                                        Padding(
+                                          padding: const EdgeInsets.all(8.0),
+                                          child: Text(
+                                            data[index].name,
+                                            style:
+                                            TextStyle(fontWeight: FontWeight.bold),
+                                          ),
+                                        ),
+                                        Flexible(
+                                            child: Padding(
+                                              padding: const EdgeInsets.only(bottom: 8.0),
+                                              child: Image.network(data[index].image, fit: BoxFit.cover),
+                                            ))
+                                      ],
+                                    ))),
+                          );
+                        }),
+                  );
+                  //   ListView.builder(
+                  //     itemCount: data!.length,
+                  //     itemBuilder: (context, index) {
+                  //       return Center(child: Text(data[index].name));
+                  //     }
+                  // );
+                } else if (snapshot.hasError) {
+                  return Text('${snapshot.error}');
+                }
 
-              // By default, show a loading spinner.
-              return const CircularProgressIndicator();
-            },
+                // By default, show a loading spinner.
+                return const CircularProgressIndicator();
+              },
+            ),
           ),
-        ),
-      )
-    ],);
+        )
+      ],
+    );
   }
 }
 
@@ -436,69 +526,93 @@ class _FruitsState extends State<Fruits> {
     super.initState();
     futureFruits = fetchFruits();
   }
+
   @override
   Widget build(BuildContext context) {
-    return Column(children: [
-      SizedBox(
-        width: MediaQuery.of(context).size.width,
-        child: ElevatedButton(
-          onPressed: () {},
-          style: ElevatedButton.styleFrom(
-            primary: Colors.grey[400],
-          ),
-          child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 16.0),
-            child: Text(
-              widget.title,
-              style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 32,
-                  fontWeight: FontWeight.w800),
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          SizedBox(
+            width: MediaQuery.of(context).size.width,
+            child: ElevatedButton(
+              onPressed: () {},
+              style: ElevatedButton.styleFrom(
+                primary: Colors.grey[400],
+              ),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(vertical: 16.0),
+                child: Text(
+                  widget.title,
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 32,
+                      fontWeight: FontWeight.w800),
+                ),
+              ),
             ),
           ),
-        ),
-      ),
-      Container(
-        height: MediaQuery.of(context).size.height / 2,
-        child: Center(
-          child: FutureBuilder<List<FruitsModel>>(
-            future: futureFruits,
-            builder: (context, snapshot) {
-              if (snapshot.hasData) {
-                List<FruitsModel>? data = snapshot.data;
-                return Padding(
-                  padding: const EdgeInsets.all(28.0),
-                  child: GridView.builder(
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 3),
-                      itemCount: data!.length,
-                      itemBuilder: (context, index) {
-                        return Center(
-                            child: Container(
-                                child: Column(
-                                  children: [
-                                    Text(data[index].name),
-                                    Flexible(child: Image.network(data[index].image))
-                                  ],
-                                )));
-                      }),
-                );
-                //   ListView.builder(
-                //     itemCount: data!.length,
-                //     itemBuilder: (context, index) {
-                //       return Center(child: Text(data[index].name));
-                //     }
-                // );
-              } else if (snapshot.hasError) {
-                return Text('${snapshot.error}');
-              }
+          Container(
+            height: MediaQuery.of(context).size.height / 1.85,
+            child: Center(
+              child: FutureBuilder<List<FruitsModel>>(
+                future: futureFruits,
+                builder: (context, snapshot) {
+                  if (snapshot.hasData) {
+                    List<FruitsModel>? data = snapshot.data;
+                    return Padding(
+                      padding: const EdgeInsets.all(28.0),
+                      child: GridView.builder(
+                          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 3,
+                            childAspectRatio: 3 / 2,
+                            crossAxisSpacing: 20,
+                            mainAxisSpacing: 20,),
+                          itemCount: data!.length,
+                          itemBuilder: (context, index) {
+                            return Container(
+                              decoration: BoxDecoration(
+                                  color: Colors.grey[100],
+                                  borderRadius: BorderRadius.circular(15)),
+                              child: Center(
+                                  child: Container(
+                                      child: Column(
+                                        children: [
+                                          Padding(
+                                            padding: const EdgeInsets.all(8.0),
+                                            child: Text(
+                                              data[index].name,
+                                              style:
+                                              TextStyle(fontWeight: FontWeight.bold),
+                                            ),
+                                          ),
+                                          Flexible(
+                                              child: Padding(
+                                                padding: const EdgeInsets.only(bottom: 8.0),
+                                                child: Image.network(data[index].image, fit: BoxFit.cover),
+                                              ))
+                                        ],
+                                      ))),
+                            );
+                          }),
+                    );
+                    //   ListView.builder(
+                    //     itemCount: data!.length,
+                    //     itemBuilder: (context, index) {
+                    //       return Center(child: Text(data[index].name));
+                    //     }
+                    // );
+                  } else if (snapshot.hasError) {
+                    return Text('${snapshot.error}');
+                  }
 
-              // By default, show a loading spinner.
-              return const CircularProgressIndicator();
-            },
-          ),
-        ),
-      )
-    ],);
+                  // By default, show a loading spinner.
+                  return const CircularProgressIndicator();
+                },
+              ),
+            ),
+          )
+        ],
+      ),
+    );
   }
 }

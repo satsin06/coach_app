@@ -1,8 +1,10 @@
+import 'package:coach_app/Screens/main_screens/diet/database.dart';
+import 'package:coach_app/custom_icons_icons.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
+import 'package:flutter/rendering.dart';
 import 'package:roundcheckbox/roundcheckbox.dart';
-
 
 class MyDietTile extends StatelessWidget {
   const MyDietTile({Key? key}) : super(key: key);
@@ -37,6 +39,28 @@ class MyDietTile extends StatelessWidget {
           foodQuantity: '3 palma (300g)',
           foodKcal: '349',
         ),
+        TextButton(
+            onPressed: () {
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (context) => DataBase()));
+            },
+            child: Row(
+              children: [
+                Icon(
+                  Icons.add,
+                  color: Colors.green,
+                  size: 40,
+                ),
+                FittedBox(
+                    fit: BoxFit.fitWidth,
+                    child: Text(' Agregar alimento',
+                        maxLines: 1,
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 24,
+                            fontWeight: FontWeight.bold)))
+              ],
+            )),
 
         /// 2nd
         MyDietType(
@@ -64,6 +88,28 @@ class MyDietTile extends StatelessWidget {
           foodQuantity: '3 palma (300g)',
           foodKcal: '349',
         ),
+        TextButton(
+            onPressed: () {
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (context) => DataBase()));
+            },
+            child: Row(
+              children: [
+                Icon(
+                  Icons.add,
+                  color: Colors.green,
+                  size: 40,
+                ),
+                FittedBox(
+                    fit: BoxFit.fitWidth,
+                    child: Text(' Agregar alimento',
+                        maxLines: 1,
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 24,
+                            fontWeight: FontWeight.bold)))
+              ],
+            )),
 
         /// 3rd
         MyDietType(
@@ -91,6 +137,28 @@ class MyDietTile extends StatelessWidget {
           foodQuantity: '3 palma (300g)',
           foodKcal: '349',
         ),
+        TextButton(
+            onPressed: () {
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (context) => DataBase()));
+            },
+            child: Row(
+              children: [
+                Icon(
+                  Icons.add,
+                  color: Colors.green,
+                  size: 40,
+                ),
+                FittedBox(
+                    fit: BoxFit.fitWidth,
+                    child: Text(' Agregar alimento',
+                        maxLines: 1,
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 24,
+                            fontWeight: FontWeight.bold)))
+              ],
+            )),
 
         /// 4th
         MyDietType(
@@ -118,10 +186,30 @@ class MyDietTile extends StatelessWidget {
           foodQuantity: '3 palma (300g)',
           foodKcal: '349',
         ),
+        TextButton(
+            onPressed: () {
+              Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (context) => DataBase()));
+            },
+            child: Row(
+              children: [
+                Icon(
+                  Icons.add,
+                  color: Colors.green,
+                  size: 40,
+                ),
+                FittedBox(
+                    fit: BoxFit.fitWidth,
+                    child: Text(' Agregar alimento',
+                        maxLines: 1,
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 24,
+                            fontWeight: FontWeight.bold)))
+              ],
+            )),
         Row(
-          children: [
-
-          ],
+          children: [],
         )
       ],
     );
@@ -186,27 +274,27 @@ class MyDietType extends StatelessWidget {
                                       cardColor: Colors.white,
                                     ),
                                     child: PopupMenuButton(
-                                      itemBuilder: (context) => [
-                                      PopupMenuItem(
-                                        child: Row(
-                                          children: [
-                                            Icon(Icons.delete),
-                                            Text("Eliminar Alimento"),
-                                          ],
-                                        ),
-                                        value: 1,
-                                      ),
-                                        PopupMenuItem(
-                                          child: Row(
-                                            children: [
-                                              Icon(Icons.remove_circle_outlined),
-                                              Text("Cerrar"),
-                                            ],
-                                          ),
-                                          value: 2,
-                                        )
-                                        ]
-                                    ),
+                                        itemBuilder: (context) => [
+                                              PopupMenuItem(
+                                                child: Row(
+                                                  children: [
+                                                    Icon(Icons.delete),
+                                                    Text("Eliminar Alimento"),
+                                                  ],
+                                                ),
+                                                value: 1,
+                                              ),
+                                              PopupMenuItem(
+                                                child: Row(
+                                                  children: [
+                                                    Icon(Icons
+                                                        .remove_circle_outlined),
+                                                    Text("Cerrar"),
+                                                  ],
+                                                ),
+                                                value: 2,
+                                              )
+                                            ]),
                                   ),
                                 ],
                               )
@@ -322,3 +410,120 @@ class MyDietFood extends StatelessWidget {
     );
   }
 }
+
+class Water extends StatefulWidget {
+  const Water({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  State<Water> createState() => _WaterState();
+}
+
+class _WaterState extends State<Water> {
+  @override
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 18.0),
+            child: SizedBox(
+              width: MediaQuery.of(context).size.width,
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Colors.grey[400],
+                ),
+                child: Center(
+                  child: Column(
+                    children: [
+                      Text(
+                        'Agua',
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 32,
+                            fontWeight: FontWeight.w800),
+                      ),
+                      Text(
+                        '1.5L/2.5L',
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 24,
+                            fontWeight: FontWeight.w800),
+                      )
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              waterIcon(),
+              waterIcon(),
+              waterIcon(),
+              waterIcon(),
+              waterIcon(),
+              waterIcon(),
+              waterIcon(),
+              waterIcon(),
+              waterIcon(),
+              waterIcon(),
+              // WaterIcon(),
+              // WaterIcon(),
+              // WaterIcon(),
+              // WaterIcon(),
+              // WaterIcon(),
+              // WaterIcon(),
+              // WaterIcon(),
+              // WaterIcon(),
+              // WaterIcon(),
+              // WaterIcon(),
+            ],
+          )
+        ],
+      ),
+    );
+  }
+
+  Widget waterIcon() {
+    Color _waterColor = Colors.black;
+    return InkWell(
+      onTap: () {
+        setState(() {
+          _waterColor = Colors.blue;
+        });
+      },
+      child: Icon(
+        CustomIcons.water,
+        size: 32,
+        color: _waterColor,
+      ),
+    );
+  }
+}
+
+// class WaterIcon extends StatefulWidget {
+//   const WaterIcon({Key? key}) : super(key: key);
+//
+//   @override
+//   _WaterIconState createState() => _WaterIconState();
+// }
+//
+// class _WaterIconState extends State<WaterIcon> {
+//   @override
+//   Widget build(BuildContext context) {
+//     Color _waterColor = Colors.black;
+//     return IconButton(
+//       onPressed: () {
+//         setState(() {
+//           _waterColor = Colors.blue;
+//         });
+//       },
+//       icon: Icon(CustomIcons.water,
+//         size: 32,
+//         color: _waterColor,)
+//     );
+//   }
+// }
