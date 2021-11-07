@@ -172,13 +172,13 @@ class _DietState extends State<Diet> {
               Carbohydrates(
                 title: "CARBOHIDRATOS",
               ),
-              DietTile(
+              Fats(
                 title: "GRASAS",
               ),
-              DietTile(
+              Dairy(
                 title: "LÁCTEOS Y BEBIDAS",
               ),
-              DietTile(
+              Fruits(
                 title: "FRUTAS",
               ),
               SizedBox(

@@ -4,26 +4,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
-import 'package:hive/hive.dart';
-import 'package:hive_flutter/hive_flutter.dart';
 
 import '../../../custom_icons_icons.dart';
 import '../bottom_bar.dart';
 
-class MyDiet extends StatefulWidget {
+class MyDiet extends StatelessWidget {
   const MyDiet({Key? key}) : super(key: key);
 
-  @override
-  State<MyDiet> createState() => _MyDietState();
-}
-
-class _MyDietState extends State<MyDiet> {
-  @override
-  void dispose() {
-    Hive.close();
-
-    super.dispose();
-  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -62,14 +49,14 @@ class _MyDietState extends State<MyDiet> {
                     fontSize: 22,
                     fontWeight: FontWeight.w800),
                 children: [
-              TextSpan(
-                text: 'ENTRENAMIENTO',
-                style: TextStyle(
-                    color: Color(0xff79dd72),
-                    fontSize: 22,
-                    fontWeight: FontWeight.w800),
-              )
-            ])),
+                  TextSpan(
+                    text: 'ENTRENAMIENTO',
+                    style: TextStyle(
+                        color: Color(0xff79dd72),
+                        fontSize: 22,
+                        fontWeight: FontWeight.w800),
+                  )
+                ])),
       ),
       backgroundColor: Colors.white,
       body: Container(
@@ -114,28 +101,28 @@ class _MyDietState extends State<MyDiet> {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.fromLTRB(44, 52, 0, 0),
-                        child: RichText(
-                          textAlign: TextAlign.center,
-                          text: TextSpan(
-                            text: '1300\n',
-                            style: TextStyle(
-                              color: Color(0xff79dd72),
-                              fontSize: 32,
-                              fontWeight: FontWeight.bold,
-                            ),
-                            children: [
-                              TextSpan(
-                                text: 'Kcal rest.',
+                          padding: const EdgeInsets.fromLTRB(44, 52, 0, 0),
+                          child: RichText(
+                            textAlign: TextAlign.center,
+                            text: TextSpan(
+                                text: '1300\n',
                                 style: TextStyle(
-                                  fontSize: 16,
                                   color: Color(0xff79dd72),
+                                  fontSize: 32,
                                   fontWeight: FontWeight.bold,
                                 ),
-                              )
-                            ]
-                          ),
-                        )
+                                children: [
+                                  TextSpan(
+                                    text: 'Kcal rest.',
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      color: Color(0xff79dd72),
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  )
+                                ]
+                            ),
+                          )
                       )
                     ]),
                     CircleAvatar(
@@ -173,6 +160,7 @@ class _MyDietState extends State<MyDiet> {
                 ],
               ),
               MyDietTile(),
+              Water(),
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 28.0),
                 child: Row(
@@ -200,7 +188,7 @@ class _MyDietState extends State<MyDiet> {
                     ),
                     ElevatedButton(
                       onPressed: () {
-                        Navigator.of(context).push(MaterialPageRoute(builder: (context) => DataBase()));
+                        // Navigator.of(context).push(MaterialPageRoute(builder: (context) => DataBase()));
                       },
                       child: Text(
                         "NOTIFICACIONES",
@@ -229,3 +217,4 @@ class _MyDietState extends State<MyDiet> {
     );
   }
 }
+
