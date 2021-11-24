@@ -32,7 +32,6 @@ dependencies:
   horizontal_picker: ^1.1.0
   roundcheckbox: ^2.0.2+1
   youtube_player_flutter: ^8.0.0
-  #calendar_strip: ^1.0.6
   calendar_timeline: ^0.7.1
   table_calendar: ^3.0.2
   syncfusion_flutter_datepicker: ^19.2.62
