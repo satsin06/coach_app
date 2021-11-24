@@ -208,7 +208,7 @@ MERGED from [com.jakewharton.threetenabp:threetenabp:1.2.3] C:\Users\satya\.grad
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.3.0] C:\Users\satya\.gradle\caches\transforms-2\files-2.1\867f8a7c549d204c6756c2106690f2fc\core-1.3.0\AndroidManifest.xml:24:18-86
 	android:label
-		ADDED from E:\Apps\coach_app\android\app\src\main\AndroidManifest.xml:10:9-34
+		ADDED from E:\Apps\coach_app\android\app\src\main\AndroidManifest.xml:10:9-36
 	android:icon
 		ADDED from E:\Apps\coach_app\android\app\src\main\AndroidManifest.xml:11:9-45
 receiver#com.dexterous.flutterlocalnotifications.ScheduledNotificationBootReceiver
